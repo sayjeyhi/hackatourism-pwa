@@ -1,8 +1,8 @@
 
 FROM node:alpine
-WORKDIR /app
-COPY app/package.json /app/package.json
-COPY app/yarn.lock /app/yarn.lock
-ENV PATH /app/node_modules/.bin:$PATH
+WORKDIR /pwa
+COPY package.json /pwa/package.json
+COPY yarn.lock /pwa/yarn.lock
+ENV PATH /pwa/node_modules/.bin:$PATH
 RUN yarn
 CMD ["yarn", "start"]
