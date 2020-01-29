@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import APP_INFO from 'constants/appInfo';
-import map from 'constants/map';
+import map from 'constants/mapSettings';
 import { mapSelectors } from 'ducks';
 
 import MapboxAddMarker from './partials/MapboxAddMarker';

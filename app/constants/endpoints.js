@@ -1,32 +1,16 @@
-import Map from './map';
-
-const baseApi = process.env.API_URL;
-
+import Map from './mapSettings';
 const api = {
-  api: `${baseApi}/mart/v1`,
+  v1: `${process.env.API_URL}/v1`,
 };
 
 const endpoints = {
   AUTH: {
-    LOGIN_MOBILE_WITH_TOKEN: () => `${api.martV1}/user/loginMobileWithToken`,
-    LOGIN_MOBILE_WITH_NO_PASS: () => `${api.martV1}/user/loginMobileWithNoPass`,
-    SEND_LOGIN_TOKEN: () => `${api.martV1}/user/sendLoginToken`,
-    REGISTER_WITH_OPTIONAL_PASS: () =>
-      `${api.martV1}/user/registerWithOptionalPass`,
-    REFRESH_TOKEN: () => `${api.martV1}/token/refresh`,
-    LOGOUT: () => `${api.martV1}/user/logout`,
+    LOGIN: () => `${api.v1}/user/login`,
+    REGISTER: () => `${api.v1}/user/register`,
+    LOGOUT: () => `${api.v1}/user/logout`,
   },
   USER: {
-    PROFILE: () => `${api.martV1}/user/profile`,
-    ADDRESSES: ({ hash }) => `${api.coreV1}/users/${hash}/addresses`,
-    ADD_ADDRESS: () => `${api.martV1}/user/address/create`,
-    EDIT_ADDRESS: () => `${api.martV1}/user/address/edit`,
-    DELETE_ADDRESS: () => `${api.martV1}/user/address/delete`,
-    LOAD: () => `${api.martV1}/user/load`,
-  },
-  LOG: {
-    WRITE_LOG: () => `${api.logBase}/write?db=snappmarketlog`,
-    GET_IP: () => 'https://ip.ikepler.ir/',
+    PROFILE: () => `${api.v1}/user/profile`,
   },
   MAP: {
     MAP_IR_REVERSE_GEO_CODER: () => `${Map.mapir.baseUrl}/reverse`,

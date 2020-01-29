@@ -30,13 +30,13 @@ const authReducer = (state = initialState, action) => {
         forceAuthModalVisibility: action.payload,
       };
     // will get user login message code
-    case authTypes.LOGIN_WITH_NO_PASS_REQUEST:
-    case authTypes.LOGIN_WITH_NO_PASS_FAILURE:
+    case authTypes.LOGIN_REQUEST:
+    case authTypes.LOGIN_FAILURE:
       return {
         ...state,
         isRegistered: false,
       };
-    case authTypes.LOGIN_WITH_NO_PASS_SUCCESS:
+    case authTypes.LOGIN_SUCCESS:
       return {
         ...state,
         isRegistered: action.payload.isRegistered,
@@ -56,13 +56,13 @@ const authReducer = (state = initialState, action) => {
       };
 
     // to submit user register with code
-    case authTypes.REGISTER_WITH_OPTIONAL_PASS_REQUEST:
-    case authTypes.REGISTER_WITH_OPTIONAL_PASS_FAILURE:
+    case authTypes.REGISTER_REQUEST:
+    case authTypes.REGISTER_FAILURE:
       return {
         ...state,
         register: {},
       };
-    case authTypes.REGISTER_WITH_OPTIONAL_PASS_SUCCESS:
+    case authTypes.REGISTER_SUCCESS:
       return {
         ...state,
         register: action.payload,

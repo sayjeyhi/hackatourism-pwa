@@ -5,7 +5,7 @@ import userReducer from '../ducks/user/reducers';
 import logReducer from '../ducks/log/reducers';
 import loadingReducer from '../ducks/loading/reducers';
 import authReducer from '../ducks/auth/reducers';
-import productReducer from '../ducks/products/reducers';
+import productReducer from '../ducks/ticket/reducers';
 
 /**
  * Out root reducers

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import MapInfo from 'constants/map';
+import MapInfo from 'constants/mapSettings';
 import mapMessages from 'constants/Messages/map.messages';
 // import Button from 'components/Global/Button';
 // import OptionGroup from 'components/Global/OptionGroup';

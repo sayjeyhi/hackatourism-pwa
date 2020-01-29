@@ -1,7 +1,7 @@
 import { universalCall } from '@snappmarket/helpers';
 
 import endpoints from 'constants/endpoints';
-import Map from 'constants/map';
+import Map from 'constants/mapSettings';
 
 export default {
   mapIrReverseGeoCoder({ lat, lng }) {

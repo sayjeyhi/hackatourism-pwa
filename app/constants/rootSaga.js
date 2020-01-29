@@ -4,7 +4,7 @@ import coreSagas from '../ducks/core/sagas';
 import userSagas from '../ducks/user/sagas';
 import logSagas from '../ducks/log/sagas';
 import mapSagas from '../ducks/map/sagas';
-import productSaga from '../ducks/products/sagas';
+import productSaga from '../ducks/ticket/sagas';
 
 export default function* rootSaga() {
   yield all([...authSaga]);

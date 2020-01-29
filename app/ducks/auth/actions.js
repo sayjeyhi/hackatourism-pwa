@@ -7,12 +7,12 @@ export default {
   setForceAuthModal: payload =>
     actionMaker(authTypes.SET_FORCE_AUTH_MODAL, payload),
 
-  loginWithNoPassRequest: payload =>
-    actionMaker(authTypes.LOGIN_WITH_NO_PASS_REQUEST, payload),
-  loginWithNoPassSuccess: payload =>
-    actionMaker(authTypes.LOGIN_WITH_NO_PASS_SUCCESS, payload),
-  loginWithNoPassFailure: payload =>
-    actionMaker(authTypes.LOGIN_WITH_NO_PASS_FAILURE, payload),
+  loginRequest: payload =>
+    actionMaker(authTypes.LOGIN_REQUEST, payload),
+  loginSuccess: payload =>
+    actionMaker(authTypes.LOGIN_SUCCESS, payload),
+  loginFailure: payload =>
+    actionMaker(authTypes.LOGIN_FAILURE, payload),
 
   loginMobileWithTokenRequest: payload =>
     actionMaker(authTypes.LOGIN_MOBILE_WITH_TOKEN_REQUEST, payload),
@@ -21,20 +21,14 @@ export default {
   loginMobileWithTokenFailure: payload =>
     actionMaker(authTypes.LOGIN_MOBILE_WITH_TOKEN_FAILURE, payload),
 
-  registerWithOptionalPassRequest: payload =>
-    actionMaker(authTypes.REGISTER_WITH_OPTIONAL_PASS_REQUEST, payload),
-  registerWithOptionalPassSuccess: payload =>
-    actionMaker(authTypes.REGISTER_WITH_OPTIONAL_PASS_SUCCESS, payload),
-  registerWithOptionalPassFailure: payload =>
-    actionMaker(authTypes.REGISTER_WITH_OPTIONAL_PASS_FAILURE, payload),
+  registerRequest: payload =>
+    actionMaker(authTypes.REGISTER_REQUEST, payload),
+  registerSuccess: payload =>
+    actionMaker(authTypes.REGISTER_SUCCESS, payload),
+  registerFailure: payload =>
+    actionMaker(authTypes.REGISTER_FAILURE, payload),
 
   logoutRequest: payload => actionMaker(authTypes.LOGOUT_REQUEST, payload),
   logoutSuccess: payload => actionMaker(authTypes.LOGOUT_SUCCESS, payload),
   logoutFailure: payload => actionMaker(authTypes.LOGOUT_FAILURE, payload),
-
-  refreshTokenRequest: () => actionMaker(authTypes.REFRESH_TOKEN_REQUEST),
-  refreshTokenSuccess: payload =>
-    actionMaker(authTypes.REFRESH_TOKEN_SUCCESS, payload),
-  refreshTokenFailure: payload =>
-    actionMaker(authTypes.REFRESH_TOKEN_FAILURE, payload),
 };

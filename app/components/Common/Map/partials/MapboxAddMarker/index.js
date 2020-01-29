@@ -6,7 +6,7 @@ import ReactMapGL, {
 } from 'constants/ServerWrappers/reactMapboxWrapper';
 import 'resources/styles/mapbox.css';
 
-import Map from 'constants/map';
+import Map from 'constants/mapSettings';
 
 import MapMarkerIcon from 'resources/svg/Icons/MapMarkerIcon';
 import { context as mapContext } from '../../context/mapContext';

@@ -19,16 +19,6 @@ export { default as coreTypes } from './core/types';
 export { default as coreUtils } from './core/utils';
 
 /**
- * Log importers
- */
-export { default as logActions } from './log/actions';
-export { default as logReducers } from './log/reducers';
-export { default as logSelectors } from './log/selectors';
-export { default as logServices } from './log/services';
-export { default as logTypes } from './log/types';
-export { default as logUtils } from './log/utils';
-
-/**
  * Map importers
  */
 export { default as mapActions } from './map/actions';
@@ -66,8 +56,20 @@ export { default as loadingReducers } from './loading/reducers';
 export { default as createLoadingSelector } from './loading/selectors';
 export { default as loadingTypes } from './loading/types';
 
-export { default as productActions } from './products/actions';
-export { default as productReducers } from './products/reducers';
-export { default as productSelectors } from './products/selectors';
-export { default as productServices } from './products/services';
-export { default as productTypes } from './products/types';
+/**
+ * Tickets importer
+ */
+export { default as ticketActions } from './ticket/actions';
+export { default as ticketReducers } from './ticket/reducers';
+export { default as ticketSelectors } from './ticket/selectors';
+export { default as ticketServices } from './ticket/services';
+export { default as ticketTypes } from './ticket/types';
+
+/**
+ * Tickets importer
+ */
+export { default as weatherActions } from './weather/actions';
+export { default as weatherReducers } from './weather/reducers';
+export { default as weatherSelectors } from './weather/selectors';
+export { default as weatherServices } from './weather/services';
+export { default as weatherTypes } from './weather/types';

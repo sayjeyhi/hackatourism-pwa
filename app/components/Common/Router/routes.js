@@ -24,7 +24,11 @@ const routes = {
   smartTicket: '/smart-ticket',
   ai: '/intelligent-analysis',
   tripAdvice: '/trip-adviser',
-  weather: '/weather',
+  weather: {
+    index: '/weather',
+    now: '/weather/now/:cityName',
+    forecast: '/weather/forecast/:cityname',
+  },
 };
 
 export default routes;

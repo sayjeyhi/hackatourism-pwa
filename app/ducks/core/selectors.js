@@ -7,5 +7,4 @@ const getCore = state => state.core;
 
 export default {
   getLoading: createSelector(getCore, core => core.loading),
-  getQueuedActions: createSelector(getCore, core => core.queuedActions),
 };

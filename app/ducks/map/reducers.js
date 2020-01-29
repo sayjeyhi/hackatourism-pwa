@@ -1,4 +1,4 @@
-import MAP_INFO from 'constants/map';
+import MAP_INFO from 'constants/mapSettings';
 import mapTypes from './types';
 
 const initialState = {
