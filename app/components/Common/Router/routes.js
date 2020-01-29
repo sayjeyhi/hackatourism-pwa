@@ -1,49 +1,15 @@
 const routes = {
   root: '/',
   home: '/',
-  categories: {
-    path: '/categories',
-    index: '/categories/:criterion',
-  },
-  campaigns: {
-    path: '/campaigns',
-    index: '/campaigns/:criterion',
-  },
-  brands: {
-    path: '/brands',
-    index: '/brands/:criterion',
-  },
-  tags: {
-    path: '/tags',
-    index: '/tags/:criterion',
-  },
-  search: {
-    path: '/search',
-    index: '/search/:term',
-  },
-  product: {
-    path: '/products',
-    index: '/products/:criterion',
-  },
-  checkout: {
-    path: '/checkout',
-    failure: '/checkout/failure/:orderHash',
-    success: '/checkout/success/:orderHash',
-  },
   basket: '/basket',
-  products: {
-    path: '/products',
-    index: '/products/:criterion',
-  },
-  order: {
-    feedback: '/order/feedback/:orderHash',
-    followup: '/order/followup/:orderHash',
-    receipt: '/order/receipt/:orderHash',
-  },
   user: {
     profile: '/user/profile',
     orders: '/user/orders',
     credit: '/user/credit',
+  },
+  search: {
+    path: '/search',
+    index: '/search/:term',
   },
   info: {
     about: '/about',
@@ -53,9 +19,12 @@ const routes = {
     },
     rules: '/rules',
   },
-  aroundHere: '/aroundHere',
-  smartTip: '/smartTip',
-  smartTicket: '/smartTicket',
+  aroundHere: '/around-here',
+  smartTip: '/smart-tip',
+  smartTicket: '/smart-ticket',
+  ai: '/intelligent-analysis',
+  tripAdvice: '/trip-adviser',
+  weather: '/weather',
 };
 
 export default routes;

@@ -76,6 +76,7 @@
     "csso": "^4.0.2",
     "express": "^4.17.1",
     "fs-extra": "^8.1.0",
+    "gifsicle": "^5.0.0",
     "helmet": "^3.21.2",
     "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",

@@ -12,4 +12,5 @@ export const StyledHomeItemsColumn = Styled(Col)`
   padding: 60px 0;
   margin: 10px;
   max-width: calc(33.333333333333336% - 20px);
+  min-width: calc(33.333333333333336% - 20px);
 `;

@@ -8,8 +8,9 @@ import Rules from 'components/Pages/Rules/loadable';
 import Profile from 'components/Pages/Profile/loadable';
 import Credit from 'components/Pages/Credit/loadable';
 import Search from 'components/Pages/Search/loadable';
-import AroundHere from 'components/Pages/aroundHere/loadable';
-import SmartTip from 'components/Pages/smartTip/loadable';
+import AroundHere from 'components/Pages/AroundHere/loadable';
+import SmartTip from 'components/Pages/SmartTrip/loadable';
+import TripAdviser from 'components/Pages/TripAdviser/loadable';
 import routes from './routes';
 
 const routers = [
@@ -63,6 +64,11 @@ const routers = [
         path: routes.smartTip,
         exact: true,
         Component: <SmartTip />,
+      },
+      {
+        path: routes.tripAdvice,
+        exact: true,
+        Component: <TripAdviser />,
       },
     ],
   },

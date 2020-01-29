@@ -3,6 +3,7 @@ import { Container, Row } from '@snappmarket/ui';
 import { NavLink } from 'react-router-dom';
 
 import SeoHead from 'components/Common/Seo/SeoHead';
+import routes from 'components/Common/Router/routes';
 import { StyledHomeItemsColumn } from './styles';
 
 const Home = () => (
@@ -10,36 +11,47 @@ const Home = () => (
     <SeoHead title="خانه" />
     <Container>
       <Row>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>براساس ایده</NavLink>
+        <StyledHomeItemsColumn as={NavLink} to={routes.home} md={4}>
+          براساس ایده
         </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>سفرهوشمند</NavLink>
+
+        <StyledHomeItemsColumn as={NavLink} to={routes.smartTip} md={4}>
+          سفرهوشمند
         </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>همین حوالی</NavLink>
-        </StyledHomeItemsColumn>
-      </Row>
-      <Row>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>بلیط هوشمند</NavLink>
-        </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>هتل ارزان</NavLink>
-        </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>تحلیل هوشمند</NavLink>
+
+        <StyledHomeItemsColumn as={NavLink} to={routes.aroundHere} md={4}>
+          همین حوالی
         </StyledHomeItemsColumn>
       </Row>
       <Row>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>مشاوره سفر</NavLink>
+        <StyledHomeItemsColumn as={NavLink} to={routes.smartTicket} md={4}>
+          بلیط هوشمند
         </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>بلاگ</NavLink>
+
+        <StyledHomeItemsColumn as={NavLink} to={routes.home} md={4}>
+          هتل ارزان
         </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink>انجمن</NavLink>
+
+        <StyledHomeItemsColumn as={NavLink} to={routes.ai} md={4}>
+          تحلیل هوشمند
+        </StyledHomeItemsColumn>
+      </Row>
+      <Row>
+        <StyledHomeItemsColumn as={NavLink} to={routes.tripAdvice} md={4}>
+          مشاوره سفر
+        </StyledHomeItemsColumn>
+
+        <StyledHomeItemsColumn as={NavLink} to={routes.tripAdvice} md={4}>
+          آب و هوا
+        </StyledHomeItemsColumn>
+
+        <StyledHomeItemsColumn
+          href="https://talks.koleposhti.app"
+          target="_blank"
+          as="a"
+          md={4}
+        >
+          گپ و گفت
         </StyledHomeItemsColumn>
       </Row>
     </Container>
