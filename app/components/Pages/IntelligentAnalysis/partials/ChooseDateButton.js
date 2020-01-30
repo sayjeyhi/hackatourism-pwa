@@ -2,6 +2,8 @@ import { useState } from React from 'react';
 import jalaali from 'jalaali-js';
 
 import DatePicker from 'react-modern-calendar-datepicker';
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+
 import { persianNumber } from '@snappmarket/helpers';
 
 const ChooseDateButton = ({
@@ -85,9 +87,11 @@ const ChooseDateButton = ({
           value={persianNumber(showedString)}
           style={{
             textAlign: 'center',
+            background: '#f7f7f7',
             padding: '0.7rem 1.5rem',
             fontSize: '1.5rem',
-            border: '1px solid #9c88ff',
+            border: '1px solid rgba(0, 0, 0, 0.23)',
+            minWidth: 200,
             borderRadius: '5px',
             outline: 'none',
           }}

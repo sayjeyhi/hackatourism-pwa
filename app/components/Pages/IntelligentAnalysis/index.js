@@ -4,6 +4,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
 import {
+  AppointmentForm,
   Scheduler,
   Toolbar,
   DateNavigator,
@@ -12,27 +13,20 @@ import {
   ViewSwitcher,
   Appointments,
   AppointmentTooltip,
-  AppointmentForm,
   DragDropProvider,
   EditRecurrenceMenu,
   TodayButton,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
+import { Input, Textarea } from '@snappmarket/ui';
 import { connectProps } from '@devexpress/dx-react-core';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
 import Close from '@material-ui/icons/Close';
 
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-import DatePicker from 'react-modern-calendar-datepicker';
-
-import { NavLink } from 'react-router-dom';
-import routes from 'components/Common/Router/routes';
 import ChooseDateButton from './partials/ChooseDateButton';
 import DeleteConfirm from './partials/DeleteConfirm';
-import { appointments } from './data';
 
 const containerStyles = theme => ({
   container: {
@@ -67,9 +61,6 @@ const containerStyles = theme => ({
   icon: {
     margin: theme.spacing(2, 0),
     marginRight: theme.spacing(2),
-  },
-  textField: {
-    width: '100%',
   },
 });
 
@@ -156,8 +147,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
           changes: change.value,
         }),
       value: displayAppointmentData[field] || '',
-      label: field[0].toUpperCase() + field.slice(1),
-      className: classes.textField,
+      label: `عنوان ${field[0].toUpperCase()}${field.slice(1)}`,
     });
 
     const cancelChanges = () => {
@@ -176,32 +166,20 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       >
         <div>
           <div className={classes.header}>
+            <h3 className="large-text">درج رویداد</h3>
             <IconButton className={classes.closeButton} onClick={cancelChanges}>
               <Close color="action" />
             </IconButton>
           </div>
           <div className={classes.content}>
             <div className={classes.wrapper}>
-              <TextField {...textEditorProps('title')} />
+              <Input {...textEditorProps('title')} />
             </div>
             <div className={classes.wrapper}>
-              <DatePicker
-                value={this.state.selectedDay}
-                locale="fa"
-                onChange={value => this.setState({ selectedDay: value })}
-                inputPlaceholder="Select a day"
-                style={{
-                  display: 'block',
-                  borderRadius: 5,
-                }}
-                shouldHighlightWeekends
-              />
+              <Input type="text" {...textEditorProps('location')} />
             </div>
             <div className={classes.wrapper}>
-              <TextField {...textEditorProps('location')} />
-            </div>
-            <div className={classes.wrapper}>
-              <TextField {...textEditorProps('notes')} multiline rows="6" />
+              <Textarea {...textEditorProps('notes')} rows="6" />
             </div>
           </div>
           <div className={classes.buttonGroup}>
@@ -259,7 +237,7 @@ class Demo extends React.PureComponent {
 
     today = `${yyyy}-${mm}-${dd}`;
     this.state = {
-      data: appointments,
+      data: [{}],
       currentDate: today,
       currentViewName: 'weekly',
       confirmationVisible: false,
@@ -283,7 +261,6 @@ class Demo extends React.PureComponent {
       this.setState({ currentViewName });
     };
     this.currentDateChange = currentDate => {
-      console.log({ currentDate });
       this.setState({ currentDate });
     };
 
@@ -410,16 +387,22 @@ class Demo extends React.PureComponent {
 
     const viewName =
       currentViewName === 'weekly'
-        ? 'هفتگی'
+        ? 'شیش هفت'
         : currentViewName === 'monthly'
-        ? 'ماهانه'
+        ? 'یه ماهه'
         : 'ده‌روزه';
     return (
-      <Paper className="top-fixed" style={{ direction: 'ltr' }}>
+      <Paper
+        boxShadow={5}
+        className="top-fixed"
+        style={{ direction: 'ltr', background: '#f7f7f7' }}
+      >
         <Scheduler data={data} height={500} locale="fa-IR">
           <div>
             <h2 className="mr-1 pt-1 dir-rtl text-large text-center">
-              برنامه {viewName} سفرت رو بچین!
+              <span style={{ color: '#e53844' }}>کوله‌پشتی</span>‌تو برا یه سفر{' '}
+              <span style={{ color: '#e040fb' }}>{viewName}</span> روزه آماده
+              کن!
             </h2>
           </div>
           <ViewState

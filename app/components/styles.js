@@ -27,19 +27,23 @@ const additional = css`
       text-decoration: none;
     }
   }
+
   .top-fixed {
     position: fixed;
     top: 70px;
-    z-index: 999998;
+    z-index: 98;
     width: 100%;
   }
   .MuiPopover-root {
-    z-index: 999999 !important;
+    z-index: 99 !important;
+  }
+  .MuiToolbar-root > .MuiInputBase-root svg {
+    display: none !important;
   }
   .MuiPaper-root * {
     font-family: ${props => props.theme.defaultFont} !important;
     .DatePicker {
-      font-size: 14px !important;
+      font-size: 12px !important;
     }
     table {
       direction: rtl;
