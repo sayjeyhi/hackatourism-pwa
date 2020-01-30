@@ -11,6 +11,7 @@ import Search from 'components/Pages/Search/loadable';
 import AroundHere from 'components/Pages/AroundHere/loadable';
 import SmartTip from 'components/Pages/SmartTrip/loadable';
 import TripAdviser from 'components/Pages/TripAdviser/loadable';
+import IntelligentAnalysis from 'components/Pages/IntelligentAnalysis/loadable';
 import routes from './routes';
 
 const routers = [
@@ -69,6 +70,12 @@ const routers = [
         path: routes.tripAdvice,
         exact: true,
         Component: <TripAdviser />,
+      },
+      {
+        path: routes.ai,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <IntelligentAnalysis />,
       },
     ],
   },

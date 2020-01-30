@@ -4,17 +4,15 @@ import createSagaMiddleware from 'redux-saga';
 import { createStateSyncMiddleware } from 'redux-state-sync';
 
 import { configPersistor } from '@snappmarket/helpers';
-import rootSaga from 'constants/rootSaga';
-import rootReducer from 'constants/rootReducer';
 import reduxStateSyncWhiteList from 'constants/reduxStateSyncWhiteList';
 import { coreTypes } from 'ducks';
 import configReducers from './configReducers';
 import configHistory from './configHistory';
+import configSagas from './configSagas';
 import jwtGate from './Middlewares/jwtGate';
 
 export default (url = '/') => {
   const history = configHistory(false, url);
-  const injectedReducer = configReducers(rootReducer, history);
   const persistor = configPersistor({
     prefix: 'persist:_',
     whitelist: ['vendor', 'core', 'basket', 'user'],
@@ -48,7 +46,7 @@ export default (url = '/') => {
     process.env.NODE_ENV === 'development' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-          name: 'SnappMarket',
+          name: 'Koleposhti',
           actionsBlacklist: ['REDUX_STORAGE_SAVE'],
         })
       : compose;
@@ -62,19 +60,18 @@ export default (url = '/') => {
   /* eslint-enable no-underscore-dangle */
 
   const store = createStore(
-    injectedReducer,
+    configReducers,
     initialState,
     composeEnhancers(applyMiddleware(...middlewares), ...enhancers),
   );
 
-  // const store = createStore(injectedReducer, composeEnhancers(...enhancers));
   if (module.hot) {
     module.hot.accept('./configReducers', () => {
-      store.replaceReducer(injectedReducer);
+      store.replaceReducer(configReducers);
     });
   }
 
-  sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(configSagas);
 
   return { store, history };
 };

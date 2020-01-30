@@ -5,4 +5,4 @@ export function* clearCore() {
   console.log('clearCore saga ');
 }
 
-export default [takeLatest(coreTypes.CLEAR_CORE, initialize)];
+export default [takeLatest(coreTypes.CLEAR_CORE, clearCore)];

@@ -27,6 +27,12 @@ const additional = css`
       text-decoration: none;
     }
   }
+  .MuiPaper-root * {
+    font-family: ${props => props.theme.defaultFont} !important;
+    .DatePicker {
+      font-size: 14px !important;
+    }
+  }
 
   .section {
     border-radius: calc(${props => props.theme.defaultRem} * 0.5);

@@ -6,18 +6,19 @@ import { ApiError } from '@snappmarket/helpers';
 const whiteList = [...authorizedActions];
 
 const jwtGate = store => next => action => {
-  try {
-    if (store.getState().user.isLoggedIn) {
-      if (whiteList.includes(action.type) && isTokenExpired()) {
-        store.dispatch(coreActions.queueAction(action));
-      } else {
-        next(action);
-      }
-    } else {
-      next(action);
-    }
-  } catch (e) {
-    throw new ApiError('JWT_TOKEN_ERROR');
-  }
+  // next();
+  // try {
+  //   if (store.getState().user.isLoggedIn) {
+  //     if (whiteList.includes(action.type) && isTokenExpired()) {
+  //       store.dispatch(coreActions.queueAction(action));
+  //     } else {
+  //       next(action);
+  //     }
+  //   } else {
+  //     next(action);
+  //   }
+  // } catch (e) {
+  //   throw new ApiError('JWT_TOKEN_ERROR');
+  // }
 };
 export default jwtGate;

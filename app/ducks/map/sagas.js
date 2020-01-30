@@ -7,7 +7,6 @@ import {
 import apiMessages from 'constants/Messages/api.messages';
 import APP_INFO from 'constants/appInfo';
 
-import { writeLog } from '../log/sagas';
 import { mapTypes, mapActions, mapServices, mapUtils, userSelectors } from '..';
 
 export function* reverseGeoCoder(action) {
@@ -40,14 +39,6 @@ export function* reverseGeoCoder(action) {
 }
 
 export function* searchLocation(action) {
-  yield* writeLog({
-    payload: {
-      medium: 'search location',
-      action: 'submit',
-      detail: `getting search result of location`,
-    },
-  });
-
   try {
     const mapType = yield select(userSelectors.getMapType);
 
@@ -110,13 +101,6 @@ export function* mapIrSearchLocation(action) {
     const locations = mapUtils.normalizeMapIrSearchResult(value);
 
     yield put(mapActions.searchLocationSuccess(locations));
-    yield* writeLog({
-      payload: {
-        medium: 'search location',
-        action: 'XHR',
-        detail: `get search result of location successfully`,
-      },
-    });
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
@@ -142,14 +126,6 @@ export function* smappReverseGeoCoder(action) {
     } = response;
 
     yield put(mapActions.reverseGeoCoderSuccess(address));
-
-    yield* writeLog({
-      payload: {
-        medium: 'search location',
-        action: 'XHR',
-        detail: `get search result of location successfully`,
-      },
-    });
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
@@ -173,14 +149,6 @@ export function* smappSearchLocation(action) {
     const { predictions } = response;
     const locations = mapUtils.normalizeSmappSearchResult(predictions);
     yield put(mapActions.searchLocationSuccess(locations));
-
-    yield* writeLog({
-      payload: {
-        medium: 'search location',
-        action: 'XHR',
-        detail: `get search result of location successfully`,
-      },
-    });
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
@@ -229,14 +197,6 @@ export function* cedarSearchLocation(action) {
     const locations = mapUtils.normalizeCedarMapSearchResult(results);
 
     yield put(mapActions.searchLocationSuccess(locations));
-
-    yield* writeLog({
-      payload: {
-        medium: 'search location',
-        action: 'XHR',
-        detail: `get search result of location successfully`,
-      },
-    });
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
