@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import jalaali from 'jalaali-js';
-import { useState } from 'react';
 import DatePicker from 'react-modern-calendar-datepicker';
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 
 import { persianNumber } from '@snappmarket/helpers';
 

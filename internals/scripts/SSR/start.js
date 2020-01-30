@@ -101,7 +101,7 @@ compilerServer.run((err, stats) => {
 
   server.use((req, res) => {
     // eslint-disable-next-line global-require
-    const { app } = require(`${BUILD_DIR}\\server`);
+    const { app } = require(`${BUILD_DIR}/server`);
     app(req, res);
   });
 

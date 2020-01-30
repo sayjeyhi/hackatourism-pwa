@@ -4,7 +4,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Close from '@material-ui/icons/Close';
 import DatePicker from 'react-modern-calendar-datepicker';
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { withStyles } from '@material-ui/core';
 
 const containerStyles = theme => ({

@@ -233,7 +233,7 @@ module.exports = (mode = process.env.NODE_ENV) => {
         filename: 'css/[name].[contenthash:8].css',
       }),
       new CopyPlugin([
-        { from: './robots.txt', to: `${BUILD_DIR}/robots.txt` },
+        { from: './public', to: `${BUILD_DIR}` },
         {
           from: './server/SSR/runner/runner.js',
           to: `${BUILD_DIR}/server/runner.js`,
