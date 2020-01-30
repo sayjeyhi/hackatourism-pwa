@@ -27,13 +27,18 @@ export const StyledHeaderContainer = Styled(Container)`
 
 export const StyledHeadSpace = Styled.div`
   width: 100%;
-  height: calc(${props => props.theme.defaultRem} * 12);
+  height: calc(${props => props.theme.defaultRem} * 8);
 `;
 
 export const StyledHeaderRightSide = Styled.div`
   flex-direction: row;
   margin-left:auto;
+  font-weight: 900;
   position: relative;
+  a {
+    color: #e53844;
+    font-size: 22px;
+  }
   svg {
     height: calc(${props => props.theme.defaultRem} * 3.5);
     width: calc(${props => props.theme.defaultRem} * 6.5);

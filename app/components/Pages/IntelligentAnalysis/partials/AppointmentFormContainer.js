@@ -1,6 +1,6 @@
+import React from 'react';
 import { AppointmentForm } from '@devexpress/dx-react-scheduler-material-ui';
 import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Close from '@material-ui/icons/Close';
 import DatePicker from 'react-modern-calendar-datepicker';
@@ -130,7 +130,6 @@ class AppointmentFormContainer extends React.PureComponent {
         }),
       value: displayAppointmentData[field] || '',
       label: field[0].toUpperCase() + field.slice(1),
-      className: classes.textField,
     });
 
     const cancelChanges = () => {
@@ -155,7 +154,7 @@ class AppointmentFormContainer extends React.PureComponent {
           </div>
           <div className={classes.content}>
             <div className={classes.wrapper}>
-              <TextField {...textEditorProps('title')} />
+              <input type="text" {...textEditorProps('title')} />
             </div>
             <div className={classes.wrapper}>
               <DatePicker
@@ -171,10 +170,10 @@ class AppointmentFormContainer extends React.PureComponent {
               />
             </div>
             <div className={classes.wrapper}>
-              <TextField {...textEditorProps('location')} />
+              <input type="text" {...textEditorProps('location')} />
             </div>
             <div className={classes.wrapper}>
-              <TextField {...textEditorProps('notes')} multiline rows="6" />
+              <textarea {...textEditorProps('notes')} rows="6" />
             </div>
           </div>
           <div className={classes.buttonGroup}>

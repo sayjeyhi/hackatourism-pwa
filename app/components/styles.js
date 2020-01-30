@@ -27,11 +27,57 @@ const additional = css`
       text-decoration: none;
     }
   }
+  .top-fixed {
+    position: fixed;
+    top: 70px;
+    z-index: 999998;
+    width: 100%;
+  }
+  .MuiPopover-root {
+    z-index: 999999 !important;
+  }
   .MuiPaper-root * {
     font-family: ${props => props.theme.defaultFont} !important;
     .DatePicker {
       font-size: 14px !important;
     }
+    table {
+      direction: rtl;
+      tr > td:first-child,
+      tr > td {
+        border-left: 1px solid rgba(224, 224, 224, 1);
+      }
+    }
+    table *,
+    .MuiButton-label {
+      font-size: 15px !important;
+    }
+    .MuiGrid-root.MuiGrid-container {
+      direction: rtl;
+      > div:nth-child(1) {
+        float: right;
+      }
+      > div:nth-child(2) {
+        float: left;
+      }
+    }
+    .MuiGrid-root.MuiGrid-direction-xs-column
+      > div
+      > div.MuiGrid-root:nth-child(2) {
+      > div {
+        float: right;
+        * {
+          font-size: 14px !important;
+        }
+        > div > div > div {
+          text-align: left;
+        }
+      }
+    }
+  }
+  .MuiPaper-root.MuiPopover-paper * {
+    font-size: 15px !important;
+    direction: rtl;
   }
 
   .section {

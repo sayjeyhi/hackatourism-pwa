@@ -6,24 +6,20 @@ export const StyledSearchBox = Styled.div`
   width:30%;
   input {
     width: 100%;
-    height: 100%;
-    border-radius: ${props =>
-      props.opened
-        ? `calc(${props.theme.defaultRem} * 1.2) calc(${props.theme.defaultRem} * 1.2) 0 0 `
-        : `calc(${props.theme.defaultRem} * 1.2);`};
+    border-radius: calc(1rem * .5);
     border: none;
-    box-shadow: 0 calc(${props => props.theme.defaultRem} * 0.1) calc(${props =>
-  props.theme.defaultRem} * 0.6) 0 rgba(0, 0, 0, 0.16);
-    padding-right: calc(${props => props.theme.defaultRem} * 0.8);
-    max-height: calc(${props => props.theme.defaultRem} * 3.5);
-    font-size: calc(${props => props.theme.defaultRem} * 1.3);
+    padding-right: calc(1rem * 0.8);
+    max-height: calc(1rem * 5.5);
+    font-size: calc(1rem * 1.3);
+    background: #efefef;
+    padding: 10px;
   }
   & > label svg {
     position: absolute;
-    left: calc(${props => props.theme.defaultRem} * 0.7);
-    top: calc(${props => props.theme.defaultRem} * 0.7);
-    width: calc(${props => props.theme.defaultRem} * 2);
-    height: calc(${props => props.theme.defaultRem} * 2);
+    left: calc(1rem * 1);
+    top: calc(1rem * 1);
+    width: calc(1rem * 2);
+    height: calc(1rem * 2);
     cursor: pointer;
     * {
       fill: ${props => props.theme.colors.gray.light} !important;

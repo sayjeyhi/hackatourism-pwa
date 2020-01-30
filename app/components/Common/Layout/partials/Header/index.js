@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { Icon } from '@snappmarket/ui';
 import routes from 'components/Common/Router/routes';
 
-import LogoSvg from 'resources/svg/Logo';
+import KoleposhtiLogo from 'resources/svg/KoleposhtiLogo';
 import UserIcon from 'resources/svg/Icons/UserIcon';
 import generalMessages from 'constants/Messages/general.messages';
 
@@ -14,7 +14,6 @@ import APP_INFO from 'constants/appInfo';
 import { authActions, userSelectors } from 'ducks';
 
 import { HeaderProvider } from './context/headerContext';
-import MegaMenu from './partials/MegaMenu';
 import SearchBar from './partials/SearchBar';
 import UserPanel from './partials/UserPanel';
 
@@ -71,7 +70,7 @@ const Header = props => {
               title={APP_INFO.NAME}
               to={routes.home}
             >
-              <LogoSvg />
+              <KoleposhtiLogo />
               کوله‌پشتی
             </NavLink>
           </StyledHeaderRightSide>
@@ -107,7 +106,6 @@ const Header = props => {
           </StyledHeaderLeftSide>
         </StyledHeaderContainer>
       </StyledHeader>
-      <MegaMenu top={7} />
     </HeaderProvider>
   );
 };

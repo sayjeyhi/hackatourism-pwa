@@ -7,7 +7,6 @@ import {
   Scheduler,
   Toolbar,
   DateNavigator,
-  DayView,
   MonthView,
   WeekView,
   ViewSwitcher,
@@ -18,13 +17,9 @@ import {
   EditRecurrenceMenu,
   TodayButton,
 } from '@devexpress/dx-react-scheduler-material-ui';
+
 import { connectProps } from '@devexpress/dx-react-core';
 import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
@@ -33,7 +28,10 @@ import Close from '@material-ui/icons/Close';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import DatePicker from 'react-modern-calendar-datepicker';
 
-import { getDateFromString } from 'components/Pages/IntelligentAnalysis/helpers/number';
+import { NavLink } from 'react-router-dom';
+import routes from 'components/Common/Router/routes';
+import ChooseDateButton from './partials/ChooseDateButton';
+import DeleteConfirm from './partials/DeleteConfirm';
 import { appointments } from './data';
 
 const containerStyles = theme => ({
@@ -250,42 +248,6 @@ const styles = theme => ({
   },
 });
 
-const ChooseDateButton = props => {
-  const correctText = getDateFromString(props.text);
-
-  console.log(correctText.structure);
-  return (
-    <DatePicker
-      locale="fa"
-      value={correctText.structure}
-      onChange={value => console.log(value)}
-      style={{
-        display: 'block',
-        borderRadius: 5,
-      }}
-      renderInput={({ ref }) => (
-        <input
-          readOnly
-          ref={ref} // necessary
-          placeholder="انتخاب تاریخ"
-          type="button"
-          value={correctText.string}
-          style={{
-            textAlign: 'center',
-            padding: '0.7rem 1.5rem',
-            fontSize: '1.5rem',
-            border: '1px solid #9c88ff',
-            borderRadius: '5px',
-            outline: 'none',
-          }}
-          className="my-custom-input-class dir-rtl" // a styling class
-        />
-      )}
-      shouldHighlightWeekends
-    />
-  );
-};
-
 /* eslint-disable-next-line react/no-multi-comp */
 class Demo extends React.PureComponent {
   constructor(props) {
@@ -299,14 +261,14 @@ class Demo extends React.PureComponent {
     this.state = {
       data: appointments,
       currentDate: today,
-      currentViewName: 'هفتگی',
+      currentViewName: 'weekly',
       confirmationVisible: false,
       editingFormVisible: false,
       deletedAppointmentId: undefined,
       editingAppointment: undefined,
       previousAppointment: undefined,
       addedAppointment: {},
-      startDayHour: 0,
+      startDayHour: 6,
       endDayHour: 24,
       isNewAppointment: false,
     };
@@ -321,6 +283,7 @@ class Demo extends React.PureComponent {
       this.setState({ currentViewName });
     };
     this.currentDateChange = currentDate => {
+      console.log({ currentDate });
       this.setState({ currentDate });
     };
 
@@ -445,10 +408,20 @@ class Demo extends React.PureComponent {
       endDayHour,
     } = this.state;
 
+    const viewName =
+      currentViewName === 'weekly'
+        ? 'هفتگی'
+        : currentViewName === 'monthly'
+        ? 'ماهانه'
+        : 'ده‌روزه';
     return (
-      <Paper style={{ direction: 'ltr' }}>
-        <h2 className="mr-1 pt-1 dir-rtl text-large">برنامه سفرت رو بچین!</h2>
+      <Paper className="top-fixed" style={{ direction: 'ltr' }}>
         <Scheduler data={data} height={500} locale="fa-IR">
+          <div>
+            <h2 className="mr-1 pt-1 dir-rtl text-large text-center">
+              برنامه {viewName} سفرت رو بچین!
+            </h2>
+          </div>
           <ViewState
             currentDate={currentDate}
             currentViewName={currentViewName}
@@ -461,31 +434,45 @@ class Demo extends React.PureComponent {
             onAddedAppointmentChange={this.onAddedAppointmentChange}
           />
 
+          {/* Views */}
           <WeekView
             start
-            name="هفتگی"
+            displayName="برنامه‌ریزی هفتگی"
+            name="weekly"
+            intervalCount={1}
             startDayHour={startDayHour}
             endDayHour={endDayHour}
           />
-          <DayView
-            name="روزانه"
+          <WeekView
+            start
+            displayName="برنامه‌ریزی ده‌روزه"
+            name="two-weekly"
+            intervalCount={1.4}
             startDayHour={startDayHour}
             endDayHour={endDayHour}
           />
-          <MonthView name="ماهانه" />
+          <MonthView displayName="برنامه‌ریزی ماهانه" name="monthly" />
 
           <EditRecurrenceMenu />
           <Appointments />
           <AppointmentTooltip showOpenButton showCloseButton showDeleteButton />
-          <Toolbar />
 
+          {/* Toolbar */}
+          <Toolbar />
           <TodayButton
             messages={{
-              today: 'امروز',
+              today: ' از امروز',
             }}
           />
           <ViewSwitcher />
-          <DateNavigator openButtonComponent={ChooseDateButton} />
+          <DateNavigator
+            openButtonComponent={ChooseDateButton({
+              currentDate: this.state.currentDate,
+              currentView: this.state.currentViewName,
+              dateChange: this.currentDateChange,
+              viewChange: this.currentViewNameChange,
+            })}
+          />
           <AppointmentForm
             overlayComponent={this.appointmentForm}
             visible={editingFormVisible}
@@ -494,28 +481,12 @@ class Demo extends React.PureComponent {
           <DragDropProvider />
         </Scheduler>
 
-        <Dialog open={confirmationVisible} onClose={this.cancelDelete}>
-          <DialogTitle>Delete Appointment</DialogTitle>
-          <DialogContent>
-            <DialogContentText>میخوای این برنامه رو حذف کنی؟</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button
-              onClick={this.toggleConfirmationVisible}
-              color="primary"
-              variant="outlined"
-            >
-              لغو
-            </Button>
-            <Button
-              onClick={this.commitDeletedAppointment}
-              color="secondary"
-              variant="outlined"
-            >
-              حذف
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <DeleteConfirm
+          commitDeletedAppointment={this.commitDeletedAppointment}
+          toggleConfirmationVisible={this.toggleConfirmationVisible}
+          confirmationVisible={confirmationVisible}
+          cancelDelete={this.cancelDelete}
+        />
       </Paper>
     );
   }
