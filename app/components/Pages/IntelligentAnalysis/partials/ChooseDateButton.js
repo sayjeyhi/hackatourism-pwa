@@ -1,23 +1,18 @@
-import { useState } from React from 'react';
+import React from 'react';
 import jalaali from 'jalaali-js';
-
+import { useState } from 'react';
 import DatePicker from 'react-modern-calendar-datepicker';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 
 import { persianNumber } from '@snappmarket/helpers';
 
-const ChooseDateButton = ({
-  dateChange,
-  viewChange,
-  currentDate,
-  currentView,
-}) => () => {
+const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) => () => {
   const dateFromInstance = new Date(currentDate);
   const dateToInstance = new Date(currentDate);
   let daysBetween = 8;
-  if (currentView === 'two-weekly') {
+  if(currentView === 'two-weekly') {
     daysBetween = 10;
-  } else if (currentView === 'monthly') {
+  } else if(currentView === 'monthly') {
     daysBetween = 29;
   }
   dateToInstance.setDate(dateToInstance.getDate() + daysBetween);
@@ -34,12 +29,12 @@ const ChooseDateButton = ({
       year: toDateJalaali.jy,
       month: toDateJalaali.jm,
       day: toDateJalaali.jd,
-    },
+    }
   });
 
   // generate showed text
   let showedString = `از ${value.from.year}/${value.from.month}/${value.from.day} `;
-  if (value.to) {
+  if(value.to){
     showedString += `تا ${value.from.year}/${value.to.month}/${value.to.day}`;
   }
 
@@ -53,6 +48,7 @@ const ChooseDateButton = ({
       `${gregorianFirstDay.gy}-${gregorianFirstDay.gm}-${gregorianFirstDay.gd}`,
     );
 
+
     /**
      * Apply changes when user choose range
      */
@@ -60,10 +56,10 @@ const ChooseDateButton = ({
       /**
        * If weekly show is not possible to this view
        */
-      if (value.to.day - value.from.day > 13) {
-        viewChange('two-weekly');
-      } else if (value.to.day - value.from.day > 6) {
-        viewChange('monthly');
+      if(value.to.day - value.from.day > 13) {
+        viewChange("two-weekly");
+      }else if(value.to.day - value.from.day > 6) {
+        viewChange("monthly");
       }
       dateChange(dateInstance);
     }
@@ -102,5 +98,6 @@ const ChooseDateButton = ({
     />
   );
 };
+
 
 export default ChooseDateButton;
