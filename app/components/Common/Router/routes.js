@@ -13,11 +13,9 @@ const routes = {
   },
   info: {
     about: '/about',
-    faq: {
-      path: '/faq',
-      index: '/faq/:step?',
-    },
+    faq: '/faq',
     rules: '/rules',
+    privacyPolicy: '/privacyPolicy',
   },
   aroundHere: '/around-here',
   smartTip: '/smart-tip',

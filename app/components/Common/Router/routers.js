@@ -2,9 +2,13 @@ import React from 'react';
 
 // Route loadable components
 import Home from 'components/Pages/Home/loadable';
-import AboutUs from 'components/Pages/AboutUs/loadable';
-import Faq from 'components/Pages/Faq/loadable';
-import Rules from 'components/Pages/Rules/loadable';
+
+// Info pages
+import AboutUs from 'components/Pages/Info/AboutUs/loadable';
+import Faq from 'components/Pages/Info/Faq/loadable';
+import Rules from 'components/Pages/Info/Rules/loadable';
+import PrivacyPolicy from 'components/Pages/Info/PrivacyPolicy/loadable';
+
 import Profile from 'components/Pages/Profile/loadable';
 import Credit from 'components/Pages/Credit/loadable';
 import Search from 'components/Pages/Search/loadable';
@@ -25,6 +29,30 @@ const routers = [
         exact: true,
         Component: <Home />,
       },
+
+      // info pages
+      {
+        path: routes.info.faq,
+        exact: true,
+        Component: <Faq />,
+      },
+      {
+        path: routes.info.about,
+        exact: true,
+        Component: <AboutUs />,
+        layout: 'fullWidth',
+      },
+      {
+        path: routes.info.rules,
+        exact: true,
+        Component: <Rules />,
+      },
+      {
+        path: routes.info.privacyPolicy,
+        exact: true,
+        Component: <PrivacyPolicy />,
+      },
+
       {
         path: routes.search.index,
         exact: false,
@@ -39,22 +67,6 @@ const routers = [
         path: routes.user.profile,
         exact: true,
         Component: <Profile />,
-      },
-      {
-        path: routes.info.faq.index,
-        exact: true,
-        Component: <Faq />,
-      },
-      {
-        path: routes.info.about,
-        exact: true,
-        Component: <AboutUs />,
-        layout: 'fullWidth',
-      },
-      {
-        path: routes.info.rules,
-        exact: true,
-        Component: <Rules />,
       },
       {
         path: routes.aroundHere,

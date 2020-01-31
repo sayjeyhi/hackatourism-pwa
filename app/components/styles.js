@@ -78,6 +78,21 @@ const additional = css`
         }
       }
     }
+    .navigation-button {
+      padding: 0;
+      margin-left: 5px;
+      svg {
+        transform: rotate(180deg);
+        width: 35px;
+        height: 35px;
+      }
+      &:nth-child(2) {
+        margin-left: 15px;
+        svg {
+          transform: rotate(-180deg);
+        }
+      }
+    }
   }
   .MuiPaper-root.MuiPopover-paper * {
     font-size: 15px !important;
@@ -154,6 +169,15 @@ const additional = css`
   }
   .text-small {
     font-size: calc(${props => props.theme.defaultRem} * 1.2) !important;
+  }
+  .nice-hr {
+    border: none;
+    border-top: 1px dashed #e4dede;
+  }
+  .height-overflow {
+    max-height: 100vh;
+    overflow: auto;
+    padding-bottom: 15px;
   }
 `;
 
@@ -261,10 +285,10 @@ const textAlign = `
     text-align: justify !important;
   }
   .pull-left {
-    float: left;
+    float: left !important;
   }
   .pull-right {
-    float: right;
+    float: right !important;
   }
 `;
 const flex = css`

@@ -71,10 +71,6 @@ class AppointmentFormContainerBasic extends React.PureComponent {
 
     this.state = {
       appointmentChanges: {},
-      selectedDay: {
-        from: null,
-        to: null,
-      },
     };
 
     this.getAppointmentData = () => {
@@ -142,13 +138,13 @@ class AppointmentFormContainerBasic extends React.PureComponent {
 
     const textEditorProps = field => ({
       variant: 'outlined',
+      id: field,
       onChange: ({ target: change }) =>
         this.changeAppointment({
           field: [field],
           changes: change.value,
         }),
       value: displayAppointmentData[field] || '',
-      label: `عنوان ${field[0].toUpperCase()}${field.slice(1)}`,
     });
 
     const cancelChanges = () => {
@@ -164,23 +160,42 @@ class AppointmentFormContainerBasic extends React.PureComponent {
         visible={visible}
         target={target}
         onHide={onHide}
+        className="height-overflow "
       >
-        <div>
+        <div className="dir-rtl">
           <div className={classes.header}>
-            <h3 className="large-text">درج رویداد</h3>
-            <IconButton className={classes.closeButton} onClick={cancelChanges}>
+            <h3 className="text-large d-inline-block mr-1 mt-1 mb-0">
+              درج برنامه
+            </h3>
+            <IconButton
+              className={`${classes.closeButton} pull-left`}
+              style={{
+                marginLeft: 6,
+                marginTop: 7,
+              }}
+              onClick={cancelChanges}
+            >
               <Close color="action" />
             </IconButton>
           </div>
+          <hr className="nice-hr" />
           <div className={classes.content}>
             <div className={classes.wrapper}>
-              <Input {...textEditorProps('title')} />
+              <Input label="عنوان برنامه" {...textEditorProps('title')} />
             </div>
             <div className={classes.wrapper}>
-              <Input type="text" {...textEditorProps('location')} />
+              <Input
+                label="محل یا موضوع"
+                type="text"
+                {...textEditorProps('location')}
+              />
             </div>
             <div className={classes.wrapper}>
-              <Textarea {...textEditorProps('notes')} rows="6" />
+              <Textarea
+                label="یه شرح مختصر"
+                {...textEditorProps('notes')}
+                rows="6"
+              />
             </div>
           </div>
           <div className={classes.buttonGroup}>
@@ -200,13 +215,13 @@ class AppointmentFormContainerBasic extends React.PureComponent {
             <Button
               variant="outlined"
               color="primary"
-              className={classes.button}
+              className={`${classes.button} ml-0`}
               onClick={() => {
                 visibleChange();
                 applyChanges();
               }}
             >
-              {isNewAppointment ? 'ایجاد' : 'ذخیره'}
+              {isNewAppointment ? 'بساز‌!' : 'ذخیره'}
             </Button>
           </div>
         </div>
@@ -238,7 +253,23 @@ class Demo extends React.PureComponent {
 
     today = `${yyyy}-${mm}-${dd}`;
     this.state = {
-      data: [{}],
+      data: [
+        {
+          title: 'سفر به شمال',
+          startDate: new Date(2020, 1, 31, 10, 0),
+          endDate: new Date(2018, 2, 3, 14, 30),
+          id: 38,
+          location: 'Room 2',
+        },
+        {
+          title: 'Customer Workshop',
+          startDate: new Date(2020, 2, 1),
+          endDate: new Date(2018, 2, 2),
+          allDay: true,
+          id: 39,
+          location: 'Room 1',
+        },
+      ],
       currentDate: today,
       currentViewName: 'weekly',
       confirmationVisible: false,
@@ -250,6 +281,7 @@ class Demo extends React.PureComponent {
       startDayHour: 6,
       endDayHour: 24,
       isNewAppointment: false,
+      dayOfWeek: 6,
     };
 
     this.toggleConfirmationVisible = this.toggleConfirmationVisible.bind(this);
@@ -262,9 +294,11 @@ class Demo extends React.PureComponent {
       this.setState({ currentViewName });
     };
     this.currentDateChange = currentDate => {
+      if (currentDate instanceof Date) {
+        this.setState({ dayOfWeek: currentDate.getDay() });
+      }
       this.setState({ currentDate });
     };
-
     this.commitChanges = this.commitChanges.bind(this);
     this.onEditingAppointmentChange = this.onEditingAppointmentChange.bind(
       this,
@@ -392,13 +426,21 @@ class Demo extends React.PureComponent {
         : currentViewName === 'monthly'
         ? 'یه ماهه'
         : 'ده‌روزه';
+
+    const DateNavigatorNavigationButton = props => (
+      <DateNavigator.NavigationButton
+        className="navigation-button"
+        {...props}
+      />
+    );
     return (
-      <Paper
-        boxShadow={5}
-        className="top-fixed"
-        style={{ direction: 'ltr', background: '#f7f7f7' }}
-      >
-        <Scheduler data={data} height={500} locale="fa-IR">
+      <Paper elevation0={0} style={{ background: '#f7f7f7' }}>
+        <Scheduler
+          firstDayOfWeek={this.state.dayOfWeek}
+          data={data}
+          height={500}
+          locale="fa-IR"
+        >
           <div>
             <h2 className="mr-1 pt-1 dir-rtl text-large text-center">
               <span style={{ color: '#e53844' }}>کوله‌پشتی</span>‌تو برا یه سفر{' '}
@@ -450,6 +492,7 @@ class Demo extends React.PureComponent {
           />
           <ViewSwitcher />
           <DateNavigator
+            navigationButtonComponent={DateNavigatorNavigationButton}
             openButtonComponent={ChooseDateButton({
               currentDate: this.state.currentDate,
               currentView: this.state.currentViewName,

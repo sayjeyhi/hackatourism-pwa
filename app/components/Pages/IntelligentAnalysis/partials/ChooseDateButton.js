@@ -1,16 +1,21 @@
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
 import jalaali from 'jalaali-js';
 import DatePicker from 'react-modern-calendar-datepicker';
 
 import { persianNumber } from '@snappmarket/helpers';
 
-const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) => () => {
+const ChooseDateButton = ({
+  dateChange,
+  viewChange,
+  currentDate,
+  currentView,
+}) => () => {
   const dateFromInstance = new Date(currentDate);
   const dateToInstance = new Date(currentDate);
   let daysBetween = 8;
-  if(currentView === 'two-weekly') {
+  if (currentView === 'two-weekly') {
     daysBetween = 10;
-  } else if(currentView === 'monthly') {
+  } else if (currentView === 'monthly') {
     daysBetween = 29;
   }
   dateToInstance.setDate(dateToInstance.getDate() + daysBetween);
@@ -27,12 +32,12 @@ const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) 
       year: toDateJalaali.jy,
       month: toDateJalaali.jm,
       day: toDateJalaali.jd,
-    }
+    },
   });
 
   // generate showed text
   let showedString = `از ${value.from.year}/${value.from.month}/${value.from.day} `;
-  if(value.to){
+  if (value.to) {
     showedString += `تا ${value.from.year}/${value.to.month}/${value.to.day}`;
   }
 
@@ -46,7 +51,6 @@ const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) 
       `${gregorianFirstDay.gy}-${gregorianFirstDay.gm}-${gregorianFirstDay.gd}`,
     );
 
-
     /**
      * Apply changes when user choose range
      */
@@ -54,10 +58,12 @@ const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) 
       /**
        * If weekly show is not possible to this view
        */
-      if(value.to.day - value.from.day > 13) {
-        viewChange("two-weekly");
-      }else if(value.to.day - value.from.day > 6) {
-        viewChange("monthly");
+      if (value.to.day - value.from.day < 8) {
+        viewChange('weekly');
+      } else if (value.to.day - value.from.day >= 8) {
+        viewChange('two-weekly');
+      } else if (value.to.day - value.from.day > 13) {
+        viewChange('monthly');
       }
       dateChange(dateInstance);
     }
@@ -83,6 +89,7 @@ const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) 
             textAlign: 'center',
             background: '#f7f7f7',
             padding: '0.7rem 1.5rem',
+            marginLeft: 3,
             fontSize: '1.5rem',
             border: '1px solid rgba(0, 0, 0, 0.23)',
             minWidth: 200,
@@ -96,6 +103,5 @@ const ChooseDateButton = ({ dateChange, viewChange, currentDate, currentView }) 
     />
   );
 };
-
 
 export default ChooseDateButton;

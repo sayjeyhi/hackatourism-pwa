@@ -40,7 +40,7 @@ const theme = {
       dark: '#af8b28',
     },
     gray: {
-      bright: '#fafafa',
+      bright: '#f7f7f7',
       'ultra-light': '#eeeeee',
       light: '#bdbdbd',
       normal: '#757575',
