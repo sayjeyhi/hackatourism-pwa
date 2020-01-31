@@ -40,7 +40,7 @@ const additional = css`
   .MuiToolbar-root > .MuiInputBase-root svg {
     display: none !important;
   }
-  .MuiPaper-root * {
+  .scheduler-root * {
     font-family: ${props => props.theme.defaultFont} !important;
     .DatePicker {
       font-size: 12px !important;
@@ -93,6 +93,8 @@ const additional = css`
         }
       }
     }
+    
+  
   }
   .MuiPaper-root.MuiPopover-paper * {
     font-size: 15px !important;

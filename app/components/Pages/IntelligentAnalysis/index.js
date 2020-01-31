@@ -1,7 +1,4 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable react/no-unused-state */
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
 import {
   AppointmentForm,
@@ -160,7 +157,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
         visible={visible}
         target={target}
         onHide={onHide}
-        className="height-overflow "
+        fullSize={false}
       >
         <div className="dir-rtl">
           <div className={classes.header}>
@@ -246,12 +243,12 @@ const styles = theme => ({
 class Demo extends React.PureComponent {
   constructor(props) {
     super(props);
-    let today = new Date();
+    const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
     const yyyy = today.getFullYear();
 
-    today = `${yyyy}-${mm}-${dd}`;
+    const todayString = `${yyyy}-${mm}-${dd}`;
     this.state = {
       data: [
         {
@@ -265,12 +262,11 @@ class Demo extends React.PureComponent {
           title: 'Customer Workshop',
           startDate: new Date(2020, 2, 1),
           endDate: new Date(2018, 2, 2),
-          allDay: true,
           id: 39,
           location: 'Room 1',
         },
       ],
-      currentDate: today,
+      currentDate: todayString,
       currentViewName: 'weekly',
       confirmationVisible: false,
       editingFormVisible: false,
@@ -433,21 +429,22 @@ class Demo extends React.PureComponent {
         {...props}
       />
     );
+
     return (
-      <Paper elevation0={0} style={{ background: '#f7f7f7' }}>
+      <div className="scheduler-root">
+        <div>
+          <h2 className="mr-1 pt-1 dir-rtl text-large text-center">
+            <span style={{ color: '#e53844' }}>کوله‌پشتی</span>‌تو برا یه سفر{' '}
+            <span style={{ color: '#e040fb' }}>{viewName}</span> روزه آماده کن!
+          </h2>
+        </div>
         <Scheduler
           firstDayOfWeek={this.state.dayOfWeek}
           data={data}
-          height={500}
+          height="auto"
           locale="fa-IR"
         >
-          <div>
-            <h2 className="mr-1 pt-1 dir-rtl text-large text-center">
-              <span style={{ color: '#e53844' }}>کوله‌پشتی</span>‌تو برا یه سفر{' '}
-              <span style={{ color: '#e040fb' }}>{viewName}</span> روزه آماده
-              کن!
-            </h2>
-          </div>
+          {/* State handlers */}
           <ViewState
             currentDate={currentDate}
             currentViewName={currentViewName}
@@ -514,7 +511,7 @@ class Demo extends React.PureComponent {
           confirmationVisible={confirmationVisible}
           cancelDelete={this.cancelDelete}
         />
-      </Paper>
+      </div>
     );
   }
 }
