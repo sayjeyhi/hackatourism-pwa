@@ -1,12 +1,48 @@
 import Styled from 'styled-components';
 
 export const StyledWeatherWrapper = Styled.div`
+  box-sizing: border-box;
+  
+  & *,
+  & *:before,
+  & *:after { box-sizing: border-box; }
+  
+  
+  border-radius: 15px;
+  overflow: hidden;
+  
+  
+  --primary-background: #2e3a42;
+  --stroke-colors: #6d8fa7;
+  
+  border: 1px solid #d0e1ec;
+  svg { 
+    fill: var(--primary-background) !important;
+  }
+`;
+
+export const StyledWeatherHeader = Styled.div`
+  color: #f7f7f7;
+  background-color: currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+  &:before {
+    content: 'بررسی وضعیت‌هوا';
+    font-size: 24px;
+    position: absolute;
+    color: #999;
+    bottom: 160px;
+    font-weight: 900;
+  }
   .icon {
     position: relative;
     display: inline-block;
     width: 12em;
     height: 10em;
     font-size: 1em;
+    flex: 0 0 12%;
   }
 
   .cloud {
@@ -22,9 +58,9 @@ export const StyledWeatherWrapper = Styled.div`
     box-shadow:
       -2.1875em 0.6875em 0 -0.6875em,
       2.0625em 0.9375em 0 -0.9375em,
-      0 0 0 0.375em #fff,
-      -2.1875em 0.6875em 0 -0.3125em #fff,
-      2.0625em 0.9375em 0 -0.5625em #fff;
+      0 0 0 0.375em var(--stroke-colors),
+      -2.1875em 0.6875em 0 -0.3125em var(--stroke-colors),
+      2.0625em 0.9375em 0 -0.5625em var(--stroke-colors);
   }
   .cloud:after {
     content: '';
@@ -35,22 +71,22 @@ export const StyledWeatherWrapper = Styled.div`
     width: 4.5625em;
     height: 1em;
     background: currentColor;
-    box-shadow: 0 0.4375em 0 -0.0625em #fff;
+    box-shadow: 0 0.4375em 0 -0.0625em var(--stroke-colors);
   }
   .cloud:nth-child(2) {
     z-index: 0;
-    background: #fff;
+    background: var(--stroke-colors);
     box-shadow:
-      -2.1875em 0.6875em 0 -0.6875em #fff,
-      2.0625em 0.9375em 0 -0.9375em #fff,
-      0 0 0 0.375em #fff,
-      -2.1875em 0.6875em 0 -0.3125em #fff,
-      2.0625em 0.9375em 0 -0.5625em #fff;
+      -2.1875em 0.6875em 0 -0.6875em var(--stroke-colors),
+      2.0625em 0.9375em 0 -0.9375em var(--stroke-colors),
+      0 0 0 0.375em var(--stroke-colors),
+      -2.1875em 0.6875em 0 -0.3125em var(--stroke-colors),
+      2.0625em 0.9375em 0 -0.5625em var(--stroke-colors);
     opacity: 0.3;
     transform: scale(0.5) translate(6em, -3em);
     animation: cloud 4s linear infinite;
   }
-  .cloud:nth-child(2):after { background: #fff; }
+  .cloud:nth-child(2):after { background: var(--stroke-colors); }
 
   .sun {
     position: absolute;
@@ -61,8 +97,8 @@ export const StyledWeatherWrapper = Styled.div`
     margin: -1.25em;
     background: currentColor;
     border-radius: 50%;
-    box-shadow: 0 0 0 0.375em #fff;
-    animation: spin 12s infinite linear;
+    box-shadow: 0 0 0 0.375em var(--stroke-colors);
+    animation: spin 18s infinite linear;
   }
   .rays {
     position: absolute;
@@ -72,9 +108,9 @@ export const StyledWeatherWrapper = Styled.div`
     width: 0.375em;
     height: 1.125em;
     margin-left: -0.1875em;
-    background: #fff;
+    background: var(--stroke-colors);
     border-radius: 0.25em;
-    box-shadow: 0 5.375em #fff;
+    box-shadow: 0 5.375em var(--stroke-colors);
   }
   .rays:before,
   .rays:after {
@@ -87,9 +123,9 @@ export const StyledWeatherWrapper = Styled.div`
     height: 1.125em;
     transform: rotate(60deg);
     transform-origin: 50% 3.25em;
-    background: #fff;
+    background: var(--stroke-colors);
     border-radius: 0.25em;
-    box-shadow: 0 5.375em #fff;
+    box-shadow: 0 5.375em var(--stroke-colors);
   }
   .rays:before {
     transform: rotate(120deg);
@@ -135,7 +171,7 @@ export const StyledWeatherWrapper = Styled.div`
     top: 50%;
     left: 50%;
     margin: -0.25em 0 0 -0.125em;
-    color: #fff;
+    color: var(--stroke-colors);
     opacity: 0.3;
     animation: lightning 2s linear infinite;
   }
@@ -191,7 +227,7 @@ export const StyledWeatherWrapper = Styled.div`
     top: 50%;
     left: 50%;
     margin: -1.025em 0 0 -1.0125em;
-    color: #fff;
+    color: var(--stroke-colors);
     list-height: 1em;
     opacity: 0.2;
     animation: spin 8s linear infinite reverse;
@@ -262,8 +298,8 @@ export const StyledWeatherWrapper = Styled.div`
 
   @keyframes lightning {
     45% {
-      color: #fff;
-      background: #fff;
+      color: var(--stroke-colors);
+      background: var(--stroke-colors);
       opacity: 0.2;
     }
     50% {
@@ -272,9 +308,19 @@ export const StyledWeatherWrapper = Styled.div`
       opacity: 1;
     }
     55% {
-      color: #fff;
-      background: #fff;
+      color: var(--stroke-colors);
+      background: var(--stroke-colors);
       opacity: 0.2;
     }
   }
+`;
+
+export const StyledWeatherContent = Styled.div`
+  background: var(--primary-background);
+  padding: 8px;
+  input {
+    background: #fff;
+    border: none;
+  }
+  
 `;
