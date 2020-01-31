@@ -348,8 +348,9 @@ export const StyledSearchResult = Styled.div`
   padding: 22px 5px;
     
   &:empty:before {
-    content: 'هیچ شهری پیدا نشد !';
+    content: 'هیچ اطلاعاتی برای نمایش وجود ندارد !';
     font-size: 18px;
+    padding: 30px 0;
     color: #999;
     top: 160px;
     font-weight: 600;

@@ -1,5 +1,4 @@
 import Styled from 'styled-components';
-// import { StyledContainer } from '../../Global/GridSystem/styles';
 import { Container } from '@snappmarket/ui';
 
 export const StyledLayout = Styled.div`
