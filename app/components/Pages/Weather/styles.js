@@ -33,7 +33,7 @@ export const StyledWeatherHeader = Styled.div`
     font-size: 24px;
     position: absolute;
     color: #999;
-    bottom: 160px;
+    top: 160px;
     font-weight: 900;
   }
   .icon {
@@ -317,10 +317,41 @@ export const StyledWeatherHeader = Styled.div`
 
 export const StyledWeatherContent = Styled.div`
   background: var(--primary-background);
-  padding: 8px;
+  padding: 8px 25px;
+  position: relative;
+  
+  label {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #fff;
+  }
   input {
     background: #fff;
     border: none;
   }
-  
+  button {
+    position: absolute;
+    left: 45px;
+    top: 60px;
+    width: calc(1rem * 2);
+    height: calc(1rem * 2);
+    cursor: pointer;
+  }
+`;
+
+export const StyledSearchResult = Styled.div`
+  background: var(--primary-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px dashed #f7f7f742;
+  padding: 22px 5px;
+    
+  &:empty:before {
+    content: 'هیچ شهری پیدا نشد !';
+    font-size: 18px;
+    color: #999;
+    top: 160px;
+    font-weight: 600;
+  }
 `;
