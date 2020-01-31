@@ -5,7 +5,7 @@ import { Container, Row, Col } from '@snappmarket/ui';
 
 import AuthModal from 'components/Common/AuthModal';
 import Header from './partials/Header/index';
-import Footer from './partials/Footer/index';
+import Sidebar from './partials/Sidebar/index';
 import { StyledLayout, StyledContentContainer } from './styles';
 
 /**
@@ -30,7 +30,7 @@ const Layout = ({ children, mode }) => (
             </StyledContentContainer>
           </Col>
           <Col md={4}>
-            <Footer />
+            <Sidebar />
           </Col>
         </Row>
       </Container>

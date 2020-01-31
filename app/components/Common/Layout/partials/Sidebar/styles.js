@@ -1,6 +1,32 @@
 import Styled from 'styled-components';
 
-export const StyledFooter = Styled.footer`
+export const StyledAppDownloadWrapper = Styled.div`
+  > svg {
+    width: 100%;    
+    flex: 0 0 49%;
+  }
+`;
+
+export const StyledAdsBannerWrapper = Styled.div`
+  width: 100%;
+  margin-bottom: 10px;
+`;
+
+export const StyledAdsBanner = Styled.div`
+  background: #f5e8eb;
+  color: #598e62;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 17px;
+  margin: 10px 0;
+  &:before {
+    content: 'Advertisement';
+    font-size: 12px;
+  }
+`;
+
+export const StyledSidebar = Styled.aside`
   display: flex;
   flex-direction: column;
   margin-top: calc(${props => props.theme.defaultRem} * 2.4);

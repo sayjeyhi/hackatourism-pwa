@@ -62,7 +62,7 @@ export default {
     basket: 'سبد خرید',
     profile: 'پروفایل',
     sendingTo: 'ارسال به',
-    searchBoxPlaceholder: 'هر محصولی که میخواهید را جستجو کنید',
+    searchBoxPlaceholder: 'شهر، استان یا محل مورد نظر را جستجو کنید...',
     chooseVendor: {
       buyingFrom: 'خرید از',
       hyperStar: 'هایپراستار',

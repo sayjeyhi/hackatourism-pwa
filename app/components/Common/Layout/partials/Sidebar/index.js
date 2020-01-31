@@ -9,10 +9,32 @@ import {
   MediumIcon,
   OpenSourceIcon,
 } from 'resources/svg/Icons/Social';
-import { StyledFooter, StyledFooterSocials } from './styles';
+import { GooglePlayButton, PlayStoreButton } from 'resources/svg/AppDownload';
+
+import BlogPostCard from './partials/BlogPostCard';
+
+import {
+  StyledSidebar,
+  StyledFooterSocials,
+  StyledAdsBannerWrapper,
+  StyledAdsBanner,
+  StyledAppDownloadWrapper,
+} from './styles';
 
 const Footer = props => (
-  <StyledFooter className="align-center justify-center">
+  <StyledSidebar className="align-center justify-center">
+    <BlogPostCard />
+
+    <StyledAppDownloadWrapper className="justify-between">
+      <GooglePlayButton />
+      <PlayStoreButton />
+    </StyledAppDownloadWrapper>
+
+    <StyledAdsBannerWrapper>
+      <StyledAdsBanner />
+      <StyledAdsBanner />
+    </StyledAdsBannerWrapper>
+
     <ul>
       <li>
         <NavLink to={routes.info.rules}>شرایط استفاده</NavLink>
@@ -27,6 +49,7 @@ const Footer = props => (
         <NavLink to={routes.info.about}>درباره‌ما</NavLink>
       </li>
     </ul>
+
     <StyledFooterSocials className="mt-1">
       <a className="twitter" href="#" target="_blank">
         <TwitterIcon />
@@ -44,11 +67,12 @@ const Footer = props => (
         <OpenSourceIcon />
       </a>
     </StyledFooterSocials>
+
     <div className="copyright">
       {' '}
       تمامی حقوق برای پلتفرم هوشمند گردشگری کوله پشتی محفوظ می‌باشد
     </div>
-  </StyledFooter>
+  </StyledSidebar>
 );
 
 Footer.propTypes = {

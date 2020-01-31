@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 /* eslint-disable indent */
 export const StyledSearchBox = Styled.div`
   position: relative;
-  width:30%;
+  width:40%;
   input {
     width: 100%;
     border-radius: calc(1rem * .5);
