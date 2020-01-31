@@ -21,6 +21,7 @@ const routes = {
   smartTip: '/smart-tip',
   smartTicket: '/smart-ticket',
   ai: '/intelligent-analysis',
+  tripSchedule: '/trip-schedule',
   tripAdvice: '/trip-adviser',
   weather: {
     index: '/weather',

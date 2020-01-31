@@ -2,6 +2,7 @@ import { css, createGlobalStyle } from 'styled-components';
 import 'resources/styles/fontiran.css';
 import 'resources/styles/icons.css';
 import 'resources/styles/sanitize.css';
+import travelVectorIcon from 'resources/img/travelling-vector.jpg';
 import { makeRgba } from '@snappmarket/helpers';
 
 const additional = css`
@@ -40,8 +41,33 @@ const additional = css`
   .MuiToolbar-root > .MuiInputBase-root svg {
     display: none !important;
   }
-  .scheduler-root * {
+
+  .scheduler-root *,
+  .MuiPaper-root * {
     font-family: ${props => props.theme.defaultFont} !important;
+  }
+  .scheduler-root {
+    .animated-svg {
+      position: absolute;
+      width: 100%;
+      svg {
+        left: -5rem;
+        top: -13rem;
+        fill: rgba(112, 206, 0, 0.09);
+        position: absolute;
+        width: 300px;
+        max-width: 250px;
+        -webkit-animation: spin 120s infinite;
+        animation: spin 120s infinite;
+        -webkit-transform: rotate(18deg);
+        transform: rotate(18deg);
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+    }
     .DatePicker {
       font-size: 12px !important;
     }
@@ -93,8 +119,23 @@ const additional = css`
         }
       }
     }
-    
-  
+
+    .MuiBackdrop-root {
+      position: fixed !important;
+    }
+    .MuiBackdrop-root
+      ~ .MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
+      direction: ltr;
+      max-height: 100vh;
+      width: 35%;
+      min-width: 300px;
+      padding-bottom: 40px;
+      position: fixed !important;
+      background-image: url(${travelVectorIcon});
+      background-size: contain;
+      background-position: bottom;
+      background-repeat: no-repeat;
+    }
   }
   .MuiPaper-root.MuiPopover-paper * {
     font-size: 15px !important;
@@ -160,16 +201,24 @@ const additional = css`
   .text-normal {
     font-weight: normal !important;
   }
-  .text-bold {
+  .text-bold,
+  .text-bold * {
     font-weight: bold !important;
   }
-  .text-large {
+  .text-huge,
+  .text-huge * {
+    font-size: calc(${props => props.theme.defaultRem} * 2.4) !important;
+  }
+  .text-large,
+  .text-large * {
     font-size: calc(${props => props.theme.defaultRem} * 1.8) !important;
   }
-  .text-medium {
+  .text-medium,
+  .text-medium * {
     font-size: calc(${props => props.theme.defaultRem} * 1.4) !important;
   }
-  .text-small {
+  .text-small,
+  .text-small * {
     font-size: calc(${props => props.theme.defaultRem} * 1.2) !important;
   }
   .nice-hr {
