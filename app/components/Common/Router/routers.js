@@ -14,9 +14,11 @@ import Credit from 'components/Pages/Credit/loadable';
 import Search from 'components/Pages/Search/loadable';
 import AroundHere from 'components/Pages/AroundHere/loadable';
 import SmartTip from 'components/Pages/SmartTrip/loadable';
+import SmartTicket from 'components/Pages/SmartTicket/loadable';
 import TripAdviser from 'components/Pages/TripAdviser/loadable';
 import TripSchedule from 'components/Pages/TripSchedule/loadable';
 import Weather from 'components/Pages/Weather/loadable';
+import Hotel from 'components/Pages/Hotel/loadable';
 import IntelligentAnalysis from 'components/Pages/IntelligentAnalysis/loadable';
 import routes from './routes';
 
@@ -81,6 +83,11 @@ const routers = [
         Component: <SmartTip />,
       },
       {
+        path: routes.smartTicket,
+        exact: true,
+        Component: <SmartTicket />,
+      },
+      {
         path: routes.tripAdvice,
         exact: true,
         Component: <TripAdviser />,
@@ -101,6 +108,11 @@ const routers = [
         layout: 'fullWidth',
         exact: true,
         Component: <TripSchedule />,
+      },
+      {
+        path: routes.hotel,
+        exact: true,
+        Component: <Hotel />,
       },
     ],
   },

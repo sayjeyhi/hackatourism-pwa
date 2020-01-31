@@ -47,6 +47,8 @@ const additional = css`
     font-family: ${props => props.theme.defaultFont} !important;
   }
   .scheduler-root {
+    max-width: 100%;
+    overflow-x: hidden;
     .animated-svg {
       position: absolute;
       width: 100%;

@@ -4,57 +4,86 @@ import { NavLink } from 'react-router-dom';
 
 import SeoHead from 'components/Common/Seo/SeoHead';
 import routes from 'components/Common/Router/routes';
-import { StyledHomeItemsColumn } from './styles';
+import { StyledHomeItemsColumn, StyledInlineServices, StyledHomeSection } from './styles';
 
 const Home = () => (
   <>
     <SeoHead title="خانه" />
     <Container>
       <Row>
-        <StyledHomeItemsColumn as={NavLink} to={routes.home} md={4}>
-          براساس ایده
+        <StyledHomeItemsColumn md={6}>
+          <NavLink to={routes.home}>براساس ایده</NavLink>
         </StyledHomeItemsColumn>
-
-        <StyledHomeItemsColumn as={NavLink} to={routes.smartTip} md={4}>
-          سفرهوشمند
-        </StyledHomeItemsColumn>
-
-        <StyledHomeItemsColumn as={NavLink} to={routes.aroundHere} md={4}>
-          همین حوالی
+        <StyledHomeItemsColumn md={6}>
+          <NavLink to={routes.aroundHere}>همین حوالی</NavLink>
         </StyledHomeItemsColumn>
       </Row>
       <Row>
-        <StyledHomeItemsColumn as={NavLink} to={routes.smartTicket} md={4}>
-          بلیط هوشمند
+        <StyledHomeItemsColumn md={4}>
+          <NavLink to={routes.tripSchedule}>برنامه‌ریزی سفر</NavLink>
         </StyledHomeItemsColumn>
 
-        <StyledHomeItemsColumn as={NavLink} to={routes.home} md={4}>
-          هتل ارزان
+        <StyledHomeItemsColumn md={4}>
+          <NavLink to={routes.weather.index}>هواشناسی</NavLink>
         </StyledHomeItemsColumn>
-
-        <StyledHomeItemsColumn as={NavLink} to={routes.ai} md={4}>
-          تحلیل هوشمند
+        <StyledHomeItemsColumn md={4}>
+          <NavLink to={routes.smartTip}>سفر ترکیبی</NavLink>
         </StyledHomeItemsColumn>
       </Row>
       <Row>
-        <StyledHomeItemsColumn as={NavLink} to={routes.tripAdvice} md={4}>
-          مشاوره سفر
+        <StyledHomeItemsColumn md={4}>
+          <NavLink to={routes.smartTicket}>بلیط هوشمند</NavLink>
         </StyledHomeItemsColumn>
-
-        <StyledHomeItemsColumn as={NavLink} to={routes.weather.index} md={4}>
-          آب و هوا
+        <StyledHomeItemsColumn md={4}>
+          <NavLink to={routes.tripAdvice}>مشاوره سفر</NavLink>
         </StyledHomeItemsColumn>
-
-        <StyledHomeItemsColumn
-          href="https://talks.koleposhti.app"
-          target="_blank"
-          as="a"
-          md={4}
-        >
-          گپ و گفت
+        <StyledHomeItemsColumn md={4}>
+          <NavLink to={routes.hotel}>هنل</NavLink>
         </StyledHomeItemsColumn>
       </Row>
     </Container>
+
+    <StyledInlineServices>
+      <a href="https://talks.koleposhti.app" target="_blank">
+        گپ و گفت
+      </a>
+      <a href="https://blog.koleposhti.app" target="_blank">
+        بلاگ
+      </a>
+      <a href="https://blog.koleposhti.app" target="_blank">
+        تحلیل دیتا
+      </a>
+      <a href="https://blog.koleposhti.app" target="_blank">
+        مستربلیط
+      </a>
+      <a href="https://snapp.app" target="_blank">
+        اسنپ روم
+      </a>
+    </StyledInlineServices>
+
+    <StyledHomeSection>
+      <h2>
+        شهرهای پرسفر
+      </h2>
+    </StyledHomeSection>
+
+    <StyledHomeSection>
+      <h2>
+        رستوران‌های معروف
+      </h2>
+    </StyledHomeSection>
+
+    <StyledHomeSection>
+      <h2>
+        مکان‌های پربازدید
+      </h2>
+    </StyledHomeSection>
+
+    <StyledHomeSection>
+      <h2>
+        موسیقی سفر
+      </h2>
+    </StyledHomeSection>
   </>
 );
 
