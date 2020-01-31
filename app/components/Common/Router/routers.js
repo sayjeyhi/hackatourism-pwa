@@ -16,6 +16,7 @@ import AroundHere from 'components/Pages/AroundHere/loadable';
 import SmartTip from 'components/Pages/SmartTrip/loadable';
 import TripAdviser from 'components/Pages/TripAdviser/loadable';
 import TripSchedule from 'components/Pages/TripSchedule/loadable';
+import Weather from 'components/Pages/Weather/loadable';
 import IntelligentAnalysis from 'components/Pages/IntelligentAnalysis/loadable';
 import routes from './routes';
 
@@ -83,6 +84,11 @@ const routers = [
         path: routes.tripAdvice,
         exact: true,
         Component: <TripAdviser />,
+      },
+      {
+        path: routes.weather.index,
+        exact: true,
+        Component: <Weather />,
       },
       {
         path: routes.ai,

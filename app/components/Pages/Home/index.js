@@ -41,7 +41,7 @@ const Home = () => (
           مشاوره سفر
         </StyledHomeItemsColumn>
 
-        <StyledHomeItemsColumn as={NavLink} to={routes.tripAdvice} md={4}>
+        <StyledHomeItemsColumn as={NavLink} to={routes.weather.index} md={4}>
           آب و هوا
         </StyledHomeItemsColumn>
 
