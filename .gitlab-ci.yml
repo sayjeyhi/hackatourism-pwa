@@ -28,7 +28,7 @@ staging:init:
     - cd ${PROJECT_PATH_STAGING}
     - cp .env.staging .env
 
-staging:composer:
+staging:yarn:
   <<: *stage
   stage: yarn
   script:
@@ -50,7 +50,7 @@ staging:build-app:
   script:
     - cd ${PROJECT_PATH_STAGING}
     - docker build --file=Dockerfile -t "build_image_web" .
-    - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn build
+    - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn build:ssr
 
 staging:build-image:
   <<: *stage
