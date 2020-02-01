@@ -1,0 +1,83 @@
+stages:
+  - init
+  - yarn
+  - test
+  - build
+  - deploy
+  - commands
+
+.staging: &stage
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - develop
+  tags:
+    - koleposhti
+    - web
+    - pwa
+  when: manual
+
+staging:init:
+  <<: *stage
+  variables:
+    GIT_STRATEGY: fetch
+  stage: init
+  script:
+    - mkdir -p ${PROJECT_PATH_STAGING}
+    - rsync -aqH --delete-after --exclude=/_deploy --exclude=/node_modules --exclude=/.git . ${PROJECT_PATH_STAGING}
+    - cd ${PROJECT_PATH_STAGING}
+    - cp .env.staging .env
+
+staging:composer:
+  <<: *stage
+  stage: yarn
+  script:
+    - cd ${PROJECT_PATH_STAGING}
+    - docker build --file=Dockerfile -t "build_image_web" .
+    - docker run --rm --dns 178.22.122.100 --dns 185.51.200.2 -v `pwd`:/var/www/html build_image_web yarn
+
+staging:unit_test:
+  <<: *stage
+  stage: test
+  script:
+    - cd ${PROJECT_PATH_STAGING}
+    - docker build --file=Dockerfile -t "build_image_web" .
+    - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn test
+
+staging:build-app:
+  <<: *stage
+  stage: build
+  script:
+    - cd ${PROJECT_PATH_STAGING}
+    - docker build --file=Dockerfile -t "build_image_web" .
+    - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn build
+
+staging:build-image:
+  <<: *stage
+  stage: build
+  script:
+    - cd ${PROJECT_PATH_STAGING}
+    - docker build --file=Dockerfile -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA" -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:latest" .
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA"
+    - docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:latest"
+staging:deploy:
+  <<: *stage
+  stage: deploy
+  script:
+    - mkdir -p ${PROJECT_PATH_STAGING}/_deploy
+    - cd ${PROJECT_PATH_STAGING}/_deploy
+    - export STAGING_PWA_IMAGE=${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${IMAGE_TAG_STAGING-${CI_COMMIT_SHA}}
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker run --rm --user=root -v ${PROJECT_PATH_STAGING}/_deploy:/var/www/_deploy $STAGING_PWA_IMAGE rsync -aqHPO --delete-after deploy/. ../_deploy/
+    - docker-compose -f docker-compose.stage.yml pull -q
+    - docker run --rm --user=root -v hackatourism_web_files:/var/www/project_files $STAGING_PWA_IMAGE rsync -aqHPO --delete-after . ../project_files/
+
+staging:ssr:
+  <<: *stage
+  stage: commands
+  script:
+    - cd ${PROJECT_PATH_STAGING}/_deploy
+    - export STAGING_PWA_IMAGE=${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${IMAGE_TAG_STAGING-${CI_COMMIT_SHA}}
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker-compose -f docker-compose.stage.yml run --rm yarn start:ssr:prod
