@@ -24,7 +24,7 @@ staging:init:
   stage: init
   script:
     - mkdir -p ${PROJECT_PATH_STAGING}
-    - rsync -aqH --delete-after --exclude=/_deploy --exclude=/node_modules --exclude=/.git --exclude=/coverage . ${PROJECT_PATH_STAGING}
+    - rsync -aqH --delete-after --exclude=/_deploy --exclude=/build --exclude=/node_modules --exclude=/.git --exclude=/coverage . ${PROJECT_PATH_STAGING}
     - cd ${PROJECT_PATH_STAGING}
     - cp .env.staging .env
 
