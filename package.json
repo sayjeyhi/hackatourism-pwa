@@ -7,6 +7,7 @@
   "license": "ISC",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
+    "test": "echo test",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
     "postanalyze": "webpack-bundle-analyzer stats.json",
