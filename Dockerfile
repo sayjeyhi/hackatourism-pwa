@@ -1,4 +1,7 @@
 FROM node:alpine as build
+WORKDIR /var/www/html
+COPY . /var/www/html
+USER root
 RUN apk add --no-cache \
     autoconf \
     automake \
@@ -9,6 +12,4 @@ RUN apk add --no-cache \
     libpng-dev \
     make \
     nasm
-RUN npm i -g gifsicle
-WORKDIR /var/www/html
-COPY . /var/www/html
+RUN yarn global add gifsicle
