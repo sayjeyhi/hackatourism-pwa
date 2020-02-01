@@ -10,7 +10,7 @@ stages:
   variables:
     GIT_STRATEGY: none
   only:
-    - develop
+    - master
   tags:
     - koleposhti
     - web
