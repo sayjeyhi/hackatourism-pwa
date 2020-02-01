@@ -52,6 +52,9 @@ const additional = css`
     .animated-svg {
       position: absolute;
       width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      top: 70px;
       svg {
         left: -5rem;
         top: -13rem;
