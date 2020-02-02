@@ -3,6 +3,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 USER root
 RUN apk add autoconf \
+    rsync \
     automake \
     bash \
     g++ \
