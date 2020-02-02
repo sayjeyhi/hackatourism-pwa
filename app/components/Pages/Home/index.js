@@ -14,7 +14,7 @@ import {
 import SeoHead from 'components/Common/Seo/SeoHead';
 import routes from 'components/Common/Router/routes';
 
-import Section from './partials/Section';
+import Section from './partials/HomeSection';
 import TopCities from './partials/TopCities';
 
 import { StyledInlineServices, StyledHomeSection } from './styles';

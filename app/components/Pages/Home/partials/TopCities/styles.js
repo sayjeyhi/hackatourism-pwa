@@ -17,8 +17,7 @@ export const StyledTopCity = Styled.a`
   text-align: justify;
   
   img {
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 16px;
     max-width: 100%;
     height: auto;
     -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
@@ -31,6 +30,7 @@ export const StyledTopCity = Styled.a`
   &:hover {
     transform: scale(1.05);
     img {
+      border-radius: 9px;
       -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
       filter: grayscale(0);
     }

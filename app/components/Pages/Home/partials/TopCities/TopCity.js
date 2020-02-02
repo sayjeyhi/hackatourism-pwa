@@ -5,9 +5,7 @@ import routes from 'components/Common/Router/routes';
 import { StyledTopCity } from './styles';
 
 const TopCity = ({ id, name, description, image, weather_id }) => (
-  // todo : connect to redux and get current weather on hover
-  (
-    <StyledTopCity as={NavLink} to={`${routes.city.path}/${id}`}>
+  <StyledTopCity as={NavLink} to={`${routes.city.path}/${id}`}>
     <img alt={name} src={image} />
     <div className="city-name">{name}</div>
     <div className="city-description">{description}</div>
@@ -15,11 +13,12 @@ const TopCity = ({ id, name, description, image, weather_id }) => (
       to={`${routes.weather.index}/${weather_id}`}
       className="current-weather"
     >
-      <div className="weather-icon align-center justify-center">-</div>
+      <div className="weather-icon align-center justify-center">.</div>
       <div className="weather-metric">0</div>
     </NavLink>
   </StyledTopCity>
 );
+
 TopCity.propTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
