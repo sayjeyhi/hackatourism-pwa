@@ -68,7 +68,7 @@ staging:deploy:
     - mkdir -p ${PROJECT_PATH_STAGING}/_deploy
     - cd ${PROJECT_PATH_STAGING}/_deploy
     - export STAGING_PWA_IMAGE=${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${IMAGE_TAG_STAGING-${CI_COMMIT_SHA}}
-    - echo STAGING_PWA_IMAGE
+    - echo $STAGING_PWA_IMAGE
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker run --rm --user=root -v ${PROJECT_PATH_STAGING}/_deploy:/var/www/_deploy ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${IMAGE_TAG_STAGING-${CI_COMMIT_SHA}} rsync -aqHPO --delete-after deploy/. ../_deploy/
     - docker-compose -f docker-compose.stage.yml pull -q
