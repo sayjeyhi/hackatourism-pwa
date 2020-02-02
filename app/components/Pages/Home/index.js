@@ -1,90 +1,170 @@
 import React from 'react';
 import { Container, Row } from '@snappmarket/ui';
-import { NavLink } from 'react-router-dom';
+
+import {
+  AdviserIcon,
+  HotelIcon,
+  NearByIcon,
+  ScheduleIcon,
+  SmartTripIcon,
+  TicketIcon,
+  WeatherIcon,
+} from 'resources/svg/HomeIcons';
 
 import SeoHead from 'components/Common/Seo/SeoHead';
 import routes from 'components/Common/Router/routes';
-import { StyledHomeItemsColumn, StyledInlineServices, StyledHomeSection } from './styles';
+import Section from './partials/Section';
+import { StyledInlineServices, StyledHomeSection } from './styles';
 
 const Home = () => (
-  <>
+  <div className="no-select">
     <SeoHead title="خانه" />
     <Container>
       <Row>
-        <StyledHomeItemsColumn md={6}>
-          <NavLink to={routes.home}>براساس ایده</NavLink>
-        </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={6}>
-          <NavLink to={routes.aroundHere}>همین حوالی</NavLink>
-        </StyledHomeItemsColumn>
+        <Section
+          className="half-section aa align-center justify-between"
+          icon={WeatherIcon}
+          md={6}
+          route={routes.home}
+          title="براساس ایده"
+          description="این بخش براساس ایده عوض می‌شود"
+        />
+        <Section
+          className="half-section bb align-center justify-between"
+          icon={NearByIcon}
+          md={6}
+          route={routes.aroundHere}
+          title=" همین حوالی"
+          description="نزدیکای من چه خبرا هست؟"
+        />
       </Row>
       <Row>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink to={routes.tripSchedule}>برنامه‌ریزی سفر</NavLink>
-        </StyledHomeItemsColumn>
-
-        <StyledHomeItemsColumn md={4}>
-          <NavLink to={routes.weather.index}>هواشناسی</NavLink>
-        </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink to={routes.smartTip}>سفر ترکیبی</NavLink>
-        </StyledHomeItemsColumn>
+        <Section
+          className="align-center"
+          icon={ScheduleIcon}
+          md={4}
+          route={routes.tripSchedule}
+          title=" برنامه‌ریزی سفر"
+        />
+        <Section
+          className="align-center"
+          icon={WeatherIcon}
+          md={4}
+          route={routes.weather.index}
+          title="هواشناسی"
+        />
+        <Section
+          className="align-center"
+          icon={SmartTripIcon}
+          md={4}
+          route={routes.smartTip}
+          title="سفر ترکیبی"
+        />
       </Row>
       <Row>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink to={routes.smartTicket}>بلیط هوشمند</NavLink>
-        </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink to={routes.tripAdvice}>مشاوره سفر</NavLink>
-        </StyledHomeItemsColumn>
-        <StyledHomeItemsColumn md={4}>
-          <NavLink to={routes.hotel}>هنل</NavLink>
-        </StyledHomeItemsColumn>
+        <Section
+          className="align-center"
+          icon={TicketIcon}
+          md={4}
+          route={routes.smartTicket}
+          title="بلیط هوشمند"
+        />
+        <Section
+          className="align-center"
+          icon={AdviserIcon}
+          md={4}
+          route={routes.tripAdvice}
+          title="مشاوره سفر"
+        />
+        <Section
+          className="align-center"
+          icon={HotelIcon}
+          md={4}
+          route={routes.hotel}
+          title="هتل"
+        />
       </Row>
     </Container>
 
     <StyledInlineServices>
-      <a href="https://talks.koleposhti.app" target="_blank">
-        گپ و گفت
-      </a>
-      <a href="https://blog.koleposhti.app" target="_blank">
-        بلاگ
-      </a>
-      <a href="https://blog.koleposhti.app" target="_blank">
-        تحلیل دیتا
-      </a>
-      <a href="https://blog.koleposhti.app" target="_blank">
-        مستربلیط
-      </a>
-      <a href="https://snapp.app" target="_blank">
-        اسنپ روم
-      </a>
+      <div>
+        <a
+          className="align-center justify-center"
+          href="https://talks.koleposhti.app"
+          target="_blank"
+        >
+          <span>گپ و گفت</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path d="M0,224L48,208C96,192,192,160,288,149.3C384,139,480,149,576,133.3C672,117,768,75,864,64C960,53,1056,75,1152,96C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+          </svg>
+        </a>
+        <a
+          className="align-center justify-center"
+          href="https://blog.koleposhti.app"
+          target="_blank"
+        >
+          <span>بلاگ</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path d="M0,64L48,53.3C96,43,192,21,288,10.7C384,0,480,0,576,37.3C672,75,768,149,864,154.7C960,160,1056,96,1152,64C1248,32,1344,32,1392,32L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+          </svg>
+        </a>
+        <a
+          className="align-center justify-center"
+          href="https://blog.koleposhti.app"
+          target="_blank"
+        >
+          <span>تحلیل دیتا</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path d="M0,192L48,165.3C96,139,192,85,288,74.7C384,64,480,96,576,117.3C672,139,768,149,864,160C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+          </svg>
+        </a>
+        <a
+          className="align-center justify-center"
+          href="https://blog.koleposhti.app"
+          target="_blank"
+        >
+          <span>مستربلیط</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path d="M0,256L48,218.7C96,181,192,107,288,106.7C384,107,480,181,576,176C672,171,768,85,864,85.3C960,85,1056,171,1152,197.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+          </svg>
+        </a>
+        <a
+          className="align-center justify-center"
+          href="https://snapp.app"
+          target="_blank"
+        >
+          <span>اسنپ روم</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path d="M0,288L48,256C96,224,192,160,288,133.3C384,107,480,117,576,112C672,107,768,85,864,80C960,75,1056,85,1152,106.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+          </svg>
+        </a>
+      </div>
     </StyledInlineServices>
 
     <StyledHomeSection>
-      <h2>
-        شهرهای پرسفر
-      </h2>
+      <div>
+        <h2>شهرهای پرسفر</h2>
+      </div>
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <h2>
-        رستوران‌های معروف
-      </h2>
+      <div>
+        <h2>رستوران‌های معروف</h2>
+      </div>
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <h2>
-        مکان‌های پربازدید
-      </h2>
+      <div>
+        <h2>مکان‌های پربازدید</h2>
+      </div>
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <h2>
-        موسیقی سفر
-      </h2>
+      <div>
+        <h2>موسیقی سفر</h2>
+      </div>
     </StyledHomeSection>
-  </>
+  </div>
 );
 
 export default Home;

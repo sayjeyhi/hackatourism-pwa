@@ -54,6 +54,7 @@ export const StyledSidebar = Styled.aside`
   .copyright {
     margin-top: 8px;
     color: #999;
+    text-align: center;
   }
   h4 {
     font-size: calc(${props => props.theme.defaultRem} * 1.3);
@@ -64,6 +65,8 @@ export const StyledSidebar = Styled.aside`
   svg {
     max-width: 100%;
   }
+  
+  padding-bottom: 20px;
 `;
 
 export const StyledFooterSocials = Styled.div`
