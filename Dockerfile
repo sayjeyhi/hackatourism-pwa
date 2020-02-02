@@ -2,8 +2,7 @@ FROM node:alpine as build
 WORKDIR /var/www/html
 COPY . /var/www/html
 USER root
-RUN apk add --no-cache \
-    autoconf \
+RUN apk add autoconf \
     automake \
     bash \
     g++ \
