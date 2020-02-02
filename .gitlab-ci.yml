@@ -81,4 +81,4 @@ staging:ssr:
     - cd ${PROJECT_PATH_STAGING}/_deploy
     - export STAGING_PWA_IMAGE=${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${IMAGE_TAG_STAGING-${CI_COMMIT_SHA}}
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker-compose -f docker-compose.stage.yml run --rm yarn start:ssr:prod
+    - docker-compose -f docker-compose.stage.yml run --rm node yarn start:ssr:prod
