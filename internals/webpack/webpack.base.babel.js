@@ -98,6 +98,11 @@ module.exports = options => {
           ],
         },
         {
+          test: /\.(ico)$/,
+          exclude: /node_modules/,
+          loader: 'file-loader?name=images/[name].[hash].[ext]',
+        },
+        {
           test: /\.html$/,
           use: [
             {

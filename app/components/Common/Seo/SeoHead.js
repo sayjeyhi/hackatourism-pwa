@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import APP_INFO from 'constants/appInfo';
+import favicon from 'resources/img/favicon.ico';
 
 const SeoHead = ({
   title,
@@ -22,6 +23,8 @@ const SeoHead = ({
     />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content={description} />
+    <link rel="icon" href={favicon} type="image/x-icon" />
+
     {keywords && <meta name="keywords" content={keywords.join(',')} />}
 
     {canonical && <link rel="canonical" />}

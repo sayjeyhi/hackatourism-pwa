@@ -131,6 +131,11 @@ module.exports = (mode = process.env.NODE_ENV) => {
           ],
         },
         {
+          test: /\.(ico)$/,
+          exclude: /node_modules/,
+          loader: 'file-loader?name=images/[name].[hash].[ext]',
+        },
+        {
           test: /\.(mp4|webm)$/,
           use: {
             loader: 'url-loader',
