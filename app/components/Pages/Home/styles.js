@@ -140,8 +140,19 @@ export const StyledInlineServices = Styled(Container)`
       background: linear-gradient(60deg, #ef5350, #e53935);
       box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(244, 67, 54,.4);
     }
-     
+    &:hover {
+      svg {
+        transform: translate(0, 5px);
+      }
+      &:before {
+        transform: translate(3px, -5px);
+      }
+      &:after {
+        transform: translate(-3px, -5px);
+      }
+    }
     svg {
+      transition: transform ease-in-out 0.3s;
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -151,6 +162,7 @@ export const StyledInlineServices = Styled(Container)`
       }
     }
     &:before{
+      transition: transform ease-in-out 0.3s;
       content: '';
       background: rgba(0, 0, 0, 0.22);
       position: absolute;
@@ -161,6 +173,7 @@ export const StyledInlineServices = Styled(Container)`
       right: 2px;
     }
     &:after {
+      transition: transform ease-in-out 0.3s;
       content: '';
       background: rgba(0, 0, 0, 0.07);
       position: absolute;
@@ -179,18 +192,22 @@ export const StyledHomeSection = Styled(Container)`
   width: 100%;
   font-size: 12px;
   margin-top: 10px;
-  > div {
+  > .title-holder {
     display: flex;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(47,47,47,0.09);
   }
   h2 {
     position: relative;
     &:before {
       content: ' ';
       width: 112%;
-      border-bottom: 4px solid rgba(0,0,0,0.4);
       position: absolute;
-      bottom: -10px;
+      bottom: -12px;
+      height: 4px;
+      border-radius: 20px;
+      background: #f12711;
+      background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+      background: linear-gradient(45deg, #f5af19, #f12711);
     }
   }
 `;

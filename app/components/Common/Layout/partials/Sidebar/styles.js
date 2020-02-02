@@ -29,10 +29,15 @@ export const StyledAdsBanner = Styled.div`
 export const StyledSidebar = Styled.aside`
   display: flex;
   flex-direction: column;
-  margin-top: calc(${props => props.theme.defaultRem} * 2.4);
   font-size: calc(${props => props.theme.defaultRem} * 1.1);
   color: ${props => props.theme.colors.gray.normal};
   padding: 0 15px;
+  height: 100vh;
+  min-height: 200px;
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
   
   ul {
     width: 100%;

@@ -13,7 +13,10 @@ import {
 
 import SeoHead from 'components/Common/Seo/SeoHead';
 import routes from 'components/Common/Router/routes';
+
 import Section from './partials/Section';
+import TopCities from './partials/TopCities';
+
 import { StyledInlineServices, StyledHomeSection } from './styles';
 
 const Home = () => (
@@ -142,25 +145,26 @@ const Home = () => (
     </StyledInlineServices>
 
     <StyledHomeSection>
-      <div>
+      <div className="title-holder">
         <h2>شهرهای پرسفر</h2>
       </div>
+      <TopCities />
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <div>
+      <div className="title-holder">
         <h2>رستوران‌های معروف</h2>
       </div>
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <div>
+      <div className="title-holder">
         <h2>مکان‌های پربازدید</h2>
       </div>
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <div>
+      <div className="title-holder">
         <h2>موسیقی سفر</h2>
       </div>
     </StyledHomeSection>

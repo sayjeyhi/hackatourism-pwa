@@ -25,9 +25,16 @@ const routes = {
   hotel: '/hotel',
   tripAdvice: '/trip-adviser',
   weather: {
-    index: '/weather',
-    now: '/weather/now/:cityName',
-    forecast: '/weather/forecast/:cityname',
+    path: '/weather',
+    index: '/weather/:cityIdOrName',
+  },
+  city: {
+    path: '/city',
+    index: '/city/:id',
+  },
+  place: {
+    path: '/place',
+    index: '/place/:id',
   },
 };
 
