@@ -1,3 +1,4 @@
+
 const routes = {
   root: '/',
   home: '/',
@@ -35,6 +36,10 @@ const routes = {
   place: {
     path: '/place',
     index: '/place/:id',
+  },
+  profile: {
+    path: '/profile',
+    index: '/profile/:id',
   },
 };
 

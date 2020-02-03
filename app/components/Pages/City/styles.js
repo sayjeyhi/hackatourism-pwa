@@ -1,3 +1,4 @@
 import Styled from 'styled-components';
 
-export const StyledFaqTopSection = Styled.div``;
+export const StyledCityPageWrapper = Styled.div``;
+export const StyledNearByWrapper = Styled.div``;

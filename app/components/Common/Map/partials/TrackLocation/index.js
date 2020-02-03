@@ -8,7 +8,6 @@ import { isLocationInIran } from '@snappmarket/helpers';
 // import Icon from 'components/Global/Icon';
 import mapMessages from 'constants/Messages/map.messages';
 import appInfo from 'constants/appInfo';
-import useLog from 'constants/Hooks/useLog';
 // import useGeoLocation from 'constants/Hooks/useGeoLocation';
 // import { isLocationInIran } from 'constants/Helpers/mapHelpers';
 
@@ -17,7 +16,6 @@ import { context as mapContext } from '../../context/mapContext';
 import { StyledUserTrackButton } from './styles';
 
 const TrackLocation = props => {
-  const { writeLog } = useLog();
   const didMountRef = useRef({ value: 0 });
   const [tick, setTick] = useState(0);
   const { setPosition, onLocationChange } = useContext(mapContext);
@@ -27,13 +25,6 @@ const TrackLocation = props => {
 
   useEffect(() => {
     if (didMountRef.current.value > 1) {
-      if (loading) {
-        writeLog({
-          medium: 'track location button',
-          action: 'click',
-          detail: `ask for access to user location`,
-        });
-      }
 
       if (error) {
         let message = mapMessages.map.getUserLocation.error.dismissed;
@@ -43,15 +34,6 @@ const TrackLocation = props => {
         if (error.code === error.PERMISSION_DENIED) {
           message = mapMessages.map.getUserLocation.error.permissionDenied;
         }
-
-        /**
-         * Todo: show message with toast
-         */
-        writeLog({
-          medium: 'location access',
-          action: 'click',
-          detail: `geo location disabled, message:${message}`,
-        });
       }
 
       if (position) {
@@ -67,11 +49,6 @@ const TrackLocation = props => {
         } else {
           setPosition({ lat, lng });
           onLocationChange({ lat, lng });
-          writeLog({
-            medium: 'location access',
-            action: 'click',
-            detail: `geo location enabled [${lat} ${lng}]`,
-          });
         }
       }
     }

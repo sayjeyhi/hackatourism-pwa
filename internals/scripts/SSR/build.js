@@ -50,15 +50,16 @@ function build(previousFileSizes) {
     // eslint-disable-next-line consistent-return
     clientCompiler.run((err, clientStats) => {
       if (err || clientStats.hasErrors()) {
-        return reject(err);
+        return reject(err || clientStats.compilation.errors);
       }
       console.log(chalk.white('✓ Client webpack build complete'));
 
 
       // eslint-disable-next-line no-shadow,consistent-return
       serverCompiler.run((err, stats) => {
+
         if (err || stats.hasErrors()) {
-          return reject(err);
+          return reject(err || stats.compilation.errors);
         }
         console.log(chalk.white('✓ Server webpack build complete'));
 

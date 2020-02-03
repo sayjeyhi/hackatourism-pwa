@@ -15,7 +15,7 @@ import {
 
 const Place = () => (
   <>
-    <SeoHead title="پروفایل کاربری" />
+    <SeoHead title="صفحه محل" />
     <StyledProfileWrapper>
       <StyledProfileSidebar>
         <div className="place-wallpaper">

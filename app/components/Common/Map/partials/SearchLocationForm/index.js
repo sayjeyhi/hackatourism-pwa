@@ -7,7 +7,6 @@ import { useDebounce } from '@snappmarket/hooks';
 import { Button, Input } from '@snappmarket/ui';
 
 import { loadingActions, mapActions, mapSelectors } from 'ducks';
-import useLog from 'constants/Hooks/useLog';
 // import useDebounce from 'constants/Hooks/useDebounce';
 // import Button from 'components/Global/Button';
 // import Input from 'components/Global/Input';
@@ -26,7 +25,6 @@ const SearchLocationForm = props => {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedSearchTerm, cancelDebounce] = useDebounce(searchQuery, 300);
   const { position, setPosition, onLocationChange } = useContext(mapContext);
-  const { writeLog } = useLog();
   const holderRef = createRef();
   const {
     gettingSearchLocationStatus,
@@ -107,11 +105,6 @@ const SearchLocationForm = props => {
     setMenuOpen(false);
     setPosition({ lat, lng });
     onLocationChange({ lat, lng, address });
-    writeLog({
-      medium: 'search location',
-      action: 'click',
-      detail: `clicked on location search result item`,
-    });
   };
 
   const handleEnterPress = e => {
