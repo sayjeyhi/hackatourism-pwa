@@ -81,6 +81,7 @@ export const StyledTopCity = Styled.a`
     opacity: 0;
     transition: all ease-in-out 0.3s;
     background: #2d2d2d;
+    color: #2d2d2d;
     padding: 0;
     height: auto;
     width: 32%;

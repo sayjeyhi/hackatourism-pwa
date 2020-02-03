@@ -16,11 +16,13 @@ import routes from 'components/Common/Router/routes';
 
 import Section from './partials/HomeSection';
 import TopCities from './partials/TopCities';
+import Places from './partials/Places';
+import Musics from './partials/Musics';
 
 import { StyledInlineServices, StyledHomeSection } from './styles';
 
 const Home = () => (
-  <div className="no-select">
+  <div className="no-select pb-4">
     <SeoHead title="خانه" />
     <Container>
       <Row>
@@ -155,18 +157,14 @@ const Home = () => (
       <div className="title-holder">
         <h2>رستوران‌های معروف</h2>
       </div>
-    </StyledHomeSection>
-
-    <StyledHomeSection>
-      <div className="title-holder">
-        <h2>مکان‌های پربازدید</h2>
-      </div>
+      <Places />
     </StyledHomeSection>
 
     <StyledHomeSection>
       <div className="title-holder">
         <h2>موسیقی سفر</h2>
       </div>
+      <Musics />
     </StyledHomeSection>
   </div>
 );
