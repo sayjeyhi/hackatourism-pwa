@@ -49,6 +49,7 @@ const additional = css`
   .scheduler-root {
     max-width: 100%;
     overflow-x: hidden;
+    border-bottom: 1px solid rgb(211, 211, 211);
     .animated-svg {
       position: absolute;
       width: 100%;
