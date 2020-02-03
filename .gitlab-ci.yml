@@ -51,7 +51,7 @@ staging:build-app:
     - docker build --file=Dockerfile -t "build_image_web" .
     - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn build:ssr
     
-staging:build-image
+staging:build-image:
   <<: *stage
   stage: build
   script:
