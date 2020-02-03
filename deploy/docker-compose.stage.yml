@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   pm2:
-    image: build_image_web
+    build: .
     volumes:
       - ./node_modules:/home/node/node_modules
       - ./server:/home/node/server
