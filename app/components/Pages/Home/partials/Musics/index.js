@@ -29,7 +29,7 @@ const Musics = () => {
   return (
     <StyledMusicsWrapper className="flex-row pb-2">
       {groups.map(group => (
-        <StyledMusicWrapper className="no-effect-button">
+        <StyledMusicWrapper key={group.image} className="no-effect-button">
           <div className="type-image">
             <img src={group.image} alt={group.title} />
           </div>
