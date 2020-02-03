@@ -123,22 +123,22 @@ const Places = () => {
         <div className="places-content-panel">
           <TabPanel whenActive="foods">
             {foodPlaces.map(place => (
-              <Place title={place.title} id={place.id} />
+              <Place key={place.title} title={place.title} id={place.id} />
             ))}
           </TabPanel>
           <TabPanel whenActive="shopping-center">
             {shoppingPlaces.map(place => (
-              <Place title={place.title} id={place.id} />
+              <Place key={place.title} title={place.title} id={place.id} />
             ))}
           </TabPanel>
           <TabPanel whenActive="medical">
             {medicalPlaces.map(place => (
-              <Place title={place.title} id={place.id} />
+              <Place key={place.title} title={place.title} id={place.id} />
             ))}
           </TabPanel>
           <TabPanel whenActive="entertainment">
             {entertainments.map(place => (
-              <Place title={place.title} id={place.id} />
+              <Place key={place.title} title={place.title} id={place.id} />
             ))}
           </TabPanel>
         </div>

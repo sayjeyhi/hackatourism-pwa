@@ -2,17 +2,20 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { createStateSyncMiddleware } from 'redux-state-sync';
-
 import { configPersistor } from '@snappmarket/helpers';
-import reduxStateSyncWhiteList from 'constants/reduxStateSyncWhiteList';
+
 import { coreTypes } from 'ducks';
+
+import rootSaga from './configSagas';
+import rootReducer from 'constants/rootReducers';
+import reduxStateSyncWhiteList from 'constants/reduxStateSyncWhiteList';
+
 import configReducers from './configReducers';
 import configHistory from './configHistory';
-import configSagas from './configSagas';
-import jwtGate from './Middlewares/jwtGate';
 
 export default (url = '/') => {
   const history = configHistory(false, url);
+  const injectedReducer = configReducers(rootReducer, history);
   const persistor = configPersistor({
     prefix: 'persist:_',
     whitelist: ['vendor', 'core', 'basket', 'user'],
@@ -25,7 +28,7 @@ export default (url = '/') => {
 
   const sagaMiddleware = createSagaMiddleware();
 
-  const middlewares = [jwtGate, sagaMiddleware, routerMiddleware(history)];
+  const middlewares = [sagaMiddleware, routerMiddleware(history)];
 
   /**
    * Add client special middle-wares here
@@ -46,9 +49,9 @@ export default (url = '/') => {
     process.env.NODE_ENV === 'development' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-          name: 'Koleposhti',
-          actionsBlacklist: ['REDUX_STORAGE_SAVE'],
-        })
+        name: 'Koleposhti',
+        actionsBlacklist: ['REDUX_STORAGE_SAVE'],
+      })
       : compose;
   /* eslint-enable indent */
 
@@ -60,18 +63,19 @@ export default (url = '/') => {
   /* eslint-enable no-underscore-dangle */
 
   const store = createStore(
-    configReducers,
+    injectedReducer,
     initialState,
     composeEnhancers(applyMiddleware(...middlewares), ...enhancers),
   );
 
+  // const store = createStore(injectedReducer, composeEnhancers(...enhancers));
   if (module.hot) {
     module.hot.accept('./configReducers', () => {
-      store.replaceReducer(configReducers);
+      store.replaceReducer(injectedReducer);
     });
   }
 
-  sagaMiddleware.run(configSagas);
+  sagaMiddleware.run(rootSaga);
 
   return { store, history };
 };

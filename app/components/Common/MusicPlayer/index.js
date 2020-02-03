@@ -1,10 +1,13 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ReactPlayer from 'react-player';
 import { Container } from '@snappmarket/ui';
-import { persianNumber } from '@snappmarket/helpers';
 
+import { persianNumber } from '@snappmarket/helpers';
 import { Next, SongsList, Pause, Play, Speaker } from 'resources/svg/Music';
+import SONGS from 'resources/data/songs';
+import { playerSelectors } from 'ducks';
 import {
   StyledMusicPlayer,
   StyledTimer,
@@ -13,7 +16,12 @@ import {
   StyledSongsList,
 } from './styles';
 
-const MusicPlayer = ({ songs }) => {
+const MusicPlayer = ({ songType, playerVisibility }) => {
+  console.log({
+    songType,
+    playerVisibility,
+  });
+
   let player = useRef(null);
   const [songsListVisibility, setSongsListVisibility] = useState(false);
   const [played, setPlayed] = useState(40);
@@ -22,6 +30,12 @@ const MusicPlayer = ({ songs }) => {
   const [songPointer, setSongPointer] = useState(1);
   const [duration, setDuration] = useState(0);
   const [elapsed, setElapsed] = useState(0);
+
+  if (!playerVisibility) {
+    return null;
+  }
+
+  const songs = SONGS[songType];
 
   const togglePlay = () => {
     setPlaying(!playing);
@@ -156,30 +170,13 @@ const MusicPlayer = ({ songs }) => {
 };
 
 MusicPlayer.propTypes = {
-  songs: PropTypes.array,
+  songType: PropTypes.string,
+  playerVisibility: PropTypes.bool,
 };
 
-MusicPlayer.defaultProps = {
-  songs: [
-    {
-      title: 'یاران چه‌غریبانه',
-      duration: '4:37',
-      url:
-        'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Yaran%20Che%20Gharibane%20(320).mp3',
-    },
-    {
-      title: 'یاران چه‌غریبانه',
-      duration: '4:37',
-      url:
-        'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Rokhsate%20Didar%20(320).mp3',
-    },
-    {
-      title: 'یاران چه‌غریبانه',
-      duration: '4:37',
-      url:
-        'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Change%20Del%20(320).mp3',
-    },
-  ],
-};
+const mapStateToProps = state => ({
+  playerVisibility: playerSelectors.getPlayerStatus(state),
+  songType: playerSelectors.getSongType(state),
+});
 
-export default MusicPlayer;
+export default connect(mapStateToProps)(MusicPlayer);

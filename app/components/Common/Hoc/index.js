@@ -26,7 +26,7 @@ const Hoc = () => {
     <ThemeProvider theme={theme}>
       {!isServer && <GlobalStyles />}
       <Router />
-      <MusicPlayer urls={[]} />
+      <MusicPlayer />
     </ThemeProvider>
   );
 };

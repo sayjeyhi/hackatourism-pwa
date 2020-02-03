@@ -29,6 +29,16 @@ export { default as mapTypes } from './map/types';
 export { default as mapUtils } from './map/utils';
 
 /**
+ * Player importers
+ */
+export { default as playerActions } from './player/actions';
+export { default as playerReducers } from './player/reducers';
+export { default as playerSelectors } from './player/selectors';
+export { default as playerServices } from './player/services';
+export { default as playerTypes } from './player/types';
+export { default as playerUtils } from './player/utils';
+
+/**
  * Message importers
  */
 export { default as messageActions } from './message/actions';

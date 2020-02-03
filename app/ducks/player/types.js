@@ -1,0 +1,5 @@
+export default {
+  SHOW_PLAYER: 'SHOW_PLAYER',
+  HIDE_PLAYER: 'HIDE_PLAYER',
+  SET_SONG_TYPE: 'SET_SONG_TYPE',
+};
