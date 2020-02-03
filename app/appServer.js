@@ -8,7 +8,7 @@ import Loadable from 'react-loadable';
 import Hoc from './components/Common/Hoc';
 import createStore from './config/configureStore';
 import { ServerProvider } from './constants/Contexts/serverContext';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const { store, history } = createStore();
 
@@ -31,4 +31,4 @@ Loadable.preloadAll().then(() => {
   );
 });
 
-registerServiceWorker();
+// registerServiceWorker();

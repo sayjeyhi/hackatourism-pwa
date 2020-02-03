@@ -33,6 +33,7 @@ export const StyledSidebar = Styled.aside`
   color: ${props => props.theme.colors.gray.normal};
   padding: 10px 15px;
   margin-top: 15px;
+  margin-bottom: 15px;
   height: 94vh;
   min-height: 200px;
   overflow: auto;
