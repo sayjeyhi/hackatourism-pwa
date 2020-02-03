@@ -7,7 +7,7 @@ services:
       - ./node_modules:/home/node/node_modules
       - ./server:/home/node/server
 
-  nginx:
+  nginx_pwa:
     image: nginx:latest
     volumes:
       - ./build:/var/www/html
