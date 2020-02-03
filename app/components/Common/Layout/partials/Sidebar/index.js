@@ -14,7 +14,6 @@ import {
 const Sidebar = () => (
   <StyledSidebar>
     <BlogPostCard />
-
     <StyledAppDownloadWrapper className="justify-between">
       <GooglePlayButton />
       <PlayStoreButton />

@@ -1,8 +1,6 @@
 import Styled from 'styled-components';
-import {NavLink} from "react-router-dom";
 
-export const StyledWeather = Styled(NavLink)`
-  
+export const StyledWeather = Styled.div`
   position: absolute;
   left: 50%;
   top: 115px;

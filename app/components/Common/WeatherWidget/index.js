@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import routes from 'components/Common/Router/routes';
 
+import { NavLink } from 'react-router-dom';
 import { StyledWeather } from './styles';
 
 const WeatherWidget = ({ weather_id }) => {
@@ -11,6 +12,7 @@ const WeatherWidget = ({ weather_id }) => {
 
   return (
     <StyledWeather
+      as={NavLink}
       to={`${routes.weather.index}/${weather_id}`}
       className="current-weather"
     >

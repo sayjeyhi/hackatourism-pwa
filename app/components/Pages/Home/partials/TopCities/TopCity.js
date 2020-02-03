@@ -20,7 +20,7 @@ TopCity.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  weather_id: PropTypes.string,
+  weather_id: PropTypes.number,
 };
 
 export default TopCity;
