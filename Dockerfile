@@ -1,16 +1,14 @@
-FROM node:alpine as build
-WORKDIR /var/www/html
-COPY . /var/www/html
-USER root
-RUN apk add autoconf \
-    rsync \
-    automake \
-    bash \
-    g++ \
-    libc6-compat \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    make \
-    nasm
-RUN yarn global add gifsicle
-RUN yarn global add pm2
+FROM node:13.3.0-stretch
+RUN apt-get update
+RUN apt-get install -y libxtst6 libglu1-mesa
+RUN npm install pm2 -g
+RUN npm install express -g
+RUN usermod -u 1000 node
+RUN groupmod -g 1000 node
+COPY build/. /home/node/build/
+RUN mkdir /home/node/server
+RUN chmod 777 -R /home/node/server
+RUN chmod 777 -R /home/node/build/v2/server
+WORKDIR /home/node/
+USER node
+CMD pm2-runtime start build/static/server/runner.js -i 0
