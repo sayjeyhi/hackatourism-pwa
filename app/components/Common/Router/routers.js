@@ -9,7 +9,6 @@ import Faq from 'components/Pages/Info/Faq/loadable';
 import Rules from 'components/Pages/Info/Rules/loadable';
 import PrivacyPolicy from 'components/Pages/Info/PrivacyPolicy/loadable';
 
-import Profile from 'components/Pages/Profile/loadable';
 import Credit from 'components/Pages/Credit/loadable';
 import Search from 'components/Pages/Search/loadable';
 import AroundHere from 'components/Pages/AroundHere/loadable';
@@ -20,6 +19,10 @@ import TripSchedule from 'components/Pages/TripSchedule/loadable';
 import Weather from 'components/Pages/Weather/loadable';
 import Hotel from 'components/Pages/Hotel/loadable';
 import IntelligentAnalysis from 'components/Pages/IntelligentAnalysis/loadable';
+
+import Place from 'components/Pages/Place/loadable';
+import Profile from 'components/Pages/Profile/loadable';
+import City from 'components/Pages/City/loadable';
 import routes from './routes';
 
 const routers = [
@@ -68,11 +71,6 @@ const routers = [
         Component: <Credit />,
       },
       {
-        path: routes.user.profile,
-        exact: true,
-        Component: <Profile />,
-      },
-      {
         path: routes.aroundHere,
         exact: true,
         Component: <AroundHere />,
@@ -113,6 +111,24 @@ const routers = [
         path: routes.hotel,
         exact: true,
         Component: <Hotel />,
+      },
+      {
+        path: routes.city.index,
+        exact: true,
+        layout: 'fullWidth',
+        Component: <City />,
+      },
+      {
+        path: routes.user.profile.index,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <Profile />,
+      },
+      {
+        path: routes.place.index,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <Place />,
       },
     ],
   },

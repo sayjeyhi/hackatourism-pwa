@@ -4,7 +4,6 @@ stages:
   - test
   - build
   - deploy
-  - commands
 
 .staging: &stage
   variables:
@@ -51,8 +50,7 @@ staging:build-app:
     - cd ${PROJECT_PATH_STAGING}
     - docker build --file=Dockerfile -t "build_image_web" .
     - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn build:ssr
-    - docker run --rm --user=root -v `pwd`:/var/www/html build_image_web yarn build:ssr:prod
-
+    
 staging:build-image:
   <<: *stage
   stage: build
@@ -63,6 +61,7 @@ staging:build-image:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA"
     - docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:latest"
+    
 staging:deploy:
   <<: *stage
   stage: deploy
@@ -76,3 +75,4 @@ staging:deploy:
     - docker-compose -f docker-compose.stage.yml pull -q
     - docker run --rm --user=root -v hackatourism_web_files:/var/www/project_files ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${IMAGE_TAG_STAGING-${CI_COMMIT_SHA}} rsync -aqHPO --delete-after . ../project_files/
     - docker-compose -f docker-compose.stage.yml up -d
+    - docker-cpomose -f docker-compose.stage.yml exec pm2 pm2 start:ssr:prod

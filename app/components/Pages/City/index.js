@@ -1,14 +1,12 @@
 import React from 'react';
-
-import SeoHead from 'components/Common/Seo/SeoHead';
 import Map from 'components/Common/Map';
-
+import SeoHead from 'components/Common/Seo/SeoHead';
 import { StyledNearByWrapper } from './styles';
 
-const AroundHere = () => (
+const City = () => (
   <>
-    <SeoHead title="همین حوالی" />
-    <StyledNearByWrapper>
+    <SeoHead title="اطلاعات شهر" />
+    <StyledCityPageWrapper>
       <Map
         searchForm={false}
         locationAccess={false}
@@ -18,12 +16,9 @@ const AroundHere = () => (
         }}
         isStatic
       />
-      <StyledCityNameWrapper>
-
-      </StyledCityNameWrapper>
-
-    </StyledNearByWrapper>
+      <StyledCityNameWrapper>همدان</StyledCityNameWrapper>
+    </StyledCityPageWrapper>
   </>
 );
 
-export default AroundHere;
+export default City;
