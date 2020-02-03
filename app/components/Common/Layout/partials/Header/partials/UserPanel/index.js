@@ -9,8 +9,6 @@ import { Button } from '@snappmarket/ui';
 import { persianNumber } from '@snappmarket/helpers';
 import routes from 'components/Common/Router/routes';
 
-// import Button from 'components/Global/Button';
-// import { persianNumber } from 'constants/Helpers/numberHelpers';
 import UserIcon from 'resources/svg/Icons/UserIcon';
 import ShoppingBasketIcon from 'resources/svg/Icons/ShoppingBasketIcon';
 import CoinsIcon from 'resources/svg/Icons/CoinsIcon';
@@ -43,19 +41,6 @@ const UserPanel = ({ profile, logout, visible }) => {
         <div className="align-center">
           {generalMessages.header.userPanel.credit}:{persianNumber('22,900')}
           {generalMessages.header.pricingUnit}
-          <NavLink
-            to={routes.user.credit}
-            onClick={handleMenuItemClick}
-            className="mr-auto"
-          >
-            <Button
-              className="increase-credit"
-              color="green"
-              type="button"
-              size="sm"
-              title={generalMessages.header.userPanel.creditIncrease}
-            />
-          </NavLink>
         </div>
       </StyledPanelTop>
       <StyledPanelList>

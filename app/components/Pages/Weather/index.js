@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import { Input } from '@snappmarket/ui';
+import SearchIcon from 'resources/svg/Icons/SearchIcon';
+import { useDebounce } from '@snappmarket/hooks';
 import {
   StyledWeatherWrapper,
   StyledWeatherHeader,
   StyledWeatherContent,
   StyledSearchResult,
 } from './styles';
-import SearchIcon from 'resources/svg/Icons/SearchIcon';
-import { useDebounce } from '@snappmarket/hooks';
 
 const Weather = () => {
   const [citySearch, setCitySearch] = useState('');
   const [debouncedSearchTerm] = useDebounce(citySearch, 200);
-
 
   /**
    * Call api based on debounced value
@@ -26,7 +25,6 @@ const Weather = () => {
       // handleCloseSearchBoxPanel();
     }
   }, [debouncedSearchTerm]);
-
 
   const handleEnterPress = e => {
     if (e.which === 13 || e.keyCode === 13) {
@@ -99,16 +97,12 @@ const Weather = () => {
             onKeyPress={handleEnterPress}
             autoComplete="off"
           />
-          <button
-            className="no-effect-button"
-          >
+          <button className="no-effect-button">
             <SearchIcon />
           </button>
         </StyledWeatherContent>
 
-        <StyledSearchResult>
-
-        </StyledSearchResult>
+        <StyledSearchResult></StyledSearchResult>
       </StyledWeatherWrapper>
     </>
   );

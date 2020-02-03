@@ -18,10 +18,7 @@ const AroundHere = () => (
         }}
         isStatic
       />
-      <StyledCityNameWrapper>
-
-      </StyledCityNameWrapper>
-
+      <StyledCityNameWrapper></StyledCityNameWrapper>
     </StyledNearByWrapper>
   </>
 );

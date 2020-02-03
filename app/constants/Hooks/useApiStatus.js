@@ -1,4 +1,3 @@
-
 import createStatusSelector from 'ducks/loading/selectors';
 import { clearOne } from 'ducks/loading/actions';
 

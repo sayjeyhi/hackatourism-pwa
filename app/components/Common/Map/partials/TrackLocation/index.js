@@ -25,7 +25,6 @@ const TrackLocation = props => {
 
   useEffect(() => {
     if (didMountRef.current.value > 1) {
-
       if (error) {
         let message = mapMessages.map.getUserLocation.error.dismissed;
         /**

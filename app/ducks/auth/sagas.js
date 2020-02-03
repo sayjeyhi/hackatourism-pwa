@@ -25,16 +25,17 @@ function* loginRequest(action) {
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
-      authActions.loginFailure(
-        safeObjectPropertyRead(e, 'message', ''),
-      ),
+      authActions.loginFailure(safeObjectPropertyRead(e, 'message', '')),
     );
   }
 }
 
 function* loginMobileWithToken(action) {
   try {
-    const response = yield call(authServices.loginMobileWithToken, action.payload);
+    const response = yield call(
+      authServices.loginMobileWithToken,
+      action.payload,
+    );
 
     // eslint-disable-next-line no-console
     const {
@@ -55,7 +56,10 @@ function* loginMobileWithToken(action) {
 
 function* registerRequest(action) {
   try {
-    const response = yield call(authServices.registerWithOptionalPass, action.payload);
+    const response = yield call(
+      authServices.registerWithOptionalPass,
+      action.payload,
+    );
 
     yield put(authActions.registerSuccess(response));
     // const {
@@ -66,9 +70,7 @@ function* registerRequest(action) {
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
-      authActions.registerFailure(
-        safeObjectPropertyRead(e, 'message', ''),
-      ),
+      authActions.registerFailure(safeObjectPropertyRead(e, 'message', '')),
     );
   }
 }

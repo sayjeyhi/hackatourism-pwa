@@ -1,24 +1,27 @@
 # Koleposhti platfrom
+
 > 🎈 We will, we will, rock you!
 
 http://koleposhti.app for `Hackatourism, Kish, Iran`.
 
 ## Team :
+
 - Jafar Rezaei (jafar.rezaei.ard@gmail.com)
 - Alireza Jangi
 - Mehdi Ebrahimi
 - Saeid Tajfard
 - Arman Rokni
 
-
 ## get started
-```bash 
-yarn 
+
+```bash
+yarn
 yarn build
 yarn start:ssr:prod
 ```
 
 ---
+
 #### The MIT License (MIT)
 
 Copyright (c) 2020 @snappmarket

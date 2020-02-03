@@ -1,4 +1,3 @@
-
 const routes = {
   root: '/',
   home: '/',
