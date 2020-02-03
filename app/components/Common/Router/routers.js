@@ -119,7 +119,7 @@ const routers = [
         Component: <City />,
       },
       {
-        path: routes.user.profile.index,
+        path: routes.profile.index,
         layout: 'fullWidth',
         exact: true,
         Component: <Profile />,
