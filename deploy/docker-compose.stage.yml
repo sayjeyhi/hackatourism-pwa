@@ -8,7 +8,6 @@ services:
     volumes:
       - hackatourism_web_files:/var/www/html/
       - ./nginx:/etc/nginx/conf.d
-
 volumes:
   hackatourism_web_files:
     name: hackatourism_web_files
