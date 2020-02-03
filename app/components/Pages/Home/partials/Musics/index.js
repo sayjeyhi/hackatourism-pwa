@@ -5,7 +5,6 @@ import { StyledMusicsWrapper } from './styles'
 
 const Musics = props => <StyledMusicsWrapper>
   <button className="no-effect-button">
-    <img src={} alt={} />
     <div>ukm</div>
   </button>
 </StyledMusicsWrapper>;
