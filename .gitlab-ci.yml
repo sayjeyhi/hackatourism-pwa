@@ -11,8 +11,6 @@ stages:
   only:
     - master
   tags:
-    - koleposhti
-    - web
     - pwa
   when: manual
 
