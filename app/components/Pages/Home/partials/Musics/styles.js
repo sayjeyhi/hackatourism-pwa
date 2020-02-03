@@ -37,6 +37,21 @@ export const StyledMusicWrapper = Styled.button`
       left: 0;
     }
   }
+  &:hover {
+    .type-image:before {
+      content: '';
+      width: 0px;
+      height: 0px;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 30px solid #fff;
+      z-index: 222;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
   .type-name {
     background: #000;
     border-radius: 66% 34% 39% 61% / 51% 49% 51% 49%;
