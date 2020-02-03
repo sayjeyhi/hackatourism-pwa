@@ -3,6 +3,7 @@ version: '3.7'
 services:
   nginx_pwa_hacka:
     image: nginx:latest
+    container_name: nginx_pwa_hacka
     volumes:
       - ./build:/var/www/html
       - ./deploy/nginx/default.conf:/etc/nginx/conf.d/default.conf
