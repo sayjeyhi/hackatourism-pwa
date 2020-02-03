@@ -15,6 +15,7 @@ export const StyledMusicPlayer = Styled.div`
   bottom: 0;
   color: #999;
   box-shadow: 1px -5px 20px rgba(0, 0, 0, 0.04);
+  z-index: 999999;
   .player {
     width: 0 !important;
   }

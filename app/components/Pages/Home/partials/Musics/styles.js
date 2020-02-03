@@ -15,6 +15,7 @@ export const StyledMusicWrapper = Styled.button`
   height: 200px;
   overflow: hidden;
   align-items: center;
+  justify-content: center;
   .type-image {
     overflow: hidden;
     width: 150px;
