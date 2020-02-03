@@ -154,8 +154,8 @@ const Home = () => (
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <div className="title-holder">
-        <h2>رستوران‌های معروف</h2>
+      <div className="title-holder no-border">
+        <h2>مکان‌های معروف</h2>
       </div>
       <Places />
     </StyledHomeSection>

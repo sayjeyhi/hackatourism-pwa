@@ -81,7 +81,6 @@ export const StyledTopCity = Styled.a`
     opacity: 0;
     transition: all ease-in-out 0.3s;
     background: #2d2d2d;
-    color: #2d2d2d;
     padding: 0;
     height: auto;
     width: 32%;
@@ -89,6 +88,7 @@ export const StyledTopCity = Styled.a`
     box-shadow: -2px -6px 20px -3px rgba(0, 0, 0, 0.27), 0 7px 10px -4px rgba(0,172,193,.4);
     .weather-icon {
       background: #efefef;
+      color: #efefef;
       border-radius: 50%;
       width: 29px;
       height: 29px;

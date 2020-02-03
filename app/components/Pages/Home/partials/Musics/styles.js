@@ -1,5 +1,5 @@
 import Styled from 'styled-components';
 
-export const StyledName = Styled.div`
+export const StyledMusicsWrapper = Styled.div`
 
 `;

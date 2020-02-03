@@ -194,7 +194,9 @@ export const StyledHomeSection = Styled(Container)`
   margin-top: 10px;
   > .title-holder {
     display: flex;
-    border-bottom: 1px solid rgba(47,47,47,0.09);
+    &:not(.no-border) {
+      border-bottom: 1px solid rgba(47,47,47,0.09);
+    }
   }
   h2 {
     position: relative;

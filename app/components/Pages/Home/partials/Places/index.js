@@ -1,7 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TabSwitcher, Tab, TabPanel } from '@snappmarket/ui';
+import {
+  HospitalIcon,
+  SupermarketIcon,
+  ParkIcon,
+} from 'resources/svg/CityIcons';
 
-const Musics = props => <div></div>;
+import { StyledPlacesVerticalTab } from './styles';
+
+const Musics = props => (
+  <StyledPlacesVerticalTab>
+    <TabSwitcher initialTab={'foods'}>
+      <div className="places-side-panel">
+        <Tab id={'foods'}>
+          <ParkIcon />
+          غذایی
+        </Tab>
+        <Tab id={'shopping-center'}>
+          <SupermarketIcon />
+          مرکز خرید
+        </Tab>
+        <Tab id={'medical'}>
+          <HospitalIcon />
+          مراکز درمانی
+        </Tab>
+      </div>
+      <div className="places-content-panel">
+        <TabPanel whenActive={'foods'}>غذایی</TabPanel>
+        <TabPanel whenActive={'shopping-center'}>مرکز خرید</TabPanel>
+        <TabPanel whenActive={'medical'}>مراکز درمانی</TabPanel>
+      </div>
+    </TabSwitcher>
+  </StyledPlacesVerticalTab>
+);
 
 Musics.propTypes = {};
 
