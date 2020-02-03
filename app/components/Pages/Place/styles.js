@@ -19,13 +19,23 @@ export const StyledProfileSidebar = Styled.aside`
   position: sticky;
   top: 60px;
   
-  .user-avatar‌ {
+  .place-wallpaper{
+    background: #ccc;
+    height: 150px;
+    svg {
+      width: 100%;
+      * {
+        fill: #ccc;
+      }
+    }
+  }
+  .place-avatar‌ {
     
   }
-  .user-name {
+  .place-name {
   
   }
-  .user-joined {
+  .place-joined {
   
   }
   .follow-button {
