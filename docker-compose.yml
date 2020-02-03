@@ -11,9 +11,9 @@ services:
           - /etc/timezone:/etc/timezone:ro
         ports:
           - 7777:80
-  pm2_pwa_hacka:
-    build: .
-    container_name: pm2_pwa_hacka
-    volumes:
-        - ./node_modules:/home/node/node_modules
-        - ./server:/home/node/server
+    pm2_pwa_hacka:
+        build: .
+        container_name: pm2_pwa_hacka
+        volumes:
+            - ./node_modules:/home/node/node_modules
+            - ./server:/home/node/server
