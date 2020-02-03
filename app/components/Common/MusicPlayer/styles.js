@@ -1,5 +1,5 @@
 import Styled from 'styled-components';
-import { Button } from '@snappmarket/ui'
+import { Button } from '@snappmarket/ui';
 
 export const StyledMusicPlayer = Styled.div`
   width: 100%;
