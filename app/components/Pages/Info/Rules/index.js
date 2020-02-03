@@ -1,24 +1,14 @@
 import React from 'react';
-
 import SeoHead from 'components/Common/Seo/SeoHead';
-import rulesMessages from 'constants/Messages/rules.messages';
-import { StyledRulesWrapper } from './styles';
 
-const Rules = () => (
+export default () => (
   <>
-    <SeoHead title={rulesMessages.rulesTitle} />
-    <StyledRulesWrapper>
-      <h1>{rulesMessages.rulesTitle}</h1>
-      {rulesMessages.rulesContent.map((message, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <p key={index}>{message}</p>
-      ))}
-      <span>{rulesMessages.address}</span>
-      <span>{rulesMessages.phone}</span>
-      <span>{rulesMessages.email}</span>
-      <span>{rulesMessages.zipCode}</span>
-    </StyledRulesWrapper>
+    <SeoHead title="قوانین و مقررات" />
+    <div
+      style={{ height: '80vh' }}
+      className="text-huge text-bold text-gray-normal align-center justify-center"
+    >
+      هنوز قانونی نداریم... راحت باشین
+    </div>
   </>
 );
-
-export default Rules;

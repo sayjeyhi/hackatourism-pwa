@@ -42,6 +42,7 @@ const routers = [
         path: routes.info.faq,
         exact: true,
         Component: <Faq />,
+        layout: 'fullWidth',
       },
       {
         path: routes.info.about,
@@ -53,11 +54,13 @@ const routers = [
         path: routes.info.rules,
         exact: true,
         Component: <Rules />,
+        layout: 'fullWidth',
       },
       {
         path: routes.info.privacyPolicy,
         exact: true,
         Component: <PrivacyPolicy />,
+        layout: 'fullWidth',
       },
 
       {

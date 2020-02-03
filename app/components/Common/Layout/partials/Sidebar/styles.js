@@ -32,13 +32,13 @@ export const StyledSidebar = Styled.aside`
   font-size: calc(${props => props.theme.defaultRem} * 1.1);
   color: ${props => props.theme.colors.gray.normal};
   padding: 10px 15px;
-  margin-top: 25px;
-  height: 100vh;
+  margin-top: 15px;
+  height: 94vh;
   min-height: 200px;
   overflow: auto;
   position: -webkit-sticky;
   position: sticky;
-  top: 75px;
+  top: 80px;
   
   ul {
     width: 100%;

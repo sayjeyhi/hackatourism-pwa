@@ -5,7 +5,7 @@ import {
   HospitalIcon,
   SupermarketIcon,
   ParkIcon,
-  TreeIcon
+  TreeIcon,
 } from 'resources/svg/CityIcons';
 
 import { StyledPlacesVerticalTab } from './styles';
@@ -32,7 +32,7 @@ const Musics = props => (
         </Tab>
       </div>
       <div className="places-content-panel">
-        <TabPanel whenActive="foods">غذایی</TabPanel>
+        <TabPanel whenActive="foods"></TabPanel>
         <TabPanel whenActive="shopping-center">مرکز خرید</TabPanel>
         <TabPanel whenActive="medical">مراکز درمانی</TabPanel>
         <TabPanel whenActive="entertainment">تفریحات</TabPanel>
