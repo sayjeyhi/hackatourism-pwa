@@ -161,7 +161,7 @@ const Home = () => (
     </StyledHomeSection>
 
     <StyledHomeSection>
-      <div className="title-holder">
+      <div className="title-holder no-border">
         <h2>موسیقی سفر</h2>
       </div>
       <Musics />

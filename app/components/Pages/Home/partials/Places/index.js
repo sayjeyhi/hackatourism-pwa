@@ -32,7 +32,7 @@ const Musics = props => (
         </Tab>
       </div>
       <div className="places-content-panel">
-        <TabPanel whenActive="foods"></TabPanel>
+        <TabPanel whenActive="foods">sdfsdf</TabPanel>
         <TabPanel whenActive="shopping-center">مرکز خرید</TabPanel>
         <TabPanel whenActive="medical">مراکز درمانی</TabPanel>
         <TabPanel whenActive="entertainment">تفریحات</TabPanel>
