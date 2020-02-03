@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 import { Container } from '@snappmarket/ui';
 import { persianNumber } from '@snappmarket/helpers';
@@ -12,15 +13,9 @@ import {
   StyledSongsList,
 } from './styles';
 
-const MusicPlayer = props => {
-  // const { urls } = props;
-  const urls = [
-    'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Yaran%20Che%20Gharibane%20(320).mp3',
-    'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Rokhsate%20Didar%20(320).mp3',
-    'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Change%20Del%20(320).mp3',
-  ];
-
+const MusicPlayer = ({ songs }) => {
   let player = useRef(null);
+  const [songsListVisibility, setSongsListVisibility] = useState(false);
   const [played, setPlayed] = useState(40);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
@@ -41,16 +36,21 @@ const MusicPlayer = props => {
     player.seekTo(parseFloat(e.target.value));
   };
   const handleNext = () => {
-    setSongPointer(songPointer === urls.length - 1 ? 1 : songPointer + 1);
+    setSongPointer(songPointer === songs.length - 1 ? 1 : songPointer + 1);
   };
   const handlePrevious = () => {
-    setSongPointer(songPointer === -1 ? urls.length - 1 : songPointer - 1);
+    setSongPointer(songPointer === -1 ? songs.length - 1 : songPointer - 1);
   };
+
   const handleProgress = status => {
     if (status.played) {
       setPlayed(status.played);
       setElapsed(status.playedSeconds);
     }
+  };
+
+  const handleToggleSongsList = () => {
+    setSongsListVisibility(!songsListVisibility);
   };
 
   const setRef = e => {
@@ -70,7 +70,7 @@ const MusicPlayer = props => {
         <ReactPlayer
           className="player"
           ref={setRef}
-          url={urls[songPointer]}
+          url={songs[songPointer].url}
           width="100%"
           height={10}
           playing={playing}
@@ -80,8 +80,24 @@ const MusicPlayer = props => {
           onDuration={setDuration}
         />
 
-        <StyledSongsList>
+        <StyledSongsList
+          className="no-effect-button"
+          onClick={handleToggleSongsList}
+        >
           <SongsList /> لیست‌ آهنگ‌ها
+          <div className={`songsList ${songsListVisibility ? 'active' : ''}`}>
+            <ul>
+              {songs.map((song, index) => (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
+                <li key={song.url} onClick={() => setSongPointer(index)}>
+                  {song.title}{' '}
+                  <span className="duration">
+                    {persianNumber(song.duration)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </StyledSongsList>
         <StyledRange>
           <input
@@ -106,7 +122,7 @@ const MusicPlayer = props => {
             type="button"
             className="no-effect-button circle"
             onClick={handleNext}
-            disabled={!urls.length}
+            disabled={!songs.length}
           >
             <Next />
           </StyledButton>
@@ -121,7 +137,7 @@ const MusicPlayer = props => {
             type="button"
             className="no-effect-button circle"
             onClick={handlePrevious}
-            disabled={!urls.length}
+            disabled={!songs.length}
           >
             <Next className="rotate-180" />
           </StyledButton>
@@ -137,6 +153,33 @@ const MusicPlayer = props => {
       </Container>
     </StyledMusicPlayer>
   );
+};
+
+MusicPlayer.propTypes = {
+  songs: PropTypes.array,
+};
+
+MusicPlayer.defaultProps = {
+  songs: [
+    {
+      title: 'یاران چه‌غریبانه',
+      duration: '4:37',
+      url:
+        'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Yaran%20Che%20Gharibane%20(320).mp3',
+    },
+    {
+      title: 'یاران چه‌غریبانه',
+      duration: '4:37',
+      url:
+        'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Rokhsate%20Didar%20(320).mp3',
+    },
+    {
+      title: 'یاران چه‌غریبانه',
+      duration: '4:37',
+      url:
+        'http://dls.music-fa.com/tagdl/downloads/Koveytipoor%20-%20Change%20Del%20(320).mp3',
+    },
+  ],
 };
 
 export default MusicPlayer;
