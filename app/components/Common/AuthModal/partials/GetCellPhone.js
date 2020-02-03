@@ -22,7 +22,7 @@ import { StyledTabContainer, StyledLocationContainer } from '../styles';
 
 const GetCellPhone = props => {
   const { login, isRegistered } = props;
-  const loginStatus = useApiStatus(login);
+  const [loginStatus] = useApiStatus(login);
   const { cellphone, setCellphone, setStep } = useContext(authContext);
   const focusRef = useFocus(null);
 

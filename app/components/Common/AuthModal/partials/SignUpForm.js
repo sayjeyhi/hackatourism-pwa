@@ -11,20 +11,18 @@ import APP_INFO from 'constants/appInfo';
 import userMessages from 'constants/Messages/user.messages';
 import generalMessages from 'constants/Messages/general.messages';
 
+import useApiStatus from 'constants/Hooks/useApiStatus';
 import {
   StyledTabContainer,
   StyledLocationContainer,
   StyledCounter,
 } from '../styles';
 import { context as authContext } from '../context/authContext';
-import useApiStatus from 'constants/Hooks/useApiStatus';
 
 const SignUpForm = props => {
-  const {
-    register,
-  } = props;
+  const { register } = props;
 
-  const ss = useApiStatus(register);
+  const [registerStatus] = useApiStatus(register);
   const { cellphone, setLoggedIn } = useContext(authContext);
   const [verification, setVerification] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -64,7 +62,7 @@ const SignUpForm = props => {
   /**
    * User logged in so close modal
    */
-  if (registerWithOptionalPassStatus === APP_INFO.API_STATUSES.SUCCESS) {
+  if (registerStatus === APP_INFO.API_STATUSES.SUCCESS) {
     setLoggedIn(true);
   }
 
@@ -124,10 +122,7 @@ const SignUpForm = props => {
               <Button
                 size="md"
                 title={userMessages.acceptVerificationCode}
-                disabled={
-                  registerWithOptionalPassStatus ===
-                  APP_INFO.API_STATUSES.REQUEST
-                }
+                disabled={registerStatus === APP_INFO.API_STATUSES.REQUEST}
                 fullWidth
               />
             </Col>

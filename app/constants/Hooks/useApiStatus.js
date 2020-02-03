@@ -1,18 +1,16 @@
 import createStatusSelector from 'ducks/loading/selectors';
-import { clearOne } from 'ducks/loading/actions';
+import loadingActions from 'ducks/loading/actions';
+import { useDispatch } from 'react-redux';
 
 /**
  * useStatus
  * @param action
- * @returns string 'REQUESTED'
- * @returns string 'NOT_CALLED'
- * @returns string 'SUCCESS'
- * @returns string 'FAILURE'
  */
 const useApiStatus = action => {
   const status = createStatusSelector(action);
+  const dispatch = useDispatch();
 
-  return [status, clearer];
+  return [status, dispatch(loadingActions.clearOne(action))];
 };
 
 export default useApiStatus;

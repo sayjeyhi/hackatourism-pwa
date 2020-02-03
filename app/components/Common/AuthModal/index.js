@@ -42,7 +42,7 @@ const AuthModal = props => {
   }, [authModalVisibility, forceAuthModalVisibility, isUserLoggedIn]);
 
   const forceStepCellphone = () => {
-    clearLoadingStatus(authActions.loginWithNoPassRequest());
+    clearLoadingStatus(authActions.loginRequest());
     setStep('cellphone');
   };
 
