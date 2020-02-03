@@ -13,4 +13,4 @@ RUN apk add autoconf \
     make \
     nasm
 RUN yarn global add gifsicle
-RUN npm install pm2 -g
+RUN yarn global add pm2
