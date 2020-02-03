@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ReactPlayer from 'react-player';
@@ -17,11 +17,6 @@ import {
 } from './styles';
 
 const MusicPlayer = ({ songType, playerVisibility }) => {
-  console.log({
-    songType,
-    playerVisibility,
-  });
-
   let player = useRef(null);
   const [songsListVisibility, setSongsListVisibility] = useState(false);
   const [played, setPlayed] = useState(40);
@@ -31,12 +26,18 @@ const MusicPlayer = ({ songType, playerVisibility }) => {
   const [duration, setDuration] = useState(0);
   const [elapsed, setElapsed] = useState(0);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    if (!playerVisibility) {
+      setPlaying(true);
+    }
+  }, []);
+
   if (!playerVisibility) {
     return null;
   }
 
   const songs = SONGS[songType];
-
   const togglePlay = () => {
     setPlaying(!playing);
   };

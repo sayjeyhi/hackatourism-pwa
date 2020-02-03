@@ -17,14 +17,14 @@ import {
   StyledCounter,
 } from '../styles';
 import { context as authContext } from '../context/authContext';
+import useApiStatus from 'constants/Hooks/useApiStatus';
 
 const SignUpForm = props => {
   const {
-    loginWithNoPass,
-    registerWithOptionalPass,
-    registerWithOptionalPassStatus,
+    register,
   } = props;
 
+  const ss = useApiStatus(register);
   const { cellphone, setLoggedIn } = useContext(authContext);
   const [verification, setVerification] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -38,7 +38,7 @@ const SignUpForm = props => {
 
   const handleSignupForm = e => {
     e.preventDefault();
-    registerWithOptionalPass({
+    register({
       verification: verification.trim(),
       firstname: firstName.trim(),
       lastname: lastName.trim(),
@@ -53,10 +53,10 @@ const SignUpForm = props => {
 
   const handleResendVerification = e => {
     e.preventDefault();
-    loginWithNoPass({
-      cellphone: englishNumber(cellphone),
-      resend: true,
-    });
+    // loginWithNoPass({
+    //   cellphone: englishNumber(cellphone),
+    //   resend: true,
+    // });
     resetTimer();
     startTimer();
   };
@@ -161,18 +161,9 @@ const SignUpForm = props => {
 };
 
 SignUpForm.propTypes = {
-  registerWithOptionalPass: PropTypes.func,
-  registerWithOptionalPassStatus: PropTypes.string,
-  loginWithNoPass: PropTypes.func,
+  register: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  registerWithOptionalPassStatus: authSelectors.getRegisterWithOptionalPassStatus(
-    state,
-  ),
-});
-
-export default connect(mapStateToProps, {
-  registerWithOptionalPass: authActions.registerWithOptionalPassRequest,
-  loginWithNoPass: authActions.loginWithNoPassRequest,
+export default connect(null, {
+  register: authActions.registerRequest,
 })(SignUpForm);

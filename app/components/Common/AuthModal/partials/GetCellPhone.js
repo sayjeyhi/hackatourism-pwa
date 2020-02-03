@@ -14,13 +14,15 @@ import {
 
 import { useFocus } from '@snappmarket/hooks';
 
+import useApiStatus from 'constants/Hooks/useApiStatus';
 import APP_INFO from 'constants/appInfo';
 
 import { context as authContext } from '../context/authContext';
 import { StyledTabContainer, StyledLocationContainer } from '../styles';
 
 const GetCellPhone = props => {
-  const { loginWithNoPass, loginWithNoPassStatus, isRegistered } = props;
+  const { login, isRegistered } = props;
+  const loginStatus = useApiStatus(login);
   const { cellphone, setCellphone, setStep } = useContext(authContext);
   const focusRef = useFocus(null);
 
@@ -30,13 +32,13 @@ const GetCellPhone = props => {
 
     if (tempCellphone.length > 0) {
       setCellphone(tempCellphone);
-      loginWithNoPass({
+      login({
         cellphone: tempCellphone,
       });
     }
   };
 
-  if (loginWithNoPassStatus === APP_INFO.API_STATUSES.SUCCESS) {
+  if (loginStatus === APP_INFO.API_STATUSES.SUCCESS) {
     setStep(isRegistered ? 'verification' : 'signUp');
   }
 
@@ -81,9 +83,7 @@ const GetCellPhone = props => {
             <Col xs={12}>
               <Button
                 size="md"
-                disabled={
-                  loginWithNoPassStatus === APP_INFO.API_STATUSES.REQUEST
-                }
+                disabled={loginStatus === APP_INFO.API_STATUSES.REQUEST}
                 title={userMessages.sendVerificationCode}
                 primary
                 fullWidth
@@ -97,16 +97,14 @@ const GetCellPhone = props => {
 };
 
 GetCellPhone.propTypes = {
-  loginWithNoPass: PropTypes.func,
-  loginWithNoPassStatus: PropTypes.string,
+  login: PropTypes.func,
   isRegistered: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  loginWithNoPassStatus: authSelectors.getLoginWithNoPassStatus(state),
   isRegistered: authSelectors.getIsRegistered(state),
 });
 
 export default connect(mapStateToProps, {
-  loginWithNoPass: authActions.loginWithNoPassRequest,
+  login: authActions.logoutRequest,
 })(GetCellPhone);

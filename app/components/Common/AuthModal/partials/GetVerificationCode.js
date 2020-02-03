@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { authActions, authSelectors } from 'ducks';
+import { authActions } from 'ducks';
 
 import userMessages from 'constants/Messages/user.messages';
 import generalMessages from 'constants/Messages/general.messages';
@@ -20,11 +20,7 @@ import {
 } from '../styles';
 
 const GetVerificationCode = props => {
-  const {
-    loginMobileWithToken,
-    loginMobileWithTokenStatus,
-    loginWithNoPass,
-  } = props;
+  const { loginMobileWithToken, login } = props;
 
   const { cellphone, setLoggedIn } = useContext(authContext);
   const [verification, setVerification] = useState('');
@@ -48,7 +44,7 @@ const GetVerificationCode = props => {
 
   const handleResendVerification = e => {
     e.preventDefault();
-    loginWithNoPass({
+    login({
       cellphone: englishNumber(cellphone),
       resend: true,
     });
@@ -141,17 +137,9 @@ const GetVerificationCode = props => {
 
 GetVerificationCode.propTypes = {
   loginMobileWithToken: PropTypes.func,
-  loginMobileWithTokenStatus: PropTypes.string,
-  loginWithNoPass: PropTypes.func,
+  login: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  loginMobileWithTokenStatus: authSelectors.getLoginMobileWithTokenStatus(
-    state,
-  ),
-});
-
-export default connect(mapStateToProps, {
-  loginMobileWithToken: authActions.loginMobileWithTokenRequest,
-  loginWithNoPass: authActions.loginWithNoPassRequest,
+export default connect(null, {
+  login: authActions.loginRequest,
 })(GetVerificationCode);
