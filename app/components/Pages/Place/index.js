@@ -4,7 +4,7 @@ import SeoHead from 'components/Common/Seo/SeoHead';
 import Map from 'components/Common/Map';
 import PlusIcon from 'resources/svg/Icons/PlusIcon';
 import Footer from 'components/Common/Layout/partials/Footer';
-import Comments from './Partials/Comments';
+import Comments from 'components/Common/Comments';
 import Claim from './Partials/Claim';
 
 import {

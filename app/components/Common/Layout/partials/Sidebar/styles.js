@@ -31,13 +31,14 @@ export const StyledSidebar = Styled.aside`
   flex-direction: column;
   font-size: calc(${props => props.theme.defaultRem} * 1.1);
   color: ${props => props.theme.colors.gray.normal};
-  padding: 0 15px;
+  padding: 10px 15px;
+  margin-top: 25px;
   height: 100vh;
   min-height: 200px;
   overflow: auto;
   position: -webkit-sticky;
   position: sticky;
-  top: 60px;
+  top: 75px;
   
   ul {
     width: 100%;

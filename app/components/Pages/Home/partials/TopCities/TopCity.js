@@ -1,21 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+
 import routes from 'components/Common/Router/routes';
+import WeatherWidget from 'components/Common/WeatherWidget';
 import { StyledTopCity } from './styles';
 
-const TopCity = ({ id, name, description, image, weather_id }) => (
+const TopCity = ({ id, name, description, image, weather_id: weatherId }) => (
   <StyledTopCity as={NavLink} to={`${routes.city.path}/${id}`}>
     <img alt={name} src={image} />
     <div className="city-name">{name}</div>
     <div className="city-description">{description}</div>
-    <NavLink
-      to={`${routes.weather.index}/${weather_id}`}
-      className="current-weather"
-    >
-      <div className="weather-icon align-center justify-center">.</div>
-      <div className="weather-metric">0</div>
-    </NavLink>
+    <WeatherWidget weather_id={weatherId} />
   </StyledTopCity>
 );
 

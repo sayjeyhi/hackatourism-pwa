@@ -12,7 +12,7 @@ import {
 } from './styles';
 
 const Sidebar = () => (
-  <StyledSidebar className="align-center justify-center">
+  <StyledSidebar>
     <BlogPostCard />
 
     <StyledAppDownloadWrapper className="justify-between">
