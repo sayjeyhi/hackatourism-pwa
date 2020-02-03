@@ -5,7 +5,7 @@ import routes from 'components/Common/Router/routes';
 import { NavLink } from 'react-router-dom';
 import { StyledWeather } from './styles';
 
-const WeatherWidget = ({ weather_id }) => {
+const WeatherWidget = ({ weatherId }) => {
   useEffect(() => {
     // get weather info and set state
   });
@@ -13,7 +13,7 @@ const WeatherWidget = ({ weather_id }) => {
   return (
     <StyledWeather
       as={NavLink}
-      to={`${routes.weather.index}/${weather_id}`}
+      to={`${routes.weather.path}/${weatherId}`}
       className="current-weather"
     >
       <div className="weather-icon align-center justify-center">.</div>

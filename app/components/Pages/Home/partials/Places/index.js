@@ -5,31 +5,37 @@ import {
   HospitalIcon,
   SupermarketIcon,
   ParkIcon,
+  TreeIcon
 } from 'resources/svg/CityIcons';
 
 import { StyledPlacesVerticalTab } from './styles';
 
 const Musics = props => (
   <StyledPlacesVerticalTab>
-    <TabSwitcher initialTab={'foods'}>
+    <TabSwitcher initialTab="foods">
       <div className="places-side-panel">
-        <Tab id={'foods'}>
+        <Tab id="foods">
           <ParkIcon />
           غذایی
         </Tab>
-        <Tab id={'shopping-center'}>
+        <Tab id="shopping-center">
           <SupermarketIcon />
           مرکز خرید
         </Tab>
-        <Tab id={'medical'}>
+        <Tab id="medical">
           <HospitalIcon />
           مراکز درمانی
         </Tab>
+        <Tab id="entertainment">
+          <TreeIcon />
+          تفریحات
+        </Tab>
       </div>
       <div className="places-content-panel">
-        <TabPanel whenActive={'foods'}>غذایی</TabPanel>
-        <TabPanel whenActive={'shopping-center'}>مرکز خرید</TabPanel>
-        <TabPanel whenActive={'medical'}>مراکز درمانی</TabPanel>
+        <TabPanel whenActive="foods">غذایی</TabPanel>
+        <TabPanel whenActive="shopping-center">مرکز خرید</TabPanel>
+        <TabPanel whenActive="medical">مراکز درمانی</TabPanel>
+        <TabPanel whenActive="entertainment">تفریحات</TabPanel>
       </div>
     </TabSwitcher>
   </StyledPlacesVerticalTab>

@@ -11,7 +11,7 @@ const TopCity = ({ id, name, description, image, weather_id: weatherId }) => (
     <img alt={name} src={image} />
     <div className="city-name">{name}</div>
     <div className="city-description">{description}</div>
-    <WeatherWidget weather_id={weatherId} />
+    <WeatherWidget weatherId={weatherId} />
   </StyledTopCity>
 );
 

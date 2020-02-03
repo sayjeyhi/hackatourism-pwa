@@ -46,7 +46,7 @@ const City = () => (
             </ul>
 
             <h3>وضعیت جوی فعلی</h3>
-            <WeatherWidget weather_id={113646} />
+            <WeatherWidget weatherId={113646} />
           </Col>
         </Row>
       </Container>
