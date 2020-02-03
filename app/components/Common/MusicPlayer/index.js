@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import ReactPlayer from 'react-player';
 import { Container } from '@snappmarket/ui';
+import { persianNumber } from '@snappmarket/helpers';
 
 import { Next, SongsList, Pause, Play, Speaker } from 'resources/svg/Music';
 import {
@@ -8,6 +9,7 @@ import {
   StyledTimer,
   StyledButton,
   StyledRange,
+  StyledSongsList,
 } from './styles';
 
 const MusicPlayer = props => {
@@ -56,14 +58,17 @@ const MusicPlayer = props => {
   };
 
   const calculateTime = time =>
-    `${(time - Math.floor(time / 60) * 60).toFixed(0)} : ${Math.floor(
-      time / 60,
-    )}`;
+    persianNumber(
+      `${(time - Math.floor(time / 60) * 60).toFixed(0)} : ${Math.floor(
+        time / 60,
+      )}`,
+    );
 
   return (
-    <StyledMusicPlayer>
+    <StyledMusicPlayer className="align-center">
       <Container className="fixed">
         <ReactPlayer
+          className="player"
           ref={setRef}
           url={urls[songPointer]}
           width="100%"
@@ -74,6 +79,10 @@ const MusicPlayer = props => {
           onProgress={handleProgress}
           onDuration={setDuration}
         />
+
+        <StyledSongsList>
+          <SongsList /> لیست‌ آهنگ‌ها
+        </StyledSongsList>
         <StyledRange>
           <input
             type="range"
@@ -85,15 +94,13 @@ const MusicPlayer = props => {
             max={1}
             step="any"
           />
+
+          <StyledTimer>
+            <p>{calculateTime(duration)}</p>
+            <p>{calculateTime(elapsed)}</p>
+          </StyledTimer>
         </StyledRange>
 
-        <StyledTimer>
-          <p>{calculateTime(duration)}</p>
-          <p>{calculateTime(elapsed)}</p>
-        </StyledTimer>
-      </Container>
-
-      <Container className="fixed">
         <div className="music-controls flex-row">
           <StyledButton
             type="button"

@@ -9,12 +9,15 @@ export const StyledButton = Styled.button`
 
 export const StyledMusicPlayer = Styled.div`
   width: 100%;
-  height: 60px;
+  height: 45px;
   background-color: #fff;
   position: fixed;
   bottom: 0;
   color: #999;
   box-shadow: 1px -5px 20px rgba(0, 0, 0, 0.04);
+  .player {
+    width: 0 !important;
+  }
   & input {
     width: 100%;
     direction: ltr;
@@ -27,96 +30,60 @@ export const StyledMusicPlayer = Styled.div`
 export const StyledTimer = Styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  p {
+     margin: 0;
+     padding: 0;
+  }
+`;
+
+export const StyledSongsList = Styled.div`
+  flex: 0 0 10%;
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  svg {
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const StyledRange = Styled.div`
-  input[type=range] {
-    -webkit-appearance: none;
-    margin: 18px 0;
+  flex: 0 0 40%;
+  margin-left: auto;
+  margin-right: auto
+  .slidecontainer {
     width: 100%;
   }
-  input[type=range]:focus {
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #d3d3d3;
     outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
   }
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
+  
+  .slider:hover {
+    opacity: 1;
   }
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
+  
+  .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    margin-top: -14px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #367ebd;
-  }
-  input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
-  }
-  input[type=range]::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #4CAF50;
     cursor: pointer;
   }
-  input[type=range]::-ms-track {
-    width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-    animate: 0.2s;
-    background: transparent;
-    border-color: transparent;
-    border-width: 16px 0;
-    color: transparent;
-  }
-  input[type=range]::-ms-fill-lower {
-    background: #2a6495;
-    border: 0.2px solid #010101;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
-  input[type=range]::-ms-fill-upper {
-    background: #3071a9;
-    border: 0.2px solid #010101;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
-  input[type=range]::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
+  
+  .slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #4CAF50;
     cursor: pointer;
   }
-  input[type=range]:focus::-ms-fill-lower {
-    background: #3071a9;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: #367ebd;
-  }
-  `;
+`;

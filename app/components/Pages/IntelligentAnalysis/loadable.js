@@ -1,7 +1,6 @@
 import Loadable from 'react-loadable';
 
 export default Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'Intelligent-Analysis' */ './index'),
+  loader: () => import(/* webpackChunkName: 'IntelligentAnalysis' */ './index'),
   loading: () => null,
 });
