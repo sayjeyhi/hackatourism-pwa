@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { ProgressBar } from '@snappmarket/ui';
 import { StyledCreativeSideBarCard } from './styles';
-// import useInterval from './useInterval';
+import userImage from 'resources/img/user.png';
 
 const BlogPostCard = () => (
   // const [percent, setPercent] = useState(0);
@@ -24,10 +23,10 @@ const BlogPostCard = () => (
       <div className="avatar">
         <img
           alt="@2"
-          src="http://cdn.hamgardi.com/Images/Profile/20180520091/100/Hamgardi_1516ho7ie5F.jpg"
+          src={userImage}
         />
       </div>
-      <span className="author-name"> گلاره یوسف پور </span>
+      <span className="author-name">احمد محمدی</span>
       <a href="#" className="read-more">
         بیشتر
       </a>

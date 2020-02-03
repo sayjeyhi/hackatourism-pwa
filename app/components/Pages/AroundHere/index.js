@@ -4,6 +4,7 @@ import SeoHead from 'components/Common/Seo/SeoHead';
 import Map from 'components/Common/Map';
 
 import { StyledNearByWrapper } from './styles';
+import Footer from 'components/Common/Layout/partials/Footer';
 
 const AroundHere = () => (
   <>
@@ -18,8 +19,9 @@ const AroundHere = () => (
         }}
         isStatic
       />
-      <StyledCityNameWrapper></StyledCityNameWrapper>
     </StyledNearByWrapper>
+
+    <Footer />
   </>
 );
 

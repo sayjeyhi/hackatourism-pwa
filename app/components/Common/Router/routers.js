@@ -77,6 +77,7 @@ const routers = [
         path: routes.aroundHere,
         exact: true,
         Component: <AroundHere />,
+        layout: 'fullWidth',
       },
       {
         path: routes.smartTip,
