@@ -57,3 +57,8 @@ export const StyledPlacesVerticalTab = Styled.div`
     }
   }
 `;
+
+
+export const StyledPlace = Styled.div`
+  
+`;

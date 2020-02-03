@@ -4,7 +4,7 @@ import { TabSwitcher, Tab, TabPanel } from '@snappmarket/ui';
 import {
   HospitalIcon,
   SupermarketIcon,
-  ParkIcon,
+  CoffeeShopIcon,
   TreeIcon,
 } from 'resources/svg/CityIcons';
 
@@ -15,7 +15,7 @@ const Musics = props => (
     <TabSwitcher initialTab="foods">
       <div className="places-side-panel">
         <Tab id="foods">
-          <ParkIcon />
+          <CoffeeShopIcon />
           غذایی
         </Tab>
         <Tab id="shopping-center">

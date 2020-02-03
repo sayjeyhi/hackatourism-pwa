@@ -8,7 +8,7 @@ export const StyledMusicsWrapper = Styled.div`
 
 export const StyledMusicWrapper = Styled.button`
   flex: 0 0 calc(25% - 6px);
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
