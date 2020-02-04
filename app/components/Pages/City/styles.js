@@ -1,20 +1,18 @@
 import Styled from 'styled-components';
 import { Container } from '@snappmarket/ui';
 
-export const StyledCityPageWrapper = Styled.div`
-
-`;
+export const StyledCityPageWrapper = Styled.div``;
 
 export const StyledCityNameWrapper = Styled.div`
   background: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0px 7px 13px -3px rgba(0, 0, 0, 0.2);
+  border-radius: 30px 30px 10px 10px;
+  box-shadow: 0px 7px 13px -3px rgba(0,0,0,0.2);
   font-size: 24px;
   font-weight: bold;
   display: inline-flex;
-  padding: 12px 22px;
+  padding: 12px 30px 12px 30px;
   position: relative;
-  top: -27px;
+  top: -37px;
 `;
 
 export const StyledDistancesContainer = Styled(Container)`
@@ -36,9 +34,11 @@ export const StyledDistancesContainer = Styled(Container)`
   }
   .distances {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     li {
       margin: 0;
-      padding: 0;
+      padding: 6px 19px 6px 24px;
       font-size: 14px;
       
       div {

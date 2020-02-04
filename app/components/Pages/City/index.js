@@ -8,6 +8,8 @@ import Comments from 'components/Common/Comments';
 import GlobeIcon from 'resources/svg/GlobeIcon';
 import DistanceIcon from 'resources/svg/DistanceIcon';
 import DiscountedTicket from 'resources/svg/DiscountedTicket';
+import NearCitiesIcon from 'resources/svg/NearCitiesIcon';
+import ReservedIcon from 'resources/svg/ReservedIcon';
 import Footer from 'components/Common/Layout/partials/Footer';
 import FullWidthMap from 'components/Common/FullWidthMap';
 
@@ -50,7 +52,9 @@ const City = () => {
                 <DiscountedTicket />
                 جاهای تخفیف‌دار{' '}
               </h3>
-              <div className="justify-around">
+              <div className="justify-around pl-3" style={{ flexWrap: 'wrap' }}>
+                <PlaceWrapper />
+                <PlaceWrapper />
                 <PlaceWrapper />
                 <PlaceWrapper />
                 <PlaceWrapper />
@@ -76,25 +80,28 @@ const City = () => {
                 </li>
               </ul>
 
-              <h3>
+              <h3 className="mt-4"><ReservedIcon />برنامه‌ریزی سفر</h3>
+              <div>
+
+              </div>
+
+              <h3 className="mt-4">
                 <GlobeIcon /> وضعیت جوی فعلی
               </h3>
               <WeatherWidget weatherId={113646} />
             </Col>
           </Row>
 
-          <Row>
-            <h3>از اینجا می‌تونی بری به
-              <DistanceIcon />
+          <Row className="flex-column">
+            <h3>
+              <NearCitiesIcon />
+              از اینجا می‌تونی بری!
             </h3>
-            <div className="bg-gray-bright">
-              <CitiesStates />
-            </div>
+            <CitiesStates />
           </Row>
         </StyledDistancesContainer>
 
-
-        <Comments />
+        <Comments className="mb-4" />
       </StyledCityPageWrapper>
 
       <div className="align-center justify-center mt-2 pb-2">

@@ -1,17 +1,48 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import CommentsIcon from 'resources/svg/CommentsIcon';
 import { StyledCommentsWrapper } from './styles';
 
-const Comments = () => {
+const Comments = ({ className }) => {
   const [editingComment, setEditingComment] = useState(false);
+  const [commentContent, setCommentContent] = useState('');
 
   const handleAddComment = () => {
     setEditingComment(true);
   };
+  const handleChangeCommentContent = e => {
+    setCommentContent(e.target.value);
+  };
+
+  const handleCloseEditingMode = () => {
+    setEditingComment(false);
+  };
 
   return (
-    <StyledCommentsWrapper>
-      <div className="comments-list flex-row">
+    <StyledCommentsWrapper
+      className={`align-center justify-center flex-column ${className}`}
+    >
+      <CommentsIcon className="comments-icon" />
+
+      <input
+        className="add-comment no-effect-button"
+        contentEditable={editingComment}
+        onFocus={handleAddComment}
+        onChange={handleChangeCommentContent}
+        onBlur={handleCloseEditingMode}
+        placeholder="نظر شما در مورد این کسب و کار ..."
+        value={commentContent}
+      />
+      {editingComment && commentContent.length > 0 ? (
+        <button
+          type="button"
+          className="add-comment-button mb-3 br-5 no-effect-button"
+        >
+          ثبت نظر
+        </button>
+      ) : null}
+
+      <div className="mt-4 comments-list flex-row">
         <div className="comment-author">
           <div className="user-avatar">
             <img
@@ -30,17 +61,12 @@ const Comments = () => {
           </div>
         </div>
       </div>
-
-      <div
-        className="add-comment"
-        contentEditable={editingComment}
-        onClick={handleAddComment}
-      >
-        <CommentsIcon />
-        نظر شما در مورد این کسب و کار ...
-      </div>
     </StyledCommentsWrapper>
   );
+};
+
+Comments.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Comments;

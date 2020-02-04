@@ -1,8 +1,6 @@
 import Styled from 'styled-components';
 
 export const StyledWeather = Styled.div`
-  transform: scale(0.6) translate(-50%,0);
-  opacity: 0;
   transition: all ease-in-out 0.3s;
   background: #2d2d2d;
   height: auto;
