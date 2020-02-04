@@ -27,8 +27,8 @@ import {
 const City = () => {
   const cityInfo = {
     title: 'همدان',
-    lat: 35.1,
-    lng: 22.1,
+    lat: 35.7231273,
+    lng: 51.3877295,
   };
 
   return (
@@ -42,6 +42,7 @@ const City = () => {
             lat: cityInfo.lat,
             lng: cityInfo.lng,
           }}
+          mapZoom={10}
           isStatic
         />
         <div className="align-center justify-center">
