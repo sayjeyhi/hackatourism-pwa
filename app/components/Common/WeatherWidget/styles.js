@@ -1,14 +1,10 @@
 import Styled from 'styled-components';
 
 export const StyledWeather = Styled.div`
-  position: absolute;
-  left: 50%;
-  top: 115px;
   transform: scale(0.6) translate(-50%,0);
   opacity: 0;
   transition: all ease-in-out 0.3s;
   background: #2d2d2d;
-  padding: 0;
   height: auto;
   width: 32%;
   border-radius: 24px;

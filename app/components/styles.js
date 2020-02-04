@@ -377,6 +377,10 @@ const flex = css`
     display: flex;
     justify-content: space-between;
   }
+  .justify-around {
+    display: flex;
+    justify-content: space-around;
+  }
   .flex-row {
     display: flex;
     flex-direction: row;

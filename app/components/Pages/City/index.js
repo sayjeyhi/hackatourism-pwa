@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from '@snappmarket/ui';
 
-import Map from 'components/Common/Map';
+import { persianNumber } from '@snappmarket/helpers';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import WeatherWidget from 'components/Common/WeatherWidget';
 import Comments from 'components/Common/Comments';
@@ -10,6 +10,9 @@ import DistanceIcon from 'resources/svg/DistanceIcon';
 import DiscountedTicket from 'resources/svg/DiscountedTicket';
 import Footer from 'components/Common/Layout/partials/Footer';
 import FullWidthMap from 'components/Common/FullWidthMap';
+
+import PlaceWrapper from './partials/PlaceWrapper';
+import CitiesStates from './partials/CitiesStates';
 import {
   StyledCityPageWrapper,
   StyledCityNameWrapper,
@@ -36,16 +39,23 @@ const City = () => {
           }}
           isStatic
         />
-        <StyledCityNameWrapper>همدان</StyledCityNameWrapper>
+        <div className="align-center justify-center">
+          <StyledCityNameWrapper>همدان</StyledCityNameWrapper>
+        </div>
 
-        <StyledDistancesContainer>
+        <StyledDistancesContainer className="fixed">
           <Row>
             <Col md={8}>
               <h3>
                 <DiscountedTicket />
                 جاهای تخفیف‌دار{' '}
               </h3>
-              <div>لیست رستوران‌ها</div>
+              <div className="justify-around">
+                <PlaceWrapper />
+                <PlaceWrapper />
+                <PlaceWrapper />
+                <PlaceWrapper />
+              </div>
             </Col>
             <Col md={4}>
               <h3>
@@ -53,16 +63,16 @@ const City = () => {
               </h3>
               <ul className="distances">
                 <li>
-                  تهران <span>320km</span>
+                  تهران <div>{persianNumber(320)}</div>
                 </li>
                 <li>
-                  مشهد<span>320km</span>
+                  مشهد<div>{persianNumber(320)}</div>
                 </li>
                 <li>
-                  تبریز <span>320km</span>
+                  تبریز <div>{persianNumber(320)}</div>
                 </li>
                 <li>
-                  شیراز <span>320km</span>
+                  شیراز <div>{persianNumber(320)}</div>
                 </li>
               </ul>
 
@@ -76,7 +86,9 @@ const City = () => {
 
         <div>
           <h3>از اینجا می‌تونی بری به</h3>
-          <div className="bg-gray-bright">گراف شهرها</div>
+          <div className="bg-gray-bright">
+            <CitiesStates />
+          </div>
         </div>
 
         <Comments />

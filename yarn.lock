@@ -8752,6 +8752,11 @@ jalali-date@^1.1.0:
   resolved "https://registry.yarnpkg.com/jalali-date/-/jalali-date-1.1.0.tgz#62b11f82e19e07f83fe47caa786d137ce499121e"
   integrity sha512-sjmFSfYhbEvIsQGcht2YKHMKxiIJp6rmQwFzq8zywr0K6nZqyaHmpr2NZfodEhB9kTkTOZhr19npMLZhpufEFQ==
 
+javascript-state-machine@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/javascript-state-machine/-/javascript-state-machine-3.1.0.tgz#06eeb2136a6a19ae1b56105c25caec283dd5cd14"
+  integrity sha512-BwhYxQ1OPenBPXC735RgfB+ZUG8H3kjsx8hrYTgWnoy6TPipEy4fiicyhT2lxRKAXq9pG7CfFT8a2HLr6Hmwxg==
+
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
