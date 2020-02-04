@@ -57,5 +57,11 @@ export const StyledCommentsWrapper = Styled.div`
   .user-comment .comment-body p {
     margin: 0;
   }
-
+  
+  .add-comment {
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
 `;

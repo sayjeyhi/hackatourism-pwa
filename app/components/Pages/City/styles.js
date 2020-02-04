@@ -1,19 +1,8 @@
 import Styled from 'styled-components';
+import { Container } from '@snappmarket/ui';
 
 export const StyledCityPageWrapper = Styled.div`
-  text-align: center;
-  margin-top: 20px;
-  .map-container {
-    flex: 0 0 90%;
-    height: 300px;
-    border-radius: 18px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #ccc;
-    
-    
-    min-height: calc(${props => props.theme.defaultRem} * 30);
-  }
+
 `;
 
 export const StyledCityNameWrapper = Styled.div`
@@ -26,4 +15,25 @@ export const StyledCityNameWrapper = Styled.div`
   padding: 12px 22px;
   position: relative;
   top: -27px;
+`;
+
+export const StyledDistancesContainer = Styled(Container)`
+  text-align: right;
+  
+  svg {
+    width: 50px;
+    height: 50px;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 900;
+    color: #777;
+  }
+  .distances {
+    list-style-type: none;
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
 `;

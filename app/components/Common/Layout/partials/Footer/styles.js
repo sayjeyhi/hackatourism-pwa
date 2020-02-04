@@ -2,6 +2,8 @@ import Styled from 'styled-components';
 
 export const StyledFooter = Styled.div`
   margin-top: 15px;
+  max-width: 648px;
+  width: 100%;
   ul {
     width: 100%;
     display: flex;
@@ -20,7 +22,7 @@ export const StyledFooter = Styled.div`
     }
   }
   .copyright {
-    margin-top: 8px;
+    margin-top: 16px;
     color: #999;
     text-align: center;
   }

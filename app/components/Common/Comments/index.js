@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CommentsIcon from 'resources/svg/CommentsIcon';
 import { StyledCommentsWrapper } from './styles';
 
 const Comments = () => {
@@ -35,6 +36,7 @@ const Comments = () => {
         contentEditable={editingComment}
         onClick={handleAddComment}
       >
+        <CommentsIcon />
         نظر شما در مورد این کسب و کار ...
       </div>
     </StyledCommentsWrapper>
