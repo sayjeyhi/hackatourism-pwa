@@ -64,15 +64,35 @@ export const StyledPlace = Styled.div`
   font-size: 17px;
   font-weight: 900;
   color: rgba(0,0,0,0.7);
-  button {
-    background-color: #46a93a;
+  a {
+    background-color: #929090;
     color: #fff;
     display: inline-block;
     padding: 7px 10px;
     border-radius: 5px;
-    box-shadow: 3px 4px 10px rgba(69, 169, 58, 0.6);
+    box-shadow: 3px 4px 10px rgba(146, 144, 144, 0.49);
     position: relative;
     top: 18px;
     float: left;
+    font-size: 14px;
+  }
+`;
+
+export const StyledReservationMenuItem = Styled.div`
+  background: #fff;
+  cursor: pointer;
+  border-radius: 39% 52% 61% 28% / 30% 51% 29% 40%;
+  padding: 17px;
+  text-align: center;
+  .r-title {
+    font-size: 13px;
+    font-weight: 900;
+    margin-top: 8px;
+    color: #495a47;
+}
+  }
+  svg {
+    filter: sepia(70%) grayscale(1);
+    width: 85px;
   }
 `;
