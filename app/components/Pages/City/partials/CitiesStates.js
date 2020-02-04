@@ -1,35 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StateMachine from 'javascript-state-machine';
+import { Action, withStateMachine } from 'react-automata';
 
-const CitiesStates = props => {
-  const fsm = new StateMachine({
-    init: 'solid',
-    transitions: [
-      { name: 'melt', from: 'solid', to: 'liquid' },
-      { name: 'freeze', from: 'liquid', to: 'solid' },
-      { name: 'vaporize', from: 'liquid', to: 'gas' },
-      { name: 'condense', from: 'gas', to: 'liquid' },
-    ],
-    methods: {
-      onMelt() {
-        console.log('I melted');
+const statechart = {
+  initial: 'a',
+  states: {
+    a: {
+      on: {
+        NEXT: 'b',
       },
-      onFreeze() {
-        console.log('I froze');
-      },
-      onVaporize() {
-        console.log('I vaporized');
-      },
-      onCondense() {
-        console.log('I condensed');
-      },
+      onEntry: 'sayHello',
     },
-  });
+    b: {
+      on: {
+        NEXT: 'a',
+      },
+      onEntry: 'sayCiao',
+    },
+  },
+};
 
-  return <div></div>;
+const CitiesStates = ({ transition }) => {
+  const handleClick = () => {
+    transition('NEXT');
+  };
+
+  return (
+    <div>
+      <button type="button" onClick={handleClick}>NEXT</button>
+      <Action is="sayHello">Hello, A</Action>
+      <Action is="sayCiao">Ciao, B</Action>
+    </div>
+  );
 };
 
 CitiesStates.propTypes = {};
 
-export default CitiesStates;
+export default withStateMachine(statechart)(CitiesStates);

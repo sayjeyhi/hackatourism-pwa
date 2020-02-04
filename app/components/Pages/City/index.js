@@ -82,14 +82,17 @@ const City = () => {
               <WeatherWidget weatherId={113646} />
             </Col>
           </Row>
+
+          <Row>
+            <h3>از اینجا می‌تونی بری به
+              <DistanceIcon />
+            </h3>
+            <div className="bg-gray-bright">
+              <CitiesStates />
+            </div>
+          </Row>
         </StyledDistancesContainer>
 
-        <div>
-          <h3>از اینجا می‌تونی بری به</h3>
-          <div className="bg-gray-bright">
-            <CitiesStates />
-          </div>
-        </div>
 
         <Comments />
       </StyledCityPageWrapper>
