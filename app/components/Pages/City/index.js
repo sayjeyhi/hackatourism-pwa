@@ -11,15 +11,19 @@ const City = () => (
   <>
     <SeoHead title="اطلاعات شهر" />
     <StyledCityPageWrapper>
-      <Map
-        searchForm={false}
-        locationAccess={false}
-        initialPosition={{
-          lat: 35.1,
-          lng: 31.2,
-        }}
-        isStatic
-      />
+      <div className="align-center justify-center">
+        <div className="map-container">
+          <Map
+            searchForm={false}
+            locationAccess={false}
+            initialPosition={{
+              lat: 35.1,
+              lng: 31.2,
+            }}
+            isStatic
+          />
+        </div>
+      </div>
       <StyledCityNameWrapper>همدان</StyledCityNameWrapper>
 
       <Container>
@@ -53,9 +57,7 @@ const City = () => (
 
       <div>
         <h3>از اینجا می‌تونی بری به</h3>
-        <div className="bg-gray-bright">
-          گراف شهرها
-        </div>
+        <div className="bg-gray-bright">گراف شهرها</div>
       </div>
 
       <Comments />

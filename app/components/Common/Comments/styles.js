@@ -1,22 +1,38 @@
 import Styled from 'styled-components';
 
 export const StyledCommentsWrapper = Styled.div`
-  .message {
-    width: 400px;
-    --bg: rgba(0,0,0,0.3);
+  .user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    > img {
+      max-width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+  .user-text {
+    margin-top: 10px;
   }
   
-  .message .arrow {
+  .user-comment {
+    width: 400px;
+    --bg: rgba(0, 0, 0, 0.07);
+  }
+  
+  .user-comment .arrow {
     width: 15px;
     height: 25px;
     overflow: hidden;
     position: relative;
     float: right;
     top: 10px;
-    right: 13px;
+    right: 23px;
   }
   
-  .message .arrow .inner {
+  .user-comment .arrow .inner {
     width: 0;
     height: 0;
     border-left: 10px solid var(--bg);
@@ -27,16 +43,18 @@ export const StyledCommentsWrapper = Styled.div`
     right: 2px;
   }
   
-  .message .message-body {
+  .user-comment .comment-body {
     float: left;
-    width: calc(100% - 40px);
+    width: calc(100% - 35px);
+    font-size: 13px;
     height: auto;
     background-color: var(--bg);
     padding: 6px 8px;
     border-radius: 5px;
+    min-height: 120px;
   }
   
-  .message .message-body p {
+  .user-comment .comment-body p {
     margin: 0;
   }
 
