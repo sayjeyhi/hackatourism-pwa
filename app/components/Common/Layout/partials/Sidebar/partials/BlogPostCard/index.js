@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { StyledCreativeSideBarCard } from './styles';
+import React from 'react';
 import userImage from 'resources/img/user.png';
+import { StyledCreativeSideBarCard } from './styles';
 
 const BlogPostCard = () => (
   // const [percent, setPercent] = useState(0);
@@ -21,10 +21,7 @@ const BlogPostCard = () => (
     {/* <ProgressBar className={"progress-bar"} percent={percent} /> */}
     <div className="author flex-row align-center">
       <div className="avatar">
-        <img
-          alt="@2"
-          src={userImage}
-        />
+        <img alt="@2" src={userImage} />
       </div>
       <span className="author-name">احمد محمدی</span>
       <a href="#" className="read-more">

@@ -41,28 +41,6 @@ export const StyledSidebar = Styled.aside`
   position: sticky;
   top: 80px;
   
-  ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(220, 220, 220, 0.29);
-    li {
-      display: inline-block;
-      margin-right: 3px;
-      a {
-        color: #336071;
-      }
-    }
-  }
-  .copyright {
-    margin-top: 8px;
-    color: #999;
-    text-align: center;
-  }
   h4 {
     font-size: calc(${props => props.theme.defaultRem} * 1.3);
     margin: 0;

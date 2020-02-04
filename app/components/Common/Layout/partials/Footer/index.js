@@ -10,10 +10,10 @@ import {
   OpenSourceIcon,
 } from 'resources/svg/Icons/Social';
 
-import { StyledFooterSocials } from './styles';
+import { StyledFooterSocials, StyledFooter } from './styles';
 
 const Footer = () => (
-  <>
+  <StyledFooter>
     <ul>
       <li>
         <NavLink to={routes.info.rules}>شرایط استفاده</NavLink>
@@ -51,7 +51,7 @@ const Footer = () => (
       {' '}
       تمامی حقوق برای پلتفرم هوشمند گردشگری کوله پشتی محفوظ می‌باشد
     </div>
-  </>
+  </StyledFooter>
 );
 
 export default Footer;
