@@ -97,7 +97,7 @@ const Weather = () => {
             onKeyPress={handleEnterPress}
             autoComplete="off"
           />
-          <button className="no-effect-button">
+          <button type="button" className="no-effect-button">
             <SearchIcon />
           </button>
         </StyledWeatherContent>

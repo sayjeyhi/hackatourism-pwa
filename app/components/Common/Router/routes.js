@@ -9,7 +9,7 @@ const routes = {
   },
   search: {
     path: '/search',
-    index: '/search/:term',
+    index: '/search/:term?',
   },
   info: {
     about: '/about',
@@ -26,23 +26,23 @@ const routes = {
   hotel: '/hotel',
   tripAdvice: {
     path: '/trip-adviser',
-    index: '/trip-adviser/:cityId',
+    index: '/trip-adviser/:cityId?',
   },
   weather: {
     path: '/weather',
-    index: '/weather/:cityIdOrName',
+    index: '/weather/:cityIdOrName?',
   },
   city: {
     path: '/city',
-    index: '/city/:id',
+    index: '/city/:id?',
   },
   place: {
     path: '/place',
-    index: '/place/:id',
+    index: '/place/:id?',
   },
   profile: {
     path: '/profile',
-    index: '/profile/:id',
+    index: '/profile/:id?',
   },
 };
 
