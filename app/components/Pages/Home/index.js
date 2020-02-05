@@ -3,7 +3,6 @@ import { Container, Row } from '@snappmarket/ui';
 
 import {
   AdviserIcon,
-  HotelIcon,
   NearByIcon,
   ScheduleIcon,
   SmartTripIcon,
@@ -31,12 +30,12 @@ const Home = () => (
           icon={WeatherIcon}
           md={6}
           route={routes.home}
-          title="براساس ایده"
-          description="این بخش براساس ایده عوض می‌شود"
+          title=" برنامه‌ریزی سفر"
+          description="کل زمان سفر رو استفاده کن"
         />
         <Section
           className="half-section bb align-center justify-between"
-          icon={NearByIcon}
+          icon={ScheduleIcon}
           md={6}
           route={routes.aroundHere}
           title=" همین حوالی"
@@ -44,13 +43,6 @@ const Home = () => (
         />
       </Row>
       <Row>
-        <Section
-          className="align-center"
-          icon={ScheduleIcon}
-          md={4}
-          route={routes.tripSchedule}
-          title=" برنامه‌ریزی سفر"
-        />
         <Section
           className="align-center"
           icon={WeatherIcon}
@@ -65,28 +57,12 @@ const Home = () => (
           route={routes.smartTip}
           title="سفر ترکیبی"
         />
-      </Row>
-      <Row>
-        <Section
-          className="align-center"
-          icon={TicketIcon}
-          md={4}
-          route={routes.smartTicket}
-          title="بلیط هوشمند"
-        />
         <Section
           className="align-center"
           icon={AdviserIcon}
           md={4}
           route={routes.tripAdvice}
           title="مشاوره سفر"
-        />
-        <Section
-          className="align-center"
-          icon={HotelIcon}
-          md={4}
-          route={routes.hotel}
-          title="هتل"
         />
       </Row>
     </Container>
@@ -111,16 +87,6 @@ const Home = () => (
           <span>بلاگ</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path d="M0,64L48,53.3C96,43,192,21,288,10.7C384,0,480,0,576,37.3C672,75,768,149,864,154.7C960,160,1056,96,1152,64C1248,32,1344,32,1392,32L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
-          </svg>
-        </a>
-        <a
-          className="align-center justify-center"
-          href="https://blog.koleposhti.app"
-          target="_blank"
-        >
-          <span>تحلیل دیتا</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path d="M0,192L48,165.3C96,139,192,85,288,74.7C384,64,480,96,576,117.3C672,139,768,149,864,160C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
           </svg>
         </a>
         <a

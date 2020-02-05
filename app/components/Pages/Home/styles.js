@@ -10,6 +10,7 @@ export const StyledHomeItemsColumn = Styled(Col)`
     border-radius: 15px;
     padding: 20px 5px;
     margin-bottom: 14px;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.06);
   }
   &.half-section {
     margin-bottom: 20px;
@@ -112,8 +113,6 @@ export const StyledInlineServices = Styled(Container)`
     font-size: 15px;
     border-radius: 5px;
     padding-bottom: 17px;
-    -webkit-flex: 0 0 14%;
-    -ms-flex: 0 0 14%;
     flex: 0 0 15%;
     text-align: center;
     font-weight: 900;

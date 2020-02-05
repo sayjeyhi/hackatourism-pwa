@@ -67,7 +67,7 @@ export const StyledCommentsWrapper = Styled.div`
   }
   
   .user-comment .comment-body {
-        float: left;
+    float: left;
     width: calc(100% - 35px);
     font-size: 13px;
     height: auto;

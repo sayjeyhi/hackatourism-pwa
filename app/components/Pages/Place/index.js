@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button } from '@snappmarket/ui';
+import { Row, Col, Button } from '@snappmarket/ui';
 import { persianNumber } from '@snappmarket/helpers';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import PlusIcon from 'resources/svg/Icons/PlusIcon';
@@ -7,7 +7,6 @@ import Footer from 'components/Common/Layout/partials/Footer';
 import FullWidthMap from 'components/Common/FullWidthMap';
 import Comments from 'components/Common/Comments';
 
-import Claim from './Partials/Claim';
 import {
   StyledProfileWrapper,
   StyledProfileSidebar,
@@ -70,8 +69,6 @@ const Place = () => {
                 mapZoom={17}
                 isStatic
               />
-
-              <Claim />
               <Comments className="pb-4" />
             </StyledProfileContent>
           </Col>
