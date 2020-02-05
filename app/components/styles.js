@@ -50,6 +50,11 @@ const additional = css`
     max-width: 100%;
     overflow-x: hidden;
     border-bottom: 1px solid rgb(211, 211, 211);
+    .action-buttons button {
+      background: #6fb92e;
+      box-shadow: none;
+      margin-left: 10px;
+    }
     .animated-svg {
       position: absolute;
       width: 100%;

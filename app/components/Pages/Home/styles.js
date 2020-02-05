@@ -102,7 +102,7 @@ export const StyledInlineServices = Styled(Container)`
     background: #fff;
     width: 100%;
     border-radius: 10px;
-    margin: 16px 0;
+    margin: 14px 0;
     padding: 13px 13px 20px 13px;
     box-shadow: 0 3px 1px rgba(0,0,0,0.06);
   }
@@ -113,7 +113,7 @@ export const StyledInlineServices = Styled(Container)`
     font-size: 15px;
     border-radius: 5px;
     padding-bottom: 17px;
-    flex: 0 0 15%;
+    flex: 0 0 20%;
     text-align: center;
     font-weight: 900;
     overflow: hidden;

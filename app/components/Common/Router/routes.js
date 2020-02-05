@@ -15,6 +15,7 @@ const routes = {
     about: '/about',
     faq: '/faq',
     rules: '/rules',
+    contact: '/contact',
     privacyPolicy: '/privacyPolicy',
   },
   aroundHere: '/around-here',

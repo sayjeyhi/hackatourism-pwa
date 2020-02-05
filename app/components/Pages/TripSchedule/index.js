@@ -241,7 +241,7 @@ const styles = theme => ({
 });
 
 /* eslint-disable-next-line react/no-multi-comp */
-class Demo extends React.PureComponent {
+class TripSchedule extends React.PureComponent {
   constructor(props) {
     super(props);
     const today = new Date();
@@ -249,9 +249,8 @@ class Demo extends React.PureComponent {
     const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
     const yyyy = today.getFullYear();
 
-    const todayString = `${yyyy}-${mm}-${dd}`;
-    this.state = {
-      data: [
+    const scheduleInfo = {
+      json: [
         {
           title: 'سفر به شمال',
           startDate: '2020-02-05 09:32:12',
@@ -267,6 +266,13 @@ class Demo extends React.PureComponent {
           location: 'محل مورد نظر۲',
         },
       ],
+      title: 'سفر به شمال',
+    };
+
+    const todayString = `${yyyy}-${mm}-${dd}`;
+    this.state = {
+      title: scheduleInfo.title,
+      data: scheduleInfo.json,
       currentDate: todayString,
       currentViewName: 'weekly',
       confirmationVisible: false,
@@ -431,9 +437,17 @@ class Demo extends React.PureComponent {
       />
     );
 
+    const scheduleTitle = title =>
+      title || (
+        <>
+          <span style={{ color: '#e53844' }}>کوله‌پشتی</span>‌تو برا یه سفر{' '}
+          <span style={{ color: '#e040fb' }}>{viewName}</span> روزه آماده کن!
+        </>
+      );
+
     return (
       <div className="scheduler-root">
-        <SeoHead title='برنامه‌ریزی سفر' />
+        <SeoHead title="برنامه‌ریزی سفر" />
         <div className="animated-svg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -447,11 +461,18 @@ class Demo extends React.PureComponent {
             <path d="M37.059,16H26V4.941C26,2.224,23.718,0,21,0s-5,2.224-5,4.941V16H4.941C2.224,16,0,18.282,0,21s2.224,5,4.941,5H16v11.059  C16,39.776,18.282,42,21,42s5-2.224,5-4.941V26h11.059C39.776,26,42,23.718,42,21S39.776,16,37.059,16z" />
           </svg>
         </div>
-        <div>
-          <h2 className="mr-1 pt-1 dir-rtl text-large text-center">
-            <span style={{ color: '#e53844' }}>کوله‌پشتی</span>‌تو برا یه سفر{' '}
-            <span style={{ color: '#e040fb' }}>{viewName}</span> روزه آماده کن!
+        <div className="flex-row mt-1 pt-1">
+          <h2 className="mr-1 mt-0 mb-0 dir-rtl text-huge text-center">
+            {scheduleTitle(this.state.title)}
           </h2>
+          <div className="mr-auto action-buttons">
+            <Button size="medium" color="primary" variant="contained">
+              مشاوره برنامه‌ریزی
+            </Button>
+            <Button size="medium" color="primary" variant="contained">
+              ذخیره‌سازی
+            </Button>
+          </div>
         </div>
         <Scheduler
           firstDayOfWeek={this.state.dayOfWeek}
@@ -531,4 +552,6 @@ class Demo extends React.PureComponent {
   }
 }
 
-export default withStyles(styles, { name: 'EditingDemo' })(Demo);
+export default withStyles(styles, { name: 'EditingTripSchedule' })(
+  TripSchedule,
+);
