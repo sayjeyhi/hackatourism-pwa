@@ -15,13 +15,14 @@ export const StyledNearByWrapper = Styled.div`
 `;
 
 export const StyledChooseLocation = Styled.div`
-  background: #fff;
-  border-radius: 12px;
-  font-size: 22px;
+  top: -45px;
+  background: #f5f5f5;
+  border-radius: 30px 30px 27px 19px;
+  box-shadow: 0px 7px 13px -3px rgba(0,0,0,0.2);
+  font-size: 24px;
   font-weight: bold;
-  padding: 35px 35px 35px 35px;
-  position: relative;
-  top: -34px;
+  display: inline-flex;
+  padding: 12px 30px 41px 30px;
   &.did-chose {
     padding: 0;
     & > div { 
