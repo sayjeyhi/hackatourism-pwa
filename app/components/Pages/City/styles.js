@@ -58,7 +58,7 @@ export const StyledDistancesContainer = Styled(Container)`
     margin: 18px 10%;
     position: relative;
     display: block;
-    background: #675e94;
+    background: #848588;
     width: 60%;
     height: 40px;
     &:after {
@@ -74,7 +74,7 @@ export const StyledDistancesContainer = Styled(Container)`
     .weather-icon {
       width: 40px;
       height: 40px;
-      border: 1px solid #675e94;
+      border: 1px solid #848588;
     }
     .weather-metric {
       font-size: 13px;

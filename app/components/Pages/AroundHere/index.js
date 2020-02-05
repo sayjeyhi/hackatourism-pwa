@@ -9,6 +9,7 @@ import TickIcon from 'resources/svg/Icons/TickIcon';
 import { StyledChooseLocation } from './styles';
 
 const AroundHere = () => {
+  const [markers, setMarkers] = useState([]);
   const [choosingLocation, setChoosingLocation] = useState('');
   const handleSetChoosing = () => {
     if (choosingLocation === '') {
@@ -32,6 +33,7 @@ const AroundHere = () => {
         }}
         mapZoom={15}
         height={35}
+        markers={markers}
         isStatic={choosingLocation === 'chose' || choosingLocation === ''}
       />
 
