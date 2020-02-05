@@ -22,7 +22,7 @@ import IntelligentAnalysis from 'components/Pages/IntelligentAnalysis/loadable';
 
 import Place from 'components/Pages/Place/loadable';
 import Profile from 'components/Pages/Profile/loadable';
-import City from 'components/Pages/City/loadable';
+import City from 'components/Pages/City/index';
 import routes from './routes';
 
 const routers = [
@@ -90,7 +90,7 @@ const routers = [
         Component: <SmartTicket />,
       },
       {
-        path: routes.tripAdvice,
+        path: routes.tripAdvice.index,
         exact: true,
         Component: <TripAdviser />,
       },

@@ -18,6 +18,22 @@ export const StyledCityNameWrapper = Styled.div`
 export const StyledDistancesContainer = Styled(Container)`
   text-align: right;
   
+  .section-part {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-part::after {
+    content: '';
+    background: #ffffff94;
+    width: 98%;
+    border-radius: 20px;
+    height: 100%;
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+    box-shadow: 0px 6px 34px -9px rgba(175, 175, 175, 0.28);
+  }
   svg {
     width: 50px;
     height: 50px;
@@ -58,14 +74,15 @@ export const StyledDistancesContainer = Styled(Container)`
     margin: 18px 10%;
     position: relative;
     display: block;
-    background: #848588;
+    background: #6ce87d;
     width: 60%;
     height: 40px;
+    box-shadow: none;
     &:after {
       content: 'دمای فعلی هوا';
       position: absolute;
       right: 55px;
-      color: rgba(185, 255, 133, 0.8117647058823529);
+      color: #fff;
       font-size: 15px;
       font-weight: 900;
       top: 50%;
@@ -74,7 +91,7 @@ export const StyledDistancesContainer = Styled(Container)`
     .weather-icon {
       width: 40px;
       height: 40px;
-      border: 1px solid #848588;
+      background: #7eff8f;
     }
     .weather-metric {
       font-size: 13px;
@@ -86,6 +103,10 @@ export const StyledDistancesContainer = Styled(Container)`
       display: inline-flex;
       float: left;
       transform: translate(0, -50%);
+    }
+    .weather-metric,
+    .weather-metric:before {
+       color: #369644;
     }
   }
 `;
@@ -99,12 +120,12 @@ export const StyledPlace = Styled.div`
   font-weight: 900;
   color: rgba(0,0,0,0.7);
   a {
-    background-color: #929090;
+    background-color: #52cc52;
     color: #fff;
     display: inline-block;
     padding: 7px 10px;
     border-radius: 5px;
-    box-shadow: 3px 4px 10px rgba(146, 144, 144, 0.49);
+    box-shadow: 3px 4px 10px rgba(82, 204, 82, 0.41);
     position: relative;
     top: 18px;
     float: left;
@@ -112,15 +133,15 @@ export const StyledPlace = Styled.div`
   }
 `;
 
-export const StyledReservationMenuItem = Styled.div`
-  background: #fff;
+export const StyledReservationMenuItemNavLink = Styled.div`
+  background: #effbef;
   cursor: pointer;
   border-radius: 12px;
   padding: 15px;
   text-align: center;
   width: 85%;
   margin-bottom: 12px;
-  box-shadow: 0 4px 1px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 1px rgba(60, 245, 69, 0.27);
   font-size: 16px;
   color: #6b6868;
   .r-title {
@@ -130,5 +151,44 @@ export const StyledReservationMenuItem = Styled.div`
   svg {
     filter: sepia(70%) grayscale(1);
     width: 85px;
+  }
+`;
+
+export const StyledStateMachine = Styled.div`
+  flex-wrap: wrap;
+  > a {
+    flex: 0 0 calc(33.333% - 20px);
+    background: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    width: 85%;
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #6b6868;
+    position: relative;
+    &.currentCity {
+      transform: scale(1.05);
+      padding: 16px;
+      background: #68ff6e;
+      font-weight: 900;
+      box-shadow: 0 4px 1px rgb(92, 245, 98);
+      font-size: 19px;
+    }
+    &:not(.currentCity):before {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border: 2px solid #eaeaea;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:last-child {
+      margin-bottom: 20px;
+    }
   }
 `;

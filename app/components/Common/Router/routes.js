@@ -24,7 +24,10 @@ const routes = {
   ai: '/intelligent-analysis',
   tripSchedule: '/trip-schedule',
   hotel: '/hotel',
-  tripAdvice: '/trip-adviser',
+  tripAdvice: {
+    path: '/trip-adviser',
+    index: '/trip-adviser/:cityId',
+  },
   weather: {
     path: '/weather',
     index: '/weather/:cityIdOrName',

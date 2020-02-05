@@ -47,7 +47,7 @@ const Home = () => (
           className="align-center"
           icon={AdviserIcon}
           md={4}
-          route={routes.tripAdvice}
+          route={routes.tripAdvice.path}
           title="مشاوره سفر"
         />
         <Section
@@ -61,7 +61,7 @@ const Home = () => (
           className="align-center"
           icon={WeatherIcon}
           md={4}
-          route={routes.weather.index}
+          route={routes.weather.path}
           title="هواشناسی"
         />
       </Row>

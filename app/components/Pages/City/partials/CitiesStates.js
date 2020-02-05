@@ -1,42 +1,48 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import routes from 'components/Common/Router/routes';
+import { StyledStateMachine } from '../styles';
 
-const CitiesStates = ({ neighbors, currentCity }) => (
-  <StyledStateMachine>
-    <div className="s_1">
-      <NavLink to={`${neighbors[0].id}`}>{neighbors[0].title}</NavLink>
-    </div>
-    <div className="s_2 ">
-      <NavLink to={`${neighbors[1].id}`}>{neighbors[1].title}</NavLink>
-    </div>
-    <div className="s_3 ">
-      <NavLink to={`${neighbors[2].id}`}>{neighbors[2].title}</NavLink>
-    </div>
-    <div className="s_4 ">
-      <NavLink to={`${neighbors[3].id}`}>{neighbors[3].title}</NavLink>
-    </div>
-    <div className="s_5 ">
-      <NavLink to={`${neighbors[4].id}`}>{neighbors[4].title}</NavLink>
-    </div>
-    <div className="s_6 ">
-      <NavLink to={`${neighbors[5].id}`}>{neighbors[5].title}</NavLink>
-    </div>
-    <div className="s_7 ">
-      <NavLink to={`${neighbors[6].id}`}>{neighbors[6].title}</NavLink>
-    </div>
-    <div className="s_8 ">
-      <NavLink to={`${neighbors[7].id}`}>{neighbors[7].title}</NavLink>
-    </div>
-    <div className="s_9 ">
-      <NavLink to={`${neighbors[8].id}`}>{neighbors[8].title}</NavLink>
-    </div>
+const CitiesStates = ({ neighbors, currentCity, className }) => (
+  <StyledStateMachine className={`justify-around ${className}`}>
+    <NavLink to={`${routes.city.path}/${neighbors[1].id}`} className="part-1 ">
+      {neighbors[1].title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[2].id}`} className="part-1 ">
+      {neighbors[2].title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[3].id}`} className="part-1 ">
+      {neighbors[3].title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[4].id}`} className="part-1 ">
+      {neighbors[4].title}
+    </NavLink>
+    <NavLink
+      to={`${routes.city.path}/${currentCity.id}`}
+      className="part-1 currentCity"
+    >
+      {currentCity.title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[6].id}`} className="part-1 ">
+      {neighbors[6].title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[7].id}`} className="part-1 ">
+      {neighbors[7].title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[8].id}`} className="part-1 ">
+      {neighbors[8].title}
+    </NavLink>
+    <NavLink to={`${routes.city.path}/${neighbors[9].id}`} className="part-1 ">
+      {neighbors[9].title}
+    </NavLink>
   </StyledStateMachine>
 );
 
 CitiesStates.propTypes = {
   neighbors: PropTypes.object,
   currentCity: PropTypes.object,
+  className: PropTypes.string,
 };
 
-export default withStateMachine(statechart)(CitiesStates);
+export default CitiesStates;
