@@ -48,7 +48,7 @@ const Home = () => (
           icon={AdviserIcon}
           md={4}
           route={routes.tripAdvice.path}
-          title="مشاوره سفر"
+          title="مشاوره در لحظه"
         />
         <Section
           className="align-center"

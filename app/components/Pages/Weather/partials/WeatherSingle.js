@@ -1,18 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { } from 'resources/svg/'
+import Cloudy from 'resources/svg/Weather/wi-day-cloudy-gusts';
 import { StyledWeatherSingle } from '../styles';
 
-const WeatherSingle = props => {
+const WeatherSingle = () => {
   return (
     <StyledWeatherSingle>
-      <div className="flex-row">
+      <div className="flex-row justify-content align-center">
         <div className="weather-icon">
-
+          <Cloudy />
         </div>
-        <div className="weather-name ">
-          <div>آفتابی</div>
-          <div className="mr-auto">15</div>
+        <div className="weather-name flex-row">
+          <div className="mr-2 text-green-normal">آفتابی</div>
+          <div className="weather-metrics ml-1 mr-auto">15</div>
         </div>
       </div>
       <div className="justify-around">
@@ -24,10 +23,6 @@ const WeatherSingle = props => {
       </div>
     </StyledWeatherSingle>
   );
-};
-
-WeatherSingle.propTypes = {
-
 };
 
 export default WeatherSingle;

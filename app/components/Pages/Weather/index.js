@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import { Input } from '@snappmarket/ui';
-import SearchIcon from 'resources/svg/Icons/SearchIcon';
 import { useDebounce } from '@snappmarket/hooks';
+import SearchIcon from 'resources/svg/Icons/SearchIcon';
+
+import WeatherSingle from './partials/WeatherSingle';
 import {
   StyledWeatherWrapper,
   StyledWeatherHeader,
@@ -102,7 +104,9 @@ const Weather = () => {
           </button>
         </StyledWeatherContent>
 
-        <StyledSearchResult></StyledSearchResult>
+        <StyledSearchResult>
+          <WeatherSingle />
+        </StyledSearchResult>
       </StyledWeatherWrapper>
     </>
   );
