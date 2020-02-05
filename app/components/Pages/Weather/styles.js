@@ -364,3 +364,9 @@ export const StyledSearchResult = Styled.div`
     font-weight: 600;
   }
 `;
+
+
+export const StyledWeatherSingle = Styled.div`
+  background: #fff;
+  
+`;
