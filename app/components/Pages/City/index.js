@@ -10,8 +10,6 @@ import DistanceIcon from 'resources/svg/DistanceIcon';
 import DiscountedTicket from 'resources/svg/DiscountedTicket';
 import NearCitiesIcon from 'resources/svg/NearCitiesIcon';
 import ReservedIcon from 'resources/svg/ReservedIcon';
-import TalkToAdvicerIcon from 'resources/svg/TalkToAdvicerIcon';
-import ScheduleIcon from 'resources/svg/ScheduleIcon';
 import Footer from 'components/Common/Layout/partials/Footer';
 import FullWidthMap from 'components/Common/FullWidthMap';
 
@@ -98,18 +96,17 @@ const City = () => {
                 <ReservedIcon />
                 برنامه‌ریزی سفر
               </h3>
-              <div className="flex-row justify-around">
+              <div className="flex-column">
                 <StyledReservationMenuItem>
-                  <TalkToAdvicerIcon />
                   <div className="r-title">صحبت با مشاور {cityInfo.title}</div>
                 </StyledReservationMenuItem>
                 <StyledReservationMenuItem>
-                  <ScheduleIcon />
-                  <div className="r-title"> ایجاد برنامه سفر به {cityInfo.title}</div>
+                  <div className="r-title">
+                    ایجاد برنامه سفر به {cityInfo.title}
+                  </div>
                 </StyledReservationMenuItem>
                 <StyledReservationMenuItem>
-                  <TalkToAdvicerIcon />
-                  <div className="r-title">صحبت با مشاور {cityInfo.title}</div>
+                  <div className="r-title">سفر ترکیبی به {cityInfo.title}</div>
                 </StyledReservationMenuItem>
               </div>
 

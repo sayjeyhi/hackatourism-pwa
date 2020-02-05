@@ -115,14 +115,17 @@ export const StyledPlace = Styled.div`
 export const StyledReservationMenuItem = Styled.div`
   background: #fff;
   cursor: pointer;
-  border-radius: 39% 52% 61% 28% / 30% 51% 29% 40%;
-  padding: 17px;
+  border-radius: 12px;
+  padding: 15px;
   text-align: center;
+  width: 85%;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 1px rgba(0,0,0,0.06);
+  font-size: 16px;
+  color: #6b6868;
   .r-title {
-    font-size: 13px;
     font-weight: 900;
     margin-top: 8px;
-    color: #495a47;
   }
   svg {
     filter: sepia(70%) grayscale(1);
