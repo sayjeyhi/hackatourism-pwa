@@ -23,6 +23,7 @@ const Map = props => {
     locationAccess,
     searchForm,
     defaultLocation,
+    markers,
   } = props;
 
   const [position, setPosition] = useState({
@@ -40,6 +41,7 @@ const Map = props => {
         position,
         setPosition,
         isStatic,
+        markers,
       }}
     >
       <StyledMapWrapper>
@@ -60,6 +62,7 @@ Map.propTypes = {
   isStatic: PropTypes.bool,
   searchForm: PropTypes.bool,
   locationAccess: PropTypes.bool,
+  markers: PropTypes.array,
   mapType: PropTypes.oneOf(Object.values(APP_INFO.MAP_TYPES)),
   // redux
   defaultLocation: PropTypes.shape({
@@ -77,6 +80,7 @@ Map.defaultProps = {
   onLocationSubmit: f => f,
   isStatic: false,
   searchForm: true,
+  markers: [],
   locationAccess: true,
 };
 

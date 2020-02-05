@@ -18,9 +18,10 @@ const MapBoxAddMarker = () => {
     setPosition,
     mapZoom,
     mapType,
-    // onLocationSubmit,
+    onMarkerClick,
     onLocationChange,
     isStatic,
+    markers,
   } = useContext(mapContext);
 
   const [zoom, setZoom] = useState(mapZoom);
@@ -76,6 +77,8 @@ const MapBoxAddMarker = () => {
     }
   };
 
+  const handleClickMarker = e => onMarkerClick(e);
+
   return (
     <StyledMapWrapper>
       <ReactMapGL
@@ -91,14 +94,27 @@ const MapBoxAddMarker = () => {
         mapStyle={Map[mapType].styles}
       >
         {!isStatic && <NavigationControl showCompass={false} />}
-        <Marker
-          latitude={lat}
-          longitude={lng}
-          offsetTop={-37}
-          // onClick={() => onLocationSubmit({ lat, lng })}
-        >
-          <MapMarkerIcon className="map_marker" />
-        </Marker>
+        {markers.length === 0 ? (
+          <Marker
+            latitude={lat}
+            longitude={lng}
+            offsetTop={-37}
+            onClick={handleClickMarker}
+          >
+            <MapMarkerIcon className="map_marker" />
+          </Marker>
+        ) : (
+          markers.map(marker => (
+            <Marker
+              latitude={marker.lat}
+              longitude={marker.lng}
+              offsetTop={marker.offsetTop || -37}
+              onClick={handleClickMarker}
+            >
+              <MapMarkerIcon className="map_marker" />
+            </Marker>
+          ))
+        )}
       </ReactMapGL>
     </StyledMapWrapper>
   );
