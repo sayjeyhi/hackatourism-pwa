@@ -1,0 +1,7 @@
+export default {
+  SHOW_TOAST: 'SHOW_TOAST',
+  SHOW_ALERT: 'SHOW_ALERT',
+
+  CLEAR_ALERT: 'CLEAR_ALERT',
+  CLEAR_TOAST: 'CLEAR_TOAST',
+};

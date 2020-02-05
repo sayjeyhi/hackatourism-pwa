@@ -1,0 +1,14 @@
+User-Agent: *
+Disallow: /login
+Disallow: /logout
+Disallow: /profile
+Disallow: /orders/
+Disallow: /orders/*
+Disallow: /credit/
+Disallow: /credit/*
+Disallow: /checkout
+Disallow: /shoppinglist
+Disallow: /intro
+Disallow: /feedback/*
+Disallow: /landings/*
+Sitemap: https://core.snapp.market/sitemap.xml
