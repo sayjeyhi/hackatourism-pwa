@@ -15,18 +15,24 @@ export const StyledNearByWrapper = Styled.div`
 `;
 
 export const StyledChooseLocation = Styled.div`
-  top: -45px;
   background: #f5f5f5;
-  border-radius: 30px 30px 27px 19px;
+  border-radius: 30px 30px 10px 10px;
   box-shadow: 0px 7px 13px -3px rgba(0,0,0,0.2);
   font-size: 24px;
   font-weight: bold;
   display: inline-flex;
-  padding: 12px 30px 41px 30px;
+  padding: 12px 30px 43px 30px;
+  position: relative;
+  top: -37px;
+  
   &.did-chose {
     padding: 0;
+    background: transparent;
     & > div { 
-    display:  none;
+      display:  none;
+    }
+    & > button {
+      border: 3px solid rgba(255,255,255,0.8);    
     }
   }
   svg {
@@ -36,6 +42,16 @@ export const StyledChooseLocation = Styled.div`
     top: 11px;
     * {
       fill: rgba(0,0,0,0.07);
+    }
+  }
+  svg.tick-svg {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -1px;
+    margin-left: 10px;
+    * {
+      fill: #fff;
     }
   }
   button {

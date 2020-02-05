@@ -5,6 +5,7 @@ import SeoHead from 'components/Common/Seo/SeoHead';
 import Footer from 'components/Common/Layout/partials/Footer';
 import FullWidthMap from 'components/Common/FullWidthMap';
 import { NearByIcon } from 'resources/svg/HomeIcons';
+import TickIcon from 'resources/svg/Icons/TickIcon';
 import { StyledChooseLocation } from './styles';
 
 const AroundHere = () => {
@@ -12,6 +13,8 @@ const AroundHere = () => {
   const handleSetChoosing = () => {
     if (choosingLocation === '') {
       setChoosingLocation('choosing');
+    } else if (choosingLocation === 'chose') {
+      setChoosingLocation('');
     } else {
       setChoosingLocation('chose');
     }
@@ -28,7 +31,8 @@ const AroundHere = () => {
           lng: 51.3877295,
         }}
         mapZoom={15}
-        isStatic={!choosingLocation}
+        height={35}
+        isStatic={choosingLocation === 'chose' || choosingLocation === ''}
       />
 
       <div className="align-center justify-center ">
@@ -46,7 +50,17 @@ const AroundHere = () => {
             onClick={handleSetChoosing}
             className="no-effect-button"
           >
-            {choosingLocation === 'chose' ? 'تغییر موقعیت' : 'انتخاب موقعیت'}
+            {choosingLocation === 'chose' ? (
+              'تغییر موقعیت'
+            ) : choosingLocation === 'choosing' ? (
+              <>
+                <TickIcon className="tick-svg" /> این محدوده رو بگرد
+              </>
+            ) : choosingLocation === 'finding' ? (
+              'در حال بارگذاری ...'
+            ) : (
+              'انتخاب موقعیت'
+            )}
           </button>
         </StyledChooseLocation>
       </div>
