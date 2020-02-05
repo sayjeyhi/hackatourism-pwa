@@ -54,6 +54,40 @@ export const StyledDistancesContainer = Styled(Container)`
       }
     }
   }
+  .current-weather {
+    margin: 18px 10%;
+    position: relative;
+    display: block;
+    background: #675e94;
+    width: 60%;
+    height: 40px;
+    &:after {
+      content: 'دمای فعلی هوا';
+      position: absolute;
+      right: 55px;
+      color: rgba(185, 255, 133, 0.8117647058823529);
+      font-size: 15px;
+      font-weight: 900;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    .weather-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #675e94;
+    }
+    .weather-metric {
+      font-size: 13px;
+      position: relative;
+      top: 50%;
+      left: 21px;
+      color: #d2bcfb;
+      text-align: left;
+      display: inline-flex;
+      float: left;
+      transform: translate(0, -50%);
+    }
+  }
 `;
 
 export const StyledPlace = Styled.div`

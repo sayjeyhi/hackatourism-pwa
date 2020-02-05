@@ -22,6 +22,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Close from '@material-ui/icons/Close';
 
+import { SeoHead } from 'components/Common/Seo';
 import 'resources/styles/DatePicker.css';
 import ChooseDateButton from './partials/ChooseDateButton';
 import DeleteConfirm from './partials/DeleteConfirm';
@@ -253,17 +254,17 @@ class Demo extends React.PureComponent {
       data: [
         {
           title: 'سفر به شمال',
-          startDate: new Date(2020, 1, 31, 10, 0),
-          endDate: new Date(2018, 2, 3, 14, 30),
+          startDate: '2020-02-05 09:32:12',
+          endDate: '2020-02-05 10:32:12',
           id: 38,
-          location: 'Room 2',
+          location: 'محل مورد نظر',
         },
         {
-          title: 'Customer Workshop',
-          startDate: new Date(2020, 2, 1),
-          endDate: new Date(2018, 2, 2),
+          title: 'سفر به همدان',
+          startDate: '2020-02-05 12:32:12',
+          endDate: '2020-02-05 14:32:12',
           id: 39,
-          location: 'Room 1',
+          location: 'محل مورد نظر۲',
         },
       ],
       currentDate: todayString,
@@ -432,6 +433,7 @@ class Demo extends React.PureComponent {
 
     return (
       <div className="scheduler-root">
+        <SeoHead title='برنامه‌ریزی سفر' />
         <div className="animated-svg">
           <svg
             xmlns="http://www.w3.org/2000/svg"

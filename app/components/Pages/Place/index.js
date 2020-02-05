@@ -72,7 +72,7 @@ const Place = () => {
               />
 
               <Claim />
-              <Comments />
+              <Comments className="pb-4" />
             </StyledProfileContent>
           </Col>
         </Row>

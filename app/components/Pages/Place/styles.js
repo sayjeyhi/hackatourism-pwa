@@ -18,6 +18,8 @@ export const StyledProfileSidebar = Styled.aside`
   position: -webkit-sticky;
   position: sticky;
   top: 60px;
+  background: #fff;
+  border-radius: 8px;
   
   .place-wallpaper{
     background: #ccc;
@@ -30,7 +32,16 @@ export const StyledProfileSidebar = Styled.aside`
     }
   }
   .place-avatar‌ {
-    
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #ccc;
+    img{
+      max-width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
   }
   .place-name {
   
@@ -39,7 +50,13 @@ export const StyledProfileSidebar = Styled.aside`
   
   }
   .follow-button {
-  
+    background-color: #9357e2;
+    color: #fff;
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 5px;
+    box-shadow: 3px 4px 10px rgba(147, 87, 226, 0.57);
+    font-size: 18px;
   }
 `;
 

@@ -1,11 +1,19 @@
 import React from 'react';
-import { Alert, Button } from '@snappmarket/ui';
+import { Button } from '@snappmarket/ui';
+import { StyledAlert } from './styles';
 
 const Claim = () => (
-  <Alert>
-    این صفحه و کسب و کار متعلق به من است :)
-    <Button color="green" title="درخواست مدیریت" />
-  </Alert>
+  <div className="pb-4">
+    <StyledAlert className="align-center">
+      این صفحه و کسب و کار متعلق به من است :)
+      <Button
+        className="d-inline-block getAdministration"
+        size="sm"
+        color="green"
+        title="درخواست مدیریت"
+      />
+    </StyledAlert>
+  </div>
 );
 
 export default Claim;
