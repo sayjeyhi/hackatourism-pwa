@@ -1523,24 +1523,24 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@snappmarket/helpers@^0.1.21":
-  version "0.1.21"
-  resolved "https://registry.yarnpkg.com/@snappmarket/helpers/-/helpers-0.1.21.tgz#052199703be8cdbc79f50a27c9acfe96f4827d50"
-  integrity sha512-HcHDI/oZ1x6l0RP6nzyJQZoLK6Wv/LYOajawMYmwyCYXTyaTnwWIwS80/55fFGEG3PbQt27b/IbtvCOrwa2uag==
+"@snappmarket/helpers@^0.1.23":
+  version "0.1.23"
+  resolved "https://registry.yarnpkg.com/@snappmarket/helpers/-/helpers-0.1.23.tgz#b9d6779aa73202e3ebac0c7b223fc383920adced"
+  integrity sha512-7q8xHoesn14kmBOY24TNl71ljqFtk0I9Q9EOeOp2/oflOEPD519jdfQFh/pXbzTAqUDzMrGoRKFdRQqFUD8PJw==
   dependencies:
     isomorphic-unfetch "^3.0.0"
 
-"@snappmarket/hooks@^0.1.24":
-  version "0.1.24"
-  resolved "https://registry.yarnpkg.com/@snappmarket/hooks/-/hooks-0.1.24.tgz#ef39d63b63c9c8aa21044850f205023cc4bd113f"
-  integrity sha512-vuGY0swkfJpZoZiOdx6aXMlcWgb6WpAo7+6lR7Td0EmD4vQEq/mSB/m35Z6Vv/alGMPKRt6GTAmWPbyusEJnlQ==
+"@snappmarket/hooks@^0.1.26":
+  version "0.1.26"
+  resolved "https://registry.yarnpkg.com/@snappmarket/hooks/-/hooks-0.1.26.tgz#b420d1b4e845969c131e9fac37a55e00f6882bf1"
+  integrity sha512-CFojMGielyW6OcKBFvYWiix8g34gM6OBxB9NeB/eNlhmLYAW003uA26pQnsoFp2p7ngOsBOXY7LGHVWICb1QtA==
   dependencies:
     react-router-dom "^5.1.2"
 
-"@snappmarket/ui@^0.1.24":
-  version "0.1.24"
-  resolved "https://registry.yarnpkg.com/@snappmarket/ui/-/ui-0.1.24.tgz#81e8f2f682eb785e38dca760634946abb908877a"
-  integrity sha512-JwgJh5adg9rVTst0bYwYGENPMJJKVIsMvmUau9PnDk/6QyeqiMV/Jl6cM4G4fI3A4mbo9Pe9nRLVu0xn1LFaMg==
+"@snappmarket/ui@^0.1.29":
+  version "0.1.29"
+  resolved "https://registry.yarnpkg.com/@snappmarket/ui/-/ui-0.1.29.tgz#4d4bc22ad3076f3b80e6d2fed209cadc8826652a"
+  integrity sha512-1mPGQ6I25NR2ySHGGWNViqiu/XlneXmI7UDwPh4iFtNyoRAPv94o2DIvIHibv1CHo+czR3BAjHGBAlE6iFBnGA==
   dependencies:
     polished "^3.4.2"
     react-hgs-input-range "^1.3.1"
