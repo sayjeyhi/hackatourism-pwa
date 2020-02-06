@@ -81,10 +81,9 @@ export const StyledHomeItemsColumn = Styled(Col)`
   
   }
   .section-title {
-    font-weight: 500;
+    font-weight: 600;
     color: #666;
     margin-top: 5px;
-    font-weight: 900;
     font-size: 18px;
   }
   
@@ -186,7 +185,7 @@ export const StyledInlineServices = Styled(Container)`
 `;
 
 export const StyledHomeSection = Styled(Container)`
-  font-weight: 900;
+  font-weight: 600;
   color: #484848;
   width: 100%;
   font-size: 12px;

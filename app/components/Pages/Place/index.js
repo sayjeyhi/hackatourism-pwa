@@ -8,6 +8,8 @@ import FullWidthMap from 'components/Common/FullWidthMap';
 import Comments from 'components/Common/Comments';
 import Stars from 'components/Common/Stars';
 
+import bussinessImage from 'resources/img/bussiness.jpeg';
+
 import {
   StyledProfileWrapper,
   StyledProfileSidebar,
@@ -46,7 +48,7 @@ const Place = () => {
 
                 <div className="place-avatar">
                   <img
-                    src="https://www.gravatar.com/avatar/d08fcf59fd25c84ff92105e3d0747a7e?s=328&d=identicon&r=PG"
+                    src={bussinessImage}
                     alt="user"
                   />
                 </div>

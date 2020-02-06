@@ -101,9 +101,9 @@ export const StyledSmartTripWrapper = Styled.div`
   }
 `;
 
-
 export const StyledDestinationsList = Styled.div`
   position: relative;
+  margin-top: 20px;
   &:after {
     content: '';
     position: absolute;
@@ -120,7 +120,7 @@ export const StyledDestinationsList = Styled.div`
     padding-right: 41px;
     padding: 15px 55px 15px 20px;
     font-size: 22px;
-    font-weight: 900;
+    font-weight: 700;
     &:after {
       content: '';
       width: 20px;
@@ -131,6 +131,17 @@ export const StyledDestinationsList = Styled.div`
       top: 22px;
       border-radius: 50%;
     }
-    
+  }
+`;
+
+export const StyledPagination = Styled.div`
+  button {
+    font-size: 16px;
+    padding: 12px 8px;
+    width: 48px;
+    display: inline-block;
+    background: #e6e6e6;
+    border-radius: 13px;
+    margin: 9px 4px;
   }
 `;

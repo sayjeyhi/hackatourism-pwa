@@ -14,6 +14,9 @@ export const StyledCommentsWrapper = Styled.div`
     top: -200px;
     z-index: -1;
   }
+  .comment-author {
+    text-align: center;
+  }
   .comments-icon {
     position: absolute;
     width: 198px;
