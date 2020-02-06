@@ -47,10 +47,7 @@ const Place = () => {
                 </svg>
 
                 <div className="place-avatar">
-                  <img
-                    src={bussinessImage}
-                    alt="user"
-                  />
+                  <img src={bussinessImage} alt="user" />
                 </div>
 
                 <div className="sidebar-content align-center justify-center flex-column">

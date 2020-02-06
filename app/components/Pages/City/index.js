@@ -62,11 +62,11 @@ const City = () => {
                   style={{ flexWrap: 'wrap' }}
                 >
                   <PlaceWrapper name="رستوران محمدی" id={2} />
-                  <PlaceWrapper name="رستوران محمدی" id={2} />
-                  <PlaceWrapper name="رستوران محمدی" id={2} />
-                  <PlaceWrapper name="رستوران محمدی" id={2} />
-                  <PlaceWrapper name="رستوران محمدی" id={2} />
-                  <PlaceWrapper name="رستوران محمدی" id={2} />
+                  <PlaceWrapper name="چلوکبابی امیر" id={2} />
+                  <PlaceWrapper name="لوازم آرایشی علی‌رضا" id={2} />
+                  <PlaceWrapper name="رستوران کربلا" id={2} />
+                  <PlaceWrapper name="قست فود بوف" id={2} />
+                  <PlaceWrapper name="بستنی کارون" id={2} />
                 </div>
               </div>
 
@@ -79,19 +79,19 @@ const City = () => {
                   className="ml-4 flex-row"
                   neighbors={{
                     1: {
-                      title: 'شیراز',
+                      title: 'گراش',
                       id: 23,
                     },
                     2: {
-                      title: 'شیراز',
+                      title: 'جهرم',
                       id: 23,
                     },
                     3: {
-                      title: 'شیراز',
+                      title: 'پاسارگاد',
                       id: 23,
                     },
                     4: {
-                      title: 'شیراز',
+                      title: 'فسا',
                       id: 23,
                     },
                     5: {
@@ -103,10 +103,6 @@ const City = () => {
                       id: 23,
                     },
                     7: {
-                      title: 'شیراز',
-                      id: 23,
-                    },
-                    8: {
                       title: 'شیراز',
                       id: 23,
                     },
