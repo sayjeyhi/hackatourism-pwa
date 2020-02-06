@@ -108,7 +108,7 @@ const Home = () => (
     </StyledInlineServices>
 
     <StyledHomeSection>
-      <div className="title-holder no-b">
+      <div className="title-holder no-border">
         <h2>شهرهای پرسفر</h2>
       </div>
       <TopCities />
