@@ -3,13 +3,20 @@ import SeoHead from 'components/Common/Seo/SeoHead';
 
 export default () => (
   <>
-    <SeoHead title="سوالایی که خیلی پرسیدین" />
+    <SeoHead title="چرا کوله‌پشتی را انتخاب کنیم؟" />
     <div
       style={{ height: '80vh' }}
       className="text-huge text-bold text-gray-normal align-center justify-center"
     >
-      سوالایی که خیلی پرسیدین رو اینجا قراره بزاریم...<br />
-      البته الان هنوز نزاشتیم، چون سوالی نپرسیدین که!
+      مزایای رقابتی ما‌ :
+      <ul>
+        <li> تست</li>
+        <li> تست</li>
+        <li> تست</li>
+        <li> تست</li>
+        <li> تست</li>
+        <li> تست</li>
+      </ul>
     </div>
   </>
 );

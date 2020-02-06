@@ -17,6 +17,8 @@ const routes = {
     rules: '/rules',
     contact: '/contact',
     privacyPolicy: '/privacyPolicy',
+    whyUs: '/whyUs',
+    pricing: '/pricing',
   },
   aroundHere: '/around-here',
   smartTip: '/smart-tip',

@@ -12,6 +12,35 @@ const endpoints = {
   USER: {
     PROFILE: () => `${api.v1}/user/profile`,
   },
+  MUSIC: {
+    GET_MUSICS: () => `${api.v1}/getMusics`,
+    GET_MUSICS_TYPES: () => `${api.v1}/getMusicTypes`,
+  },
+  VOIP: {
+    CALL: () => `${api.v1}/viop/call`,
+  },
+  PROFILE: {
+    GET: uid => `${api.v1}/profile/${uid}`,
+    SAVE: uid => `${api.v1}/profile/${uid}`,
+    UPLOAD_AVATAR: uid => `${api.v1}/profile/${uid}/profile`,
+  },
+  TRIP_SCHEDULE: {
+    GET: () => `${api.v1}/trip_schedule`,
+    SAVE: () => `${api.v1}/trip_schedule`,
+    UPDATE: id => `${api.v1}/trip_schedule/${id}`,
+    GET_SINGLE: id => `${api.v1}/trip_schedule/${id}/schedules`,
+  },
+  PLACE: {
+    TYPES_GET: () => `${api.v1}/place/type`,
+    NEAR_ME: () => `${api.v1}/place/places/near_me`,
+    GET_TYPES_LIST: typeId => `${api.v1}/place/places/${typeId}`,
+    GET_SINGLE: id => `${api.v1}/trip_schedule/${id}/schedules`,
+  },
+  CITY: {
+    GET_MULTI: () => `${api.v1}/place/city`,
+    GET_TOP_CITIES: () => `${api.v1}/place/city/top`,
+    GET_CITY_PAGE: id => `${api.v1}/place/city/${id}`,
+  },
   MAP: {
     MAP_IR_REVERSE_GEO_CODER: () => `${Map.mapir.baseUrl}/reverse`,
     MAP_IR_SEARCH_LOCATION: () => `${Map.mapir.baseUrl}/search`,

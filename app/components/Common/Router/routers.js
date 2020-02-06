@@ -8,6 +8,9 @@ import AboutUs from 'components/Pages/Info/AboutUs/loadable';
 import Faq from 'components/Pages/Info/Faq/loadable';
 import Rules from 'components/Pages/Info/Rules/loadable';
 import PrivacyPolicy from 'components/Pages/Info/PrivacyPolicy/loadable';
+import WhyUs from 'components/Pages/Info/WhyUs/loadable';
+import Pricing from 'components/Pages/Info/Pricing/loadable';
+import Contact from 'components/Pages/Info/Contact/loadable';
 
 import Credit from 'components/Pages/Credit/loadable';
 import Search from 'components/Pages/Search/loadable';
@@ -133,6 +136,24 @@ const routers = [
         layout: 'fullWidth',
         exact: true,
         Component: <Place />,
+      },
+      {
+        path: routes.info.whyUs,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <WhyUs />,
+      },
+      {
+        path: routes.info.pricing,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <Pricing />,
+      },
+      {
+        path: routes.info.contact,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <Contact />,
       },
     ],
   },
