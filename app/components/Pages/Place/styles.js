@@ -7,33 +7,47 @@ export const StyledProfileWrapper = Styled(Container)`
 
 export const StyledProfileSidebar = Styled.aside`
   flex: 0 0 25%;
-  display: flex;
-  flex-direction: column;
   font-size: calc(${props => props.theme.defaultRem} * 1.4);
   color: ${props => props.theme.colors.gray.normal};
-  height: calc(100vh - 70px);
-  top: 10px;
-  background: #fff;
+  height: auto;
+  top: 100px;
   position: absolute;
-  .place-avatar{
-    svg {
-      transform: rotate(-180deg);
-      top: 0;
-      position: absolute;
-      width: 100%;
-      * {
-        fill: #ccc;
-      }
+  .content-holder {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #e8e8e8;
+    z-index: -2;
+  }
+  
+  svg.waved-bg {
+    transform: rotate(-180deg);
+    top: 35px;
+    position: absolute;
+    width: 100%;
+    * {
+      fill: #e8e8e8;
     }
+  }
+  .top-wallpaper {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    background: #e8e8e8;
+    height: 35px;
+    width: 100%;
+  }
+  .place-avatar{
     min-width: 150px;
     position: relative;
-    top: -55px;
+    top: -95px;
     max-width: 55%;
     img{
       max-width: 100%;
       height: auto;
       min-height: 100%;
       border-radius: 50%;
+      border: 2px solid #e8e8e8;
     }
   }
   
@@ -55,6 +69,10 @@ export const StyledProfileSidebar = Styled.aside`
     font-size: 18px;
     width: calc(100% - 20px);
     border: none;
+  }
+  .footer-in-aside {
+    position: relative;
+    bottom: -60px;
   }
 `;
 
@@ -82,7 +100,22 @@ export const StyledProfileContent = Styled.div`
       display: block;
       width: 90%;
     }
+  }  
+`;
+
+export const StyledStars = Styled.div`
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  span {
+    display: inline-block;
+    position: relative;
+    width: 1.7em;
   }
-  
-  
+  span:hover:before,
+  span:hover ~ span:before {
+    content: "\\2605";
+    position: absolute;
+    left: 0;
+    color: gold;
+  }
 `;
