@@ -11,7 +11,8 @@ export const StyledStars = Styled.div`
     width: 1.1em;
   }
   span:hover:before,
-  span:hover ~ span:before {
+  span:hover ~ span:before,
+  span.chose ~ span:before {
     content: "\\2605";
     position: absolute;
     color: gold;
