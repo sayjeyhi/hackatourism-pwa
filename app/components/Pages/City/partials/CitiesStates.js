@@ -4,40 +4,30 @@ import { NavLink } from 'react-router-dom';
 import routes from 'components/Common/Router/routes';
 import { StyledStateMachine } from '../styles';
 
-const CitiesStates = ({ neighbors, currentCity, className }) => (
-  <StyledStateMachine className={`justify-around ${className}`}>
-    <NavLink to={`${routes.city.path}/${neighbors[1].id}`} className="part-1 ">
-      {neighbors[1].title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[2].id}`} className="part-1 ">
-      {neighbors[2].title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[3].id}`} className="part-1 ">
-      {neighbors[3].title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[4].id}`} className="part-1 ">
-      {neighbors[4].title}
-    </NavLink>
-    <NavLink
-      to={`${routes.city.path}/${currentCity.id}`}
-      className="part-1 currentCity"
-    >
-      {currentCity.title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[6].id}`} className="part-1 ">
-      {neighbors[6].title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[7].id}`} className="part-1 ">
-      {neighbors[7].title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[8].id}`} className="part-1 ">
-      {neighbors[8].title}
-    </NavLink>
-    <NavLink to={`${routes.city.path}/${neighbors[9].id}`} className="part-1 ">
-      {neighbors[9].title}
-    </NavLink>
-  </StyledStateMachine>
-);
+const CitiesStates = ({ neighbors, currentCity, className }) => {
+  const conditionalyRender = (a, current) =>
+    a ? (
+      <NavLink to={`${routes.city.path}/${a.id}`} className={`part-1 ${current ? 'currentCity' : ''}`}>
+        {a.title}
+      </NavLink>
+    ) : null;
+
+  return (
+    <StyledStateMachine className={`justify-around ${className}`}>
+      {[
+        conditionalyRender(neighbors[1]),
+        conditionalyRender(neighbors[2]),
+        conditionalyRender(neighbors[3]),
+        conditionalyRender(neighbors[4]),
+        conditionalyRender(currentCity, true),
+        conditionalyRender(neighbors[6]),
+        conditionalyRender(neighbors[7]),
+        conditionalyRender(neighbors[8]),
+        conditionalyRender(neighbors[9]),
+      ]}
+    </StyledStateMachine>
+  );
+};
 
 CitiesStates.propTypes = {
   neighbors: PropTypes.object,
