@@ -6,12 +6,12 @@ import PlusIcon from 'resources/svg/Icons/PlusIcon';
 import Footer from 'components/Common/Layout/partials/Footer';
 import FullWidthMap from 'components/Common/FullWidthMap';
 import Comments from 'components/Common/Comments';
+import Stars from 'components/Common/Stars';
 
 import {
   StyledProfileWrapper,
   StyledProfileSidebar,
   StyledProfileContent,
-  StyledStars,
 } from './styles';
 
 const Place = () => {
@@ -57,14 +57,9 @@ const Place = () => {
                     <span>عضویت :</span>
                     <span>{persianNumber(placeInfo.register)}</span>
                   </div>
-                  ‌
-                  <StyledStars>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                  </StyledStars>
+
+                  <Stars />
+
                   <Button
                     color="blue"
                     className="follow-button"
