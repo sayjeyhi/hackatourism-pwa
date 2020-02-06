@@ -73,7 +73,7 @@ const City = () => {
               <div className="section-part">
                 <h3 className="mt-4">
                   <NearCitiesIcon />
-                  از {cityInfo.title} می‌تونی بری!
+                  از شیراز می‌تونی بری!
                 </h3>
                 <CitiesStates
                   className="ml-4 flex-row"
@@ -95,19 +95,19 @@ const City = () => {
                       id: 23,
                     },
                     5: {
-                      title: 'شیراز',
+                      title: 'کازرون',
                       id: 23,
                     },
                     6: {
-                      title: 'شیراز',
+                      title: 'سپیدار',
                       id: 23,
                     },
                     7: {
-                      title: 'شیراز',
+                      title: 'خرامه',
                       id: 23,
                     },
                     9: {
-                      title: 'شیراز',
+                      title: 'سپیدار',
                       id: 23,
                     },
                   }}
