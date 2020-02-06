@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Input } from '@snappmarket/ui';
+import { Button, Input } from '@snappmarket/ui';
 
 import SeoHead from 'components/Common/Seo/SeoHead';
 import Stars from 'components/Common/Stars';
+import Loading from 'components/Common/Loading';
 import VoipCallIcon from 'resources/svg/VoipCallIcon';
 import {
   StyledVoipSectionWrapper,
@@ -10,6 +11,7 @@ import {
   StyledGetPhoneNumber,
   StyledChooseCity,
   StyledChooseAdviser,
+  StyledLoading,
 } from './styles';
 
 const AroundHere = () => {
@@ -19,7 +21,9 @@ const AroundHere = () => {
   const [adviser, setAdviser] = useState('');
 
   const makeVoipCall = () => {
+    setNextStep('callingVoip');
     // todo: call alireza API here
+    // use adviser
   };
 
   const handleChangePhoneNumber = e => {
@@ -39,6 +43,10 @@ const AroundHere = () => {
     setNextStep('getCellPhone');
   };
 
+  const handleCancelCall = () => {
+    setNextStep('chooseCity');
+  };
+
   const advisers = [
     {
       name: 'علیرضا جنگی',
@@ -50,14 +58,20 @@ const AroundHere = () => {
       name: 'جعفر رضايي',
       id: 2,
       categories: ['مشاور گردشگری', 'english'],
-      rate: 3,
+      rate: 4,
+    },
+    {
+      name: 'محمدعلی نجاتی',
+      id: 2,
+      categories: ['مشاور سلامت', ' ترنسفر'],
+      rate: 2,
     },
   ];
 
   return (
     <>
       <SeoHead title="سفر هوشمند" />
-      <StyledVoipSectionWrapper className="align-center justify-center flex-column">
+      <StyledVoipSectionWrapper className="align-center justify-center flex-column pb-3 mb-2">
         <StyledVoipBanner className="align-center justify-center flex-column">
           <VoipCallIcon />
           <p>
@@ -108,7 +122,7 @@ const AroundHere = () => {
               ))}
             </div>
           </StyledChooseAdviser>
-        ) : (
+        ) : step === 'getCellPhone' ? (
           <StyledGetPhoneNumber className="flex-column">
             <h3>۳. شروع مشاوره برلحظه</h3>
             <div className="callFormContainer">
@@ -126,6 +140,24 @@ const AroundHere = () => {
                 ایجاد تماس
               </button>
             </div>
+          </StyledGetPhoneNumber>
+        ) : (
+          <StyledGetPhoneNumber className="flex-column">
+            <h3>۴. برقراری مشاوره برخط</h3>
+            <StyledLoading className="justify-center align-center flex-column">
+              <Loading />
+              <span className="text-large text-bold text-gray-normal">
+                در حال برقراری تماس...
+              </span>
+              <Button
+                onClick={handleCancelCall}
+                className="mt-2 text-white"
+                color="red"
+                shade="light"
+                title="لفو تماس"
+                size="sm"
+              />
+            </StyledLoading>
           </StyledGetPhoneNumber>
         )}
       </StyledVoipSectionWrapper>

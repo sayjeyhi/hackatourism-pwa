@@ -130,3 +130,7 @@ export const StyledChooseAdviser = Styled.div`
     margin: 0;
   }
 `;
+
+export const StyledLoading = Styled.div`
+  
+`;

@@ -5,11 +5,6 @@ import { StyledStars } from './styles';
 
 const Stars = ({ rate: initialChose }) => {
   const [chose, setChose] = useState(initialChose);
-
-  console.log({
-    chose,
-    initialChose
-  })
   const handleChoseStar = number => {
     setChose(number);
   };
