@@ -1,6 +1,6 @@
 const theme = {
   defaultRem: '1rem',
-  defaultFont: 'IRANSans',
+  defaultFont: 'Estedad',
   containerWidth: '1628px',
 
   colors: {

@@ -12,13 +12,14 @@ export const StyledProfileSidebar = Styled.aside`
   height: auto;
   top: 100px;
   position: absolute;
+  --wave-theme-color: #78f36b8f;
   .content-holder {
     display: flex;
     flex-direction: column;
     background: #fff;
     border-radius: 16px;
-    border: 2px solid #e8e8e8;
     z-index: -2;
+    padding-bottom: 20px;
   }
   
   svg.waved-bg {
@@ -27,13 +28,13 @@ export const StyledProfileSidebar = Styled.aside`
     position: absolute;
     width: 100%;
     * {
-      fill: #e8e8e8;
+      fill: var(--wave-theme-color);
     }
   }
   .top-wallpaper {
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
-    background: #e8e8e8;
+    background: var(--wave-theme-color);
     height: 35px;
     width: 100%;
   }
@@ -47,7 +48,7 @@ export const StyledProfileSidebar = Styled.aside`
       height: auto;
       min-height: 100%;
       border-radius: 50%;
-      border: 2px solid #e8e8e8;
+      border: 2px solid var(--wave-theme-color);
     }
   }
   
@@ -109,7 +110,7 @@ export const StyledStars = Styled.div`
   span {
     display: inline-block;
     position: relative;
-    width: 1.7em;
+    width: 1.1em;
   }
   span:hover:before,
   span:hover ~ span:before {
