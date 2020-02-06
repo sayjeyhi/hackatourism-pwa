@@ -131,6 +131,18 @@ export const StyledDestinationsList = Styled.div`
       top: 22px;
       border-radius: 50%;
     }
+    .city-name {
+      span{
+        display: block;
+        float: left;
+        background: rgba(200,200,200,0.3);
+        font-size: 12px;
+        padding: 4px;
+        border-radius: 5px;
+        color: #948c8c;
+      }
+    }
+ 
     .city-description {
       font-size: 12px;
       a {

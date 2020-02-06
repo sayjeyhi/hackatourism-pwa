@@ -149,7 +149,9 @@ const AroundHere = () => {
                   <div className="city-description">شهر مبدا</div>
                 </div>
                 <div>
-                  <div className="city-name">شیراز</div>
+                  <div className="city-name">اصفهان
+                    <span>هوایی</span>
+                  </div>
                   <div className="city-description">
                     <NavLink to={`${routes.city.path}/2`}>
                       جاهای دیدنیش کجاست؟
@@ -163,7 +165,26 @@ const AroundHere = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="city-name">بوشهر</div>
+                  <div className="city-name">شیراز
+                    <span>هوایی</span>
+
+                  </div>
+                  <div className="city-description">
+                    <NavLink to={`${routes.city.path}/2`}>
+                      جاهای دیدنیش کجاست؟
+                    </NavLink>
+                    <NavLink
+                      className="bg-green-light"
+                      to={`${routes.place.path}/2312`}
+                    >
+                      رستوران احمدیان
+                    </NavLink>
+                  </div>
+                </div>
+                <div>
+                  <div className="city-name">بوشهر
+                    <span>هوایی</span>
+                  </div>
                   <div className="city-description">شهر مبدا</div>
                 </div>
               </StyledDestinationsList>
