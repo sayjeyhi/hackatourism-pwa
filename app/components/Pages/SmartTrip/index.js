@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CheckBox, Button, Tab, TabPanel, TabSwitcher } from '@snappmarket/ui';
+import { connect } from 'react-redux';
 
+import { cities } from 'resources/data/distance_cities';
 import AirPlaneIcon from 'resources/svg/Icons/AirPlaneIcon';
 import BusIcon from 'resources/svg/Icons/BusIcon';
 import TrainIcon from 'resources/svg/Icons/TrainIcon';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import routes from 'components/Common/Router/routes';
+import { aiActions, aiSelectors } from 'ducks/index';
 import {
   StyledSmartTripWrapper,
   StyledDestinationsList,
   StyledResultHeader,
 } from './styles';
 
-const AroundHere = () => {
+const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
   const [fromCity, setFromCity] = useState({});
   const [toCity, setToCity] = useState({});
   const [getDestinations, setGetDestinations] = useState(false);
   const handleFormSubmit = () => {
-    if(Object.keys(fromCity).length > 0 && Object.keys(toCity).length > 0) {
+    if (Object.keys(fromCity).length > 0 && Object.keys(toCity).length > 0) {
+      getCitiesPath({
+        from: fromCity.id,
+        to: toCity.id,
+      });
       setGetDestinations(!getDestinations);
-    }else{
-      alert("ابتدا مبدا و مقصد را انتخاب کنید");
+    } else {
+      alert('ابتدا مبدا و مقصد را انتخاب کنید');
     }
   };
 
@@ -72,8 +79,9 @@ const AroundHere = () => {
                   id="choose-from-city"
                 >
                   <option value="-">انتخاب کنید</option>
-                  <option value="1">تهران</option>
-                  <option value="2">کیش</option>
+                  {Object.keys(cities).map(cityId => (
+                    <option value={cityId}>{cities[cityId]}</option>
+                  ))}
                 </select>
               </div>
               <div className="to-city">
@@ -84,8 +92,9 @@ const AroundHere = () => {
                   id="choose-to-city"
                 >
                   <option value="-">انتخاب کنید</option>
-                  <option value="1">تهران</option>
-                  <option value="2">کیش</option>
+                  {Object.keys(cities).map(cityId => (
+                    <option value={cityId}>{cities[cityId]}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -119,20 +128,14 @@ const AroundHere = () => {
                   />
                 ) : (
                   <StyledResultHeader className="flex-row">
-                    <button
-                      type="button"
-                      className="search-trips ml-auto"
-                    >
+                    <button type="button" className="search-trips ml-auto">
                       قبلی
                     </button>
                     <h3 className="text-bold text-large text-center flex-column">
                       از {fromCity.title} به {toCity.title}
                       <div className="small-text">۱ از ۳</div>
                     </h3>
-                    <button
-                      type="button"
-                      className="search-trips mr-auto"
-                    >
+                    <button type="button" className="search-trips mr-auto">
                       بعدی
                     </button>
                   </StyledResultHeader>
@@ -149,7 +152,8 @@ const AroundHere = () => {
                   <div className="city-description">شهر مبدا</div>
                 </div>
                 <div>
-                  <div className="city-name">اصفهان
+                  <div className="city-name">
+                    اصفهان
                     <span>هوایی</span>
                   </div>
                   <div className="city-description">
@@ -165,9 +169,9 @@ const AroundHere = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="city-name">شیراز
+                  <div className="city-name">
+                    شیراز
                     <span>هوایی</span>
-
                   </div>
                   <div className="city-description">
                     <NavLink to={`${routes.city.path}/2`}>
@@ -182,7 +186,8 @@ const AroundHere = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="city-name">بوشهر
+                  <div className="city-name">
+                    بوشهر
                     <span>هوایی</span>
                   </div>
                   <div className="city-description">شهر مبدا</div>
@@ -222,4 +227,12 @@ const AroundHere = () => {
   );
 };
 
-export default AroundHere;
+const mapStateToProps = state => ({
+  flightsPath: aiSelectors.getFlightsPath(state),
+  cityPaths: aiSelectors.getCitiesPath(state),
+});
+
+export default connect(mapStateToProps, {
+  getCitiesPath: aiActions.getCitiesPath,
+  getAirlinesPath: aiActions.getAirlinesPath,
+})(SmartTrip);

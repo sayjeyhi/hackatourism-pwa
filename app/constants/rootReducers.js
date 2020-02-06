@@ -7,6 +7,7 @@ import authReducer from 'ducks/auth/reducers';
 import ticketReducer from 'ducks/ticket/reducers';
 import weatherReducer from 'ducks/weather/reducers';
 import playerReducer from 'ducks/player/reducers';
+import aiReducer from 'ducks/ai/reducers';
 
 /**
  * Out root reducers
@@ -22,7 +23,7 @@ const configReducers = {
   ticket: ticketReducer,
   weather: weatherReducer,
   user: userReducer,
-  player: playerReducer,
+  ai: aiReducer,
 };
 
 export default configReducers;
