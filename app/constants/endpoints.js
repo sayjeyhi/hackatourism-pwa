@@ -3,6 +3,10 @@ const api = {
   v1: `https://api.koleposhti.app/api/v1`,
 };
 
+const ai_api = {
+  v1: `https://ai.koleposhti.app/v1`,
+};
+
 const endpoints = {
   AUTH: {
     LOGIN: () => `${api.v1}/user/login`,
@@ -11,6 +15,10 @@ const endpoints = {
   },
   USER: {
     PROFILE: () => `${api.v1}/user/profile`,
+  },
+  AI: {
+    GET_CITIES_PATH: () => `${ai_api.v1}/cities`,
+    GET_AIRPLANES_PATH: () => `${api.v1}/airports`,
   },
   MUSIC: {
     GET_MUSICS: () => `${api.v1}/getMusics`,
