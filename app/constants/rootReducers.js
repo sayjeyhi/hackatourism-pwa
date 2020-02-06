@@ -23,6 +23,7 @@ const configReducers = {
   ticket: ticketReducer,
   weather: weatherReducer,
   user: userReducer,
+  player: playerReducer,
   ai: aiReducer,
 };
 

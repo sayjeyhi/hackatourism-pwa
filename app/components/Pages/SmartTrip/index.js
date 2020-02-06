@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { CheckBox, Button, Tab, TabPanel, TabSwitcher } from '@snappmarket/ui';
 import { connect } from 'react-redux';
 
-import { cities } from 'resources/data/distance_cities';
+import { cityNames } from 'resources/data/distance_cities';
 import AirPlaneIcon from 'resources/svg/Icons/AirPlaneIcon';
 import BusIcon from 'resources/svg/Icons/BusIcon';
 import TrainIcon from 'resources/svg/Icons/TrainIcon';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import routes from 'components/Common/Router/routes';
+import iran_airports from 'resources/data/iran_airports';
 import { aiActions, aiSelectors } from 'ducks/index';
 import {
   StyledSmartTripWrapper,
@@ -28,6 +30,7 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
       });
       setGetDestinations(!getDestinations);
     } else {
+      getAirlinesPath();
       alert('ابتدا مبدا و مقصد را انتخاب کنید');
     }
   };
@@ -78,9 +81,13 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
                   name="choose-from-city"
                   id="choose-from-city"
                 >
-                  <option value="-">انتخاب کنید</option>
-                  {Object.keys(cities).map(cityId => (
-                    <option value={cityId}>{cities[cityId]}</option>
+                  <option key="-" value="-">
+                    انتخاب کنید
+                  </option>
+                  {Object.keys(cityNames).map(cityId => (
+                    <option key={`from_${cityId}`} value={cityId}>
+                      {cityNames[cityId]}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -92,8 +99,8 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
                   id="choose-to-city"
                 >
                   <option value="-">انتخاب کنید</option>
-                  {Object.keys(cities).map(cityId => (
-                    <option value={cityId}>{cities[cityId]}</option>
+                  {Object.keys(cityNames).map(cityId => (
+                    <option value={cityId}>{cityNames[cityId]}</option>
                   ))}
                 </select>
               </div>
@@ -188,7 +195,9 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
                 <div>
                   <div className="city-name">
                     بوشهر
-                    <span>هوایی</span>
+                    <span>
+                      <AirPlaneIcon /> هوایی
+                    </span>
                   </div>
                   <div className="city-description">شهر مبدا</div>
                 </div>
@@ -225,6 +234,11 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
       </StyledSmartTripWrapper>
     </>
   );
+};
+
+SmartTrip.propTypes = {
+  getCitiesPath: PropTypes.func,
+  getAirlinesPath: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
