@@ -5,7 +5,7 @@ import AirPlaneIcon from 'resources/svg/Icons/AirPlaneIcon';
 import BusIcon from 'resources/svg/Icons/BusIcon';
 import TrainIcon from 'resources/svg/Icons/TrainIcon';
 import SeoHead from 'components/Common/Seo/SeoHead';
-import { StyledSmartTripWrapper } from './styles';
+import { StyledSmartTripWrapper, StyledDestinationsList } from './styles';
 
 const AroundHere = () => (
   <>
@@ -62,13 +62,21 @@ const AroundHere = () => (
               className="search-trips"
               title="جستجوی ترکیب‌ها"
             />
+
+            <StyledDestinationsList className="flex-column">
+              <div>تهران</div>
+              <div>شیراز</div>
+              <div>بوشهر</div>
+            </StyledDestinationsList>
           </div>
         </TabPanel>
+
         <TabPanel whenActive="train-trip">
           <div className="text-huge text-bold text-gray-normal align-center justify-center pt-4 pb-2 mt-4 mb-4">
             فعلا آماده نیست :(
           </div>
         </TabPanel>
+
         <TabPanel whenActive="flight-trip">
           <div className="text-huge text-bold text-gray-normal align-center justify-center pt-4 pb-2 mt-4 mb-4">
             فعلا آماده نیست :(

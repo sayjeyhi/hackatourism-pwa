@@ -80,6 +80,9 @@ export const StyledSmartTripWrapper = Styled.div`
         }
       }
     }
+    .chechbox-search {
+      font-size: 14px;
+    }
     .seperate-bottom {
       border-top: 1px dashed rgba(0,0,0,0.07);
       padding-top: 15px;
@@ -95,5 +98,39 @@ export const StyledSmartTripWrapper = Styled.div`
     height: 42px;
     border: 1px solid #d8d8d8 !important;
     width: 100%;
+  }
+`;
+
+
+export const StyledDestinationsList = Styled.div`
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    border-right: 1px dashed #e8e8e8;
+    height: calc(100% - 76px);
+    right: 30px;
+    top: 38px;
+  }
+  > div {
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    margin: 4px 0;
+    padding-right: 41px;
+    padding: 15px 55px 15px 20px;
+    font-size: 22px;
+    font-weight: 900;
+    &:after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background: #e8e8e8;
+      right: 20px;
+      top: 22px;
+      border-radius: 50%;
+    }
+    
   }
 `;

@@ -29,6 +29,10 @@ const additional = css`
     }
   }
 
+  option {
+    font-size: 18px !important;
+  }
+
   .top-fixed {
     position: fixed;
     top: 70px;
