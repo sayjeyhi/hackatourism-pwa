@@ -40,7 +40,7 @@ export const StyledCommentsWrapper = Styled.div`
   }
   
   .user-comment {
-    width: 500px;
+    width: 530px;
     --bg: rgba(0, 0, 0, 0.06);
     max-width: 100%;
   }
@@ -79,6 +79,8 @@ export const StyledCommentsWrapper = Styled.div`
   
   .user-comment .comment-body p {
     margin: 0;
+    color: #5d5d5d;
+    padding: 6px 9px;
   }
   
   .add-comment {
@@ -89,7 +91,7 @@ export const StyledCommentsWrapper = Styled.div`
     font-size: 17px;
     font-weight: 900;
     color: #7b7b7b;
-    border-radius: 12px;
+    border-radius: 11px;
     cursor: pointer;
     svg {
       width: 50px;

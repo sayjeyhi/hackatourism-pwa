@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import routes from 'components/Common/Router/routes';
@@ -12,8 +13,8 @@ import {
 
 import { StyledFooterSocials, StyledFooter } from './styles';
 
-const Footer = () => (
-  <StyledFooter>
+const Footer = ({ className }) => (
+  <StyledFooter className={className}>
     <ul>
       <li>
         <NavLink to={routes.info.rules}>شرایط استفاده</NavLink>
@@ -53,5 +54,9 @@ const Footer = () => (
     </div>
   </StyledFooter>
 );
+
+Footer.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Footer;

@@ -45,10 +45,10 @@ const Home = () => (
       <Row>
         <Section
           className="align-center"
-          icon={WeatherIcon}
+          icon={AdviserIcon}
           md={4}
-          route={routes.weather.index}
-          title="هواشناسی"
+          route={routes.tripAdvice.path}
+          title="مشاوره در لحظه"
         />
         <Section
           className="align-center"
@@ -59,10 +59,10 @@ const Home = () => (
         />
         <Section
           className="align-center"
-          icon={AdviserIcon}
+          icon={WeatherIcon}
           md={4}
-          route={routes.tripAdvice}
-          title="مشاوره سفر"
+          route={routes.weather.path}
+          title="هواشناسی"
         />
       </Row>
     </Container>

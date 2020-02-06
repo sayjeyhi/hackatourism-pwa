@@ -15,6 +15,9 @@ export const StyledWeather = Styled.div`
     height: 29px;
     display: inline-flex;
     transform: scale(1.2);
+    svg * {
+      fill: #fff;
+    }
   }
   .weather-metric {
     font-size: 13px;

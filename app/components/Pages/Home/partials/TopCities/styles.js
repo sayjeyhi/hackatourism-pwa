@@ -80,4 +80,14 @@ export const StyledTopCity = Styled.a`
     transform: scale(0.6) translate(-50%,0);
     opacity: 0;
   }
+  .weather-icon svg {
+    width: 20px;
+    height: 20px;
+    * {
+      fill: #ccc;
+    }
+  }
+  .weather-metric:before {
+    right: -12px;
+  }
 `;

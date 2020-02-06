@@ -5,7 +5,7 @@ export const StyledFullWidthMapWrapper = Styled.div`
   margin-top: 20px;
   .map-container {
     flex: 0 0 90%;
-    height: 300px;
+    height: calc(${props => props.height} * 10px);
     border-radius: 18px;
     overflow: hidden;
     position: relative;

@@ -4,8 +4,9 @@ import Map from 'components/Common/Map';
 import APP_INFO from 'constants/appInfo';
 import { StyledFullWidthMapWrapper } from './styles';
 
-const FullWidthMap = ({ className, ...rest }) => (
+const FullWidthMap = ({ className, height, ...rest }) => (
   <StyledFullWidthMapWrapper
+    height={height}
     className={`align-center justify-center ${className}`}
   >
     <div className="map-container">
@@ -16,6 +17,7 @@ const FullWidthMap = ({ className, ...rest }) => (
 
 FullWidthMap.propTypes = {
   className: PropTypes.string,
+  height: PropTypes.number,
   // props
   initialPosition: PropTypes.object,
   mapZoom: PropTypes.number,
@@ -30,6 +32,10 @@ FullWidthMap.propTypes = {
     lat: PropTypes.number,
     lng: PropTypes.number,
   }),
+};
+
+FullWidthMap.defaultProps = {
+  height: 30,
 };
 
 export default FullWidthMap;

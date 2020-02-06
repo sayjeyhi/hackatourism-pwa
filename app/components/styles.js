@@ -325,6 +325,9 @@ const display = css`
   .d-flex {
     display: flex;
   }
+  .d-none {
+    display: none !important;
+  }
 `;
 
 const textAlign = `

@@ -9,6 +9,8 @@ const AboutUs = () => (
       className="text-huge text-bold text-gray-normal align-center justify-center"
     >
       می‌خوای راجع به ما بدونی؟‌ :))
+      <br/>
+      یه سری برنامه‌نویس کنجکاویم ما
     </div>
   </>
 );

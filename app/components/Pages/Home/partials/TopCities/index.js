@@ -28,7 +28,7 @@ const TopCities = () => (
     />
     <TopCity
       id={264}
-      name="گیلان"
+      name="رشت"
       description=" انتهای غربی رشته کوه البرز و بخش غربی جلگه‌های حاشیه دریای خزر ایران است"
       image={gilanImage}
       weather_id={133349}

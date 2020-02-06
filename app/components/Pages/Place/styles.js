@@ -7,41 +7,53 @@ export const StyledProfileWrapper = Styled(Container)`
 
 export const StyledProfileSidebar = Styled.aside`
   flex: 0 0 25%;
-  display: flex;
-  flex-direction: column;
   font-size: calc(${props => props.theme.defaultRem} * 1.4);
   color: ${props => props.theme.colors.gray.normal};
-  padding: 0 15px;
-  height: 100vh;
-  min-height: 200px;
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 60px;
-  background: #fff;
-  border-radius: 8px;
+  height: auto;
+  top: 78px;
+  position: absolute;
+  --wave-theme-color: #b4f8ad;
+  .content-holder {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 29px;
+    z-index: -2;
+    padding-bottom: 20px;
+  }
   
-  .place-wallpaper{
-    background: #ccc;
-    height: 150px;
-    svg {
-      width: 100%;
-      * {
-        fill: #ccc;
-      }
+  svg.waved-bg {
+    transform: rotate(-180deg);
+    top: 34px;
+    position: absolute;
+    width: 100%;
+    * {
+      fill: var(--wave-theme-color);
     }
   }
-  .place-avatar‌ {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid #ccc;
+  .top-wallpaper {
+    border-top-left-radius: 27px;
+    border-top-right-radius: 27px;
+    background: var(--wave-theme-color);
+    height: 35px;
+    width: 100%;
+  }
+  .place-avatar{
+    min-width: 150px;
+    position: relative;
+    top: -95px;
+    max-width: 55%;
     img{
       max-width: 100%;
       height: auto;
       min-height: 100%;
+      border-radius: 50%;
+      border: 2px solid var(--wave-theme-color);
     }
+  }
+  
+  .sidebar-content {
+    padding: 0 12px;
   }
   .place-name {
   
@@ -53,10 +65,15 @@ export const StyledProfileSidebar = Styled.aside`
     background-color: #9357e2;
     color: #fff;
     display: inline-block;
-    padding: 7px 10px;
     border-radius: 5px;
     box-shadow: 3px 4px 10px rgba(147, 87, 226, 0.57);
     font-size: 18px;
+    width: calc(100% - 20px);
+    border: none;
+  }
+  .footer-in-aside {
+    position: relative;
+    bottom: -60px;
   }
 `;
 
@@ -84,7 +101,6 @@ export const StyledProfileContent = Styled.div`
       display: block;
       width: 90%;
     }
-  }
-  
-  
+  }  
 `;
+

@@ -364,3 +364,39 @@ export const StyledSearchResult = Styled.div`
     font-weight: 600;
   }
 `;
+
+export const StyledWeatherSingle = Styled.div`
+  background: #fff;
+  width: calc(100% - 40px);
+  border-radius: 7px;
+  
+  > .flex-row {
+    padding: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05)
+  }
+  > .justify-around {
+    padding: 24px 8px;
+  }
+  .weather-name {
+    font-size: 20px;
+    font-weight: 900;
+    color: #666;
+    width: 100%;
+  }
+  svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .weather-metrics {
+    position: relative;
+    &:before {
+      content: 'C°';
+      font-size: 9px;
+      position: absolute;
+      color: #ccc;
+      right: -16px;
+      white-space: nowrap;
+    }
+  }
+`;
