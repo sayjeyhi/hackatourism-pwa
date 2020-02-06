@@ -115,7 +115,7 @@ export const StyledDestinationsList = Styled.div`
   > div {
     position: relative;
     border-radius: 5px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #d0d0d0;
     margin: 4px 0;
     padding-right: 41px;
     padding: 15px 55px 15px 20px;
@@ -131,17 +131,39 @@ export const StyledDestinationsList = Styled.div`
       top: 22px;
       border-radius: 50%;
     }
+    .city-description {
+      font-size: 12px;
+      a {
+        border-radius: 8px;
+        background: #e6e6e6;
+        padding: 3px 4px;
+        margin: 6px 4px;
+        color: #444;
+      }
+    }
+  }
+  > div:first-child:after {
+    background: rgb(108, 255, 121);
+  }
+  > div:last-child:after {
+    background: rgb(108, 255, 121)
   }
 `;
 
-export const StyledPagination = Styled.div`
+export const StyledResultHeader = Styled.div`
+  width: 100%;
   button {
-    font-size: 16px;
-    padding: 12px 8px;
-    width: 48px;
-    display: inline-block;
-    background: #e6e6e6;
-    border-radius: 13px;
-    margin: 9px 4px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    color: #676565;
+    background: transparent;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  .small-text {
+    font-size: 11px !important;
+    
   }
 `;

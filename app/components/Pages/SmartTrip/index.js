@@ -1,20 +1,36 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { CheckBox, Button, Tab, TabPanel, TabSwitcher } from '@snappmarket/ui';
 
 import AirPlaneIcon from 'resources/svg/Icons/AirPlaneIcon';
 import BusIcon from 'resources/svg/Icons/BusIcon';
 import TrainIcon from 'resources/svg/Icons/TrainIcon';
 import SeoHead from 'components/Common/Seo/SeoHead';
+import routes from 'components/Common/Router/routes';
 import {
   StyledSmartTripWrapper,
   StyledDestinationsList,
-  StyledPagination,
+  StyledResultHeader,
 } from './styles';
 
 const AroundHere = () => {
+  const [fromCity, setFromCity] = useState({});
+  const [toCity, setToCity] = useState({});
   const [getDestinations, setGetDestinations] = useState(false);
   const handleFormSubmit = () => {
     setGetDestinations(!getDestinations);
+  };
+
+  const handleChangeFromCity = e => {
+    const index = e.nativeEvent.target.selectedIndex;
+    const selectedText = e.nativeEvent.target[index].text;
+    setFromCity({ id: e.target.value, title: selectedText });
+  };
+
+  const handleChangeToCity = e => {
+    const index = e.nativeEvent.target.selectedIndex;
+    const selectedText = e.nativeEvent.target[index].text;
+    setToCity({ id: e.target.value, title: selectedText });
   };
 
   return (
@@ -46,14 +62,24 @@ const AroundHere = () => {
             >
               <div className="from-city">
                 <label htmlFor="choose-from-city">از :</label>
-                <select name="choose-from-city" id="choose-from-city">
+                <select
+                  onChange={handleChangeFromCity}
+                  name="choose-from-city"
+                  id="choose-from-city"
+                >
+                  <option value="-">انتخاب کنید</option>
                   <option value="1">تهران</option>
                   <option value="2">کیش</option>
                 </select>
               </div>
               <div className="to-city">
                 <label htmlFor="choose-to-city">به :</label>
-                <select name="choose-to-city" id="choose-to-city">
+                <select
+                  onChange={handleChangeToCity}
+                  name="choose-to-city"
+                  id="choose-to-city"
+                >
+                  <option value="-">انتخاب کنید</option>
                   <option value="1">تهران</option>
                   <option value="2">کیش</option>
                 </select>
@@ -62,55 +88,88 @@ const AroundHere = () => {
 
             <div className="flex-column">
               <div
-                className={`chechbox-search seperate-bottom ${
+                className={`chechbox-search mt-1 mb-1 seperate-bottom ${
                   !getDestinations ? 'd-flex' : 'd-none'
                 }`}
               >
-                <input
-                  type="checkbox"
-                  name="showAllPosibileThings"
+                <CheckBox
+                  selected={false}
                   id="showAllPosibileThings"
+                  disabled
                 />
-                <label htmlFor="showAllPosibileThings">
+                <label htmlFor="showAllPosibileThings" className="mr-1">
                   {' '}
                   نمایش سفرهای نوع دیگر
                 </label>
               </div>
 
-              <Button
-                type="submit"
-                color={!getDestinations ? 'blue' : 'green'}
-                shade="normal"
-                className="search-trips"
-                onClick={handleFormSubmit}
-                title={!getDestinations ? 'جستجوی ترکیب‌ها' : 'بازگشت'}
-              />
+              <div className="flex-row">
+                {!getDestinations ? (
+                  <Button
+                    type="submit"
+                    color="blue"
+                    shade="normal"
+                    className="search-trips"
+                    onClick={handleFormSubmit}
+                    title="جستجوی ترکیب‌ها"
+                  />
+                ) : (
+                  <StyledResultHeader className="flex-row">
+                    <button
+                      type="button"
+                      className="search-trips ml-auto"
+                      onClick={handleFormSubmit}
+                    >
+                      قبلی
+                    </button>
+                    <h3 className="text-bold text-large text-center flex-column">
+                      از {fromCity.title} به {toCity.title}
+                      <div className="small-text">۱ از ۳</div>
+                    </h3>
+                    <button
+                      type="button"
+                      className="search-trips mr-auto"
+                      onClick={handleFormSubmit}
+                    >
+                      بعدی
+                    </button>
+                  </StyledResultHeader>
+                )}
+              </div>
 
               <StyledDestinationsList
                 className={`flex-column ${
                   getDestinations ? 'd-flex' : 'd-none'
                 }`}
               >
-                <div>تهران</div>
-                <div>شیراز</div>
-                <div>بوشهر</div>
+                <div>
+                  <div className="city-name"> تهران</div>
+                  <div className="city-description">شهر مبدا</div>
+                </div>
+                <div>
+                  <div className="city-name">شیراز</div>
+                  <div className="city-description">
+                    <NavLink to={`${routes.city.path}/2`}>
+                      جاهای دیدنیش کجاست؟
+                    </NavLink>
+                    <NavLink to={`${routes.place.path}/`}>رستوران</NavLink>
+                  </div>
+                </div>
+                <div>
+                  <div className="city-name">بوشهر</div>
+                  <div className="city-description">شهر مبدا</div>
+                </div>
               </StyledDestinationsList>
 
-              <StyledPagination
-                className={`justify-center align-center ${
-                  getDestinations ? 'd-flex' : 'd-none'
-                }`}
-              >
-                <button type="button" className="no-effect-button">
-                  ۱
-                </button>
-                <button type="button" className="no-effect-button">
-                  ۲
-                </button>
-                <button type="button" className="no-effect-button">
-                  ۳
-                </button>
-              </StyledPagination>
+              <div className="justify-center align-center">
+                <Button
+                  className={getDestinations ? 'd-flex' : 'd-none'}
+                  size="sm"
+                  title="بازگشت"
+                  color="gray"
+                  shade="normal"
+                />
+              </div>
             </div>
           </TabPanel>
 
