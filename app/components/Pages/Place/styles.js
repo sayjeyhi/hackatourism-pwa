@@ -10,21 +10,21 @@ export const StyledProfileSidebar = Styled.aside`
   font-size: calc(${props => props.theme.defaultRem} * 1.4);
   color: ${props => props.theme.colors.gray.normal};
   height: auto;
-  top: 100px;
+  top: 78px;
   position: absolute;
-  --wave-theme-color: #78f36b8f;
+  --wave-theme-color: #b4f8ad;
   .content-holder {
     display: flex;
     flex-direction: column;
     background: #fff;
-    border-radius: 16px;
+    border-radius: 29px;
     z-index: -2;
     padding-bottom: 20px;
   }
   
   svg.waved-bg {
     transform: rotate(-180deg);
-    top: 35px;
+    top: 34px;
     position: absolute;
     width: 100%;
     * {
@@ -32,8 +32,8 @@ export const StyledProfileSidebar = Styled.aside`
     }
   }
   .top-wallpaper {
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
+    border-top-left-radius: 27px;
+    border-top-right-radius: 27px;
     background: var(--wave-theme-color);
     height: 35px;
     width: 100%;
