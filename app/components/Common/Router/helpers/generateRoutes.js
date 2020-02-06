@@ -14,13 +14,14 @@ const generateRoutes = (route, selectedProps) => {
   const layout =
     typeof route.layout !== 'undefined' ? route.layout : 'advanced';
 
+
+
   let routes = null;
   if (Array.isArray(Component)) {
     routes = Component.map(item => generateRoutes(item, selectedProps));
   } else {
     routes = Component;
   }
-
   const hasPermission = checkPermissions(permissions, selectedProps);
 
   return (

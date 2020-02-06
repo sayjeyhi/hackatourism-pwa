@@ -107,6 +107,8 @@ export const StyledProfileContent = Styled.div`
 export const StyledStars = Styled.div`
   unicode-bidi: bidi-override;
   direction: rtl;
+  font-size: 24px;
+  margin-bottom: 12px;
   span {
     display: inline-block;
     position: relative;
@@ -116,7 +118,6 @@ export const StyledStars = Styled.div`
   span:hover ~ span:before {
     content: "\\2605";
     position: absolute;
-    left: 0;
     color: gold;
   }
 `;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 import { useRouteChange } from '@snappmarket/hooks';
 
@@ -16,11 +17,16 @@ import GlobalStyles from 'components/styles';
 import MusicPlayer from '../MusicPlayer';
 
 const Hoc = () => {
+  const location = useLocation();
   const { isServer } = useServerContext(serverContext);
 
   useToast();
   useRouteChange(serverHelpers.forceHydrationFinish);
   APP_INFO.JWT_TOKEN = null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <ThemeProvider theme={theme}>
