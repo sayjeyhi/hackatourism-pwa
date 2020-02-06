@@ -5,6 +5,7 @@ import SeoHead from 'components/Common/Seo/SeoHead';
 import Stars from 'components/Common/Stars';
 import Loading from 'components/Common/Loading';
 import VoipCallIcon from 'resources/svg/VoipCallIcon';
+import CommentsIcon from 'resources/svg/CommentsIcon';
 import {
   StyledVoipSectionWrapper,
   StyledVoipBanner,
@@ -78,12 +79,22 @@ const AroundHere = () => {
             با ایجاد تماس امن و سریع اینترنتی مبتنی بر voip ، قبل از برنامه‌ریزی
             سفر با مشاوران خبره ما مشورت کنید
           </p>
+
+          <Button
+            title="ارسال تیکت"
+            color="green"
+            size="sm"
+            shade="light"
+            modifier="outline"
+            className="m-1 send-ticket"
+            icon={CommentsIcon}
+          />
         </StyledVoipBanner>
 
         {/* eslint-disable-next-line no-nested-ternary */}
         {step === 'chooseCity' ? (
           <StyledChooseCity className="flex-column">
-            <h3>۱. انتخاب شهر </h3>
+            <h3>۱. انتخاب شهر <span className="text-small pull-left text-gray-normal">[انتخاب کنید]</span></h3>
             <select onChange={handleChooseCity}>
               <option>انتخاب کنید</option>
               <option value="2">تهران</option>
@@ -94,7 +105,7 @@ const AroundHere = () => {
             className="flex-column"
             visible={Object.keys(city).length === 0}
           >
-            <h3>۲. انتخاب مشاور {city.name} </h3>
+            <h3>۲. انتخاب مشاور {city.name} <span className="text-small pull-left text-gray-normal">[انتخاب کنید]</span></h3>
             <div className="justify-around ">
               {advisers.map(adviser => (
                 <div className="adviser-holder">

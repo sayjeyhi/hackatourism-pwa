@@ -4,6 +4,7 @@ export const StyledVoipSectionWrapper = Styled.div`
   width: 100%;
   background: #fff;
   padding-bottom: 20px;
+  border-radius: 12px;
 `;
 
 export const StyledVoipBanner = Styled.div`
@@ -15,12 +16,23 @@ export const StyledVoipBanner = Styled.div`
   p {
     text-align: center;
   }
+  .send-ticket {
+    min-width: 100px;
+    position: absolute;
+    top: 17px;
+    left: 28px;
+    opacity: 0.8;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 
 export const StyledGetPhoneNumber = Styled.div`
   display: flex;
   width: 90%;
-  border-top: 1px dashed rgba(0,0,0,0.4);
+  border-top: 1px dashed rgba(0,0,0,0.3);
   h3 {
     font-size: 20px;
     font-weight: 900;
@@ -64,7 +76,7 @@ export const StyledGetPhoneNumber = Styled.div`
 export const StyledChooseCity = Styled.div`
   display: flex;
   width: 90%;
-  border-top: 1px dashed rgba(0,0,0,0.4);
+  border-top: 1px dashed rgba(0,0,0,0.3);
   h3 {
     font-size: 20px;
     font-weight: 900;
@@ -84,6 +96,7 @@ export const StyledChooseCity = Styled.div`
 export const StyledChooseAdviser = Styled.div`
   display: flex;
   width: 90%;
+  border-top: 1px dashed rgba(0,0,0,0.3);
   h3 {
     font-size: 20px;
     font-weight: 900;
