@@ -11,37 +11,34 @@ export const StyledProfileSidebar = Styled.aside`
   flex-direction: column;
   font-size: calc(${props => props.theme.defaultRem} * 1.4);
   color: ${props => props.theme.colors.gray.normal};
-  padding: 0 15px;
-  height: 100vh;
-  min-height: 200px;
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 60px;
+  height: calc(100vh - 70px);
+  top: 10px;
   background: #fff;
-  border-radius: 8px;
-  
-  .place-wallpaper{
-    background: #ccc;
-    height: 150px;
+  position: absolute;
+  .place-avatar{
     svg {
+      transform: rotate(-180deg);
+      top: 0;
+      position: absolute;
       width: 100%;
       * {
         fill: #ccc;
       }
     }
-  }
-  .place-avatar‌ {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid #ccc;
+    min-width: 150px;
+    position: relative;
+    top: -55px;
+    max-width: 55%;
     img{
       max-width: 100%;
       height: auto;
       min-height: 100%;
+      border-radius: 50%;
     }
+  }
+  
+  .sidebar-content {
+    padding: 0 12px;
   }
   .place-name {
   
@@ -53,10 +50,11 @@ export const StyledProfileSidebar = Styled.aside`
     background-color: #9357e2;
     color: #fff;
     display: inline-block;
-    padding: 7px 10px;
     border-radius: 5px;
     box-shadow: 3px 4px 10px rgba(147, 87, 226, 0.57);
     font-size: 18px;
+    width: calc(100% - 20px);
+    border: none;
   }
 `;
 
