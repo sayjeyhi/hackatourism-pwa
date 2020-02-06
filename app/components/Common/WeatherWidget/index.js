@@ -17,7 +17,9 @@ const WeatherWidget = ({ weatherId }) => {
       to={`${routes.weather.path}/${weatherId}`}
       className="current-weather"
     >
-      <div className="weather-icon align-center justify-center"><SunnyOvercast /></div>
+      <div className="weather-icon align-center justify-center">
+        <SunnyOvercast />
+      </div>
       <div className="weather-metric">32</div>
     </StyledWeather>
   );

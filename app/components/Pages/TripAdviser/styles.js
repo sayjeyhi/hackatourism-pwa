@@ -35,6 +35,7 @@ export const StyledGetPhoneNumber = Styled.div`
     > div {
       padding: 0;
       margin: 0;
+      width: 80%;
     }
     input {
       border: none;
@@ -55,6 +56,7 @@ export const StyledGetPhoneNumber = Styled.div`
       flex: 0 0 20%;
       font-size: 15px;
       margin: 0;
+      width: 20%;
     }
   }
 `;

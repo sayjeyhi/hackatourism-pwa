@@ -16,6 +16,8 @@ const AroundHere = () => {
   const [step, setNextStep] = useState('chooseCity');
   const [city, setCity] = useState({});
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [adviser, setAdviser] = useState('');
+
   const makeVoipCall = () => {
     // todo: call alireza API here
   };
@@ -32,9 +34,25 @@ const AroundHere = () => {
     });
     setNextStep('chooseAdviser');
   };
-  const handleChooseAdviser = () => {
+  const handleChooseAdviser = adviser => {
+    setAdviser(adviser);
     setNextStep('getCellPhone');
   };
+
+  const advisers = [
+    {
+      name: 'علیرضا جنگی',
+      id: 1,
+      categories: ['حوزه سلامت', 'تکلم العربیه'],
+      rate: 5,
+    },
+    {
+      name: 'جعفر رضايي',
+      id: 2,
+      categories: ['مشاور گردشگری', 'english'],
+      rate: 3,
+    },
+  ];
 
   return (
     <>
@@ -64,32 +82,35 @@ const AroundHere = () => {
           >
             <h3>۲. انتخاب مشاور {city.name} </h3>
             <div className="justify-around ">
-              <div className="adviser-holder">
-                <div className="adviser-name">علیرضا جنگی</div>
+              {advisers.map(adviser => (
+                <div className="adviser-holder">
+                  <div className="adviser-name">{adviser.name}</div>
 
-                <div className="justify-center">
-                  <Stars />
-                </div>
+                  <div className="justify-center">
+                    <Stars chose={adviser.rate} />
+                  </div>
 
-                <div className="adviser-categories">
-                  <div>متخصص حوزه سلامت</div>
-                  <div>تکلم العربیه</div>
+                  <div className="adviser-categories">
+                    {adviser.categories.map(category => (
+                      <div>{category}</div>
+                    ))}
+                  </div>
+                  <div className="justify-center">
+                    <button
+                      onClick={() => handleChooseAdviser(adviser)}
+                      type="button"
+                      className="no-effect-button make-call"
+                    >
+                      شروع صحبت آنلاین
+                    </button>
+                  </div>
                 </div>
-                <div className="justify-center">
-                  <button
-                    onClick={handleChooseAdviser}
-                    type="button"
-                    className="no-effect-button make-call"
-                  >
-                    شروع صحبت آنلاین
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
           </StyledChooseAdviser>
         ) : (
           <StyledGetPhoneNumber className="flex-column">
-            <h3>۳. شروع صحبت برلحظه</h3>
+            <h3>۳. شروع مشاوره برلحظه</h3>
             <div className="callFormContainer">
               <Input
                 type="tell"
