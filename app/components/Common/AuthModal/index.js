@@ -23,7 +23,6 @@ const AuthModal = props => {
     forceAuthModalVisibility,
     isUserLoggedIn,
     hideAuthModal,
-    clearLoadingStatus,
   } = props;
   const [step, setStep] = useState('login');
   const [cellphone, setCellphone] = useState('');
@@ -40,10 +39,10 @@ const AuthModal = props => {
     );
   }, [authModalVisibility, forceAuthModalVisibility, isUserLoggedIn]);
 
-  const forceStepCellphone = () => {
-    clearLoadingStatus(authActions.loginRequest());
-    setStep('cellphone');
-  };
+  // const forceStepCellphone = () => {
+  //   clearLoadingStatus(authActions.loginRequest());
+  //   setStep('cellphone');
+  // };
 
   return (
     <AuthProvider
@@ -60,7 +59,7 @@ const AuthModal = props => {
           width={50}
           visibility={modalVisibility}
           header={
-            <h3 className="m-1 text-center">{userMessages.loginModalTitle}</h3>
+            <h3 className="m-1 text-center">به کوله‌پشتی بپیوندید</h3>
           }
           handleClose={!forceAuthModalVisibility && hideAuthModal}
         >
@@ -75,7 +74,7 @@ const AuthModal = props => {
               }}
             />
           )}
-          {step === 'register' && <DoLogin />}
+          {step === 'login' && <DoLogin />}
           {step === 'signUp' && <SignUpForm />}
         </Modal>
       )}
@@ -88,7 +87,6 @@ AuthModal.propTypes = {
   forceAuthModalVisibility: PropTypes.bool,
   isUserLoggedIn: PropTypes.bool,
   hideAuthModal: PropTypes.func,
-  clearLoadingStatus: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -99,5 +97,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   hideAuthModal: authActions.hideAuthModal,
-  clearLoadingStatus: loadingActions.clearOne,
 })(AuthModal);

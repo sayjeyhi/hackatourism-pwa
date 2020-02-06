@@ -1,22 +1,17 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { authSelectors, authActions } from 'ducks';
+import { authActions } from 'ducks';
 
-import { useFocus, useTimer } from '@snappmarket/hooks';
+import { useFocus } from '@snappmarket/hooks';
 import { Col, Row, Input, Button } from '@snappmarket/ui';
 import { englishNumber, persianNumber } from '@snappmarket/helpers';
 
 import APP_INFO from 'constants/appInfo';
 import userMessages from 'constants/Messages/user.messages';
-import generalMessages from 'constants/Messages/general.messages';
 
 import useApiStatus from 'constants/Hooks/useApiStatus';
-import {
-  StyledTabContainer,
-  StyledLocationContainer,
-  StyledCounter,
-} from '../styles';
+import { StyledTabContainer, StyledLocationContainer } from '../styles';
 import { context as authContext } from '../context/authContext';
 
 const SignUpForm = props => {
@@ -27,11 +22,11 @@ const SignUpForm = props => {
   const [verification, setVerification] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const { time, start: startTimer, reset: resetTimer } = useTimer({
-    endTime: 0,
-    initialTime: 100,
-    timerType: 'DECREMENTAL',
-  });
+  // const { time, start: startTimer, reset: resetTimer } = useTimer({
+  //   endTime: 0,
+  //   initialTime: 100,
+  //   timerType: 'DECREMENTAL',
+  // });
   const focusRef = useFocus(null);
 
   const handleSignupForm = e => {
@@ -55,8 +50,8 @@ const SignUpForm = props => {
     //   cellphone: englishNumber(cellphone),
     //   resend: true,
     // });
-    resetTimer();
-    startTimer();
+    // resetTimer();
+    // startTimer();
   };
 
   /**
@@ -129,24 +124,16 @@ const SignUpForm = props => {
           </Row>
           <Row>
             <Col sm={12}>
-              {time !== 0 ? (
-                <StyledCounter>
-                  {!!time &&
-                    persianNumber(generalMessages.waitUntilResend(time))}
-                </StyledCounter>
-              ) : (
-                <Button
-                  size="sm"
-                  color="gray"
-                  shade="normal"
-                  modifier="link"
-                  disabled={time !== 0}
-                  onClick={handleResendVerification}
-                  className="mt-1"
-                  title={userMessages.resendVerificationCode}
-                  fullWidth
-                />
-              )}
+              <Button
+                size="sm"
+                color="gray"
+                shade="normal"
+                modifier="link"
+                onClick={handleResendVerification}
+                className="mt-1"
+                title={userMessages.resendVerificationCode}
+                fullWidth
+              />
             </Col>
           </Row>
         </StyledTabContainer>

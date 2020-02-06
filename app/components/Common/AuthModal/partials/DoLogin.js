@@ -30,11 +30,13 @@ const DoLogin = props => {
   const handleSendPhoneNumber = e => {
     e.preventDefault();
     const tempCellphone = englishNumber(cellphone);
+    const tempPassword = englishNumber(password);
 
     if (tempCellphone.length > 0) {
       setCellphone(tempCellphone);
       login({
-        cellphone: tempCellphone,
+        phone: tempCellphone,
+        password: tempPassword,
       });
     }
   };
@@ -57,7 +59,7 @@ const DoLogin = props => {
     <>
       <StyledLocationContainer className="justify-center">
         <section className="popup-head">
-          <h2>{userMessages.addMobileToSendMessage}</h2>
+          <h2>برای ورود اطلاعات کاربری خود را وارد کنید</h2>
         </section>
       </StyledLocationContainer>
       <form className="justify-center" onSubmit={handleSendPhoneNumber}>
@@ -92,7 +94,6 @@ const DoLogin = props => {
                 label="رمز عبور"
                 placeholder="رمز عبور"
                 value={password}
-                ref={focusRef}
                 onChange={handleChangePassword}
                 id="cellphone"
                 required="required"
@@ -106,7 +107,17 @@ const DoLogin = props => {
               <Button
                 size="md"
                 disabled={loginStatus === APP_INFO.API_STATUSES.REQUEST}
-                title={userMessages.sendVerificationCode}
+                title="ورود به کوله‌پشتی"
+                primary
+                fullWidth
+              />
+            </Col>
+            <Col xs={12}>
+              <Button
+                onClick={() => setStep('signUp')}
+                size="md"
+                modifier="link"
+                title="ثبت‌نام کاربر"
                 primary
                 fullWidth
               />
@@ -128,5 +139,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  login: authActions.logoutRequest,
+  login: authActions.loginRequest,
 })(DoLogin);

@@ -6,9 +6,12 @@ export default {
     const url = endpoints.AUTH.LOGIN();
     return universalCall({
       url,
-      params: {
+      data: {
         phone,
         password,
+      },
+      headers: {
+        'Content-Type': 'application/json',
       },
       method: 'post',
     });
@@ -17,11 +20,14 @@ export default {
     const url = endpoints.AUTH.REGISTER();
     return universalCall({
       url,
-      params: {
+      data: {
         name,
         phone,
         email,
         password,
+      },
+      headers: {
+        'Content-Type': 'application/json',
       },
       method: 'post',
     });

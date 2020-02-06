@@ -1,6 +1,6 @@
 import Map from './mapSettings';
 const api = {
-  v1: `${process.env.API_URL}/v1`,
+  v1: `https://api.koleposhti.app/api/v1`,
 };
 
 const endpoints = {
