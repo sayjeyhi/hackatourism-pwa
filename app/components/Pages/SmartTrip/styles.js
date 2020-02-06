@@ -114,8 +114,8 @@ export const StyledDestinationsList = Styled.div`
   }
   > div {
     position: relative;
-    border-radius: 5px;
-    border: 1px solid #d0d0d0;
+    border-radius: 16px;
+    border: 1px solid #e2e2e2;
     margin: 4px 0;
     padding-right: 41px;
     padding: 15px 55px 15px 20px;
@@ -136,7 +136,7 @@ export const StyledDestinationsList = Styled.div`
       a {
         border-radius: 8px;
         background: #e6e6e6;
-        padding: 3px 4px;
+        padding: 3px 12px;
         margin: 6px 4px;
         color: #444;
       }

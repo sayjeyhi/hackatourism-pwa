@@ -18,7 +18,11 @@ const AroundHere = () => {
   const [toCity, setToCity] = useState({});
   const [getDestinations, setGetDestinations] = useState(false);
   const handleFormSubmit = () => {
-    setGetDestinations(!getDestinations);
+    if(Object.keys(fromCity).length > 0 && Object.keys(toCity).length > 0) {
+      setGetDestinations(!getDestinations);
+    }else{
+      alert("ابتدا مبدا و مقصد را انتخاب کنید");
+    }
   };
 
   const handleChangeFromCity = e => {
@@ -118,7 +122,6 @@ const AroundHere = () => {
                     <button
                       type="button"
                       className="search-trips ml-auto"
-                      onClick={handleFormSubmit}
                     >
                       قبلی
                     </button>
@@ -129,7 +132,6 @@ const AroundHere = () => {
                     <button
                       type="button"
                       className="search-trips mr-auto"
-                      onClick={handleFormSubmit}
                     >
                       بعدی
                     </button>
@@ -152,7 +154,12 @@ const AroundHere = () => {
                     <NavLink to={`${routes.city.path}/2`}>
                       جاهای دیدنیش کجاست؟
                     </NavLink>
-                    <NavLink to={`${routes.place.path}/`}>رستوران</NavLink>
+                    <NavLink
+                      className="bg-green-light"
+                      to={`${routes.place.path}/2312`}
+                    >
+                      رستوران احمدیان
+                    </NavLink>
                   </div>
                 </div>
                 <div>
@@ -164,6 +171,10 @@ const AroundHere = () => {
               <div className="justify-center align-center">
                 <Button
                   className={getDestinations ? 'd-flex' : 'd-none'}
+                  style={{
+                    minWidth: 60,
+                  }}
+                  onClick={handleFormSubmit}
                   size="sm"
                   title="بازگشت"
                   color="gray"

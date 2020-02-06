@@ -419,10 +419,10 @@ const colorful = css`
         : Object.keys(props.theme.colors[color]).map(
           shade => `
           .text-${color}-${shade}{
-            color: ${props.theme.colors[color][shade]};
+            color: ${props.theme.colors[color][shade]} !important;
           }
           .bg-${color}-${shade}{
-            background-color: ${props.theme.colors[color][shade]};
+            background-color: ${props.theme.colors[color][shade]} !important;
           }
         `,
         ),
