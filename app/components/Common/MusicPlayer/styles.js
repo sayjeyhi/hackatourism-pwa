@@ -26,6 +26,11 @@ export const StyledMusicPlayer = Styled.div`
   & > div {
     display: flex;
   }
+  .deletePlayer {
+    * {
+      fill: #ccc !important;
+    }
+  }
 `;
 
 export const StyledTimer = Styled.div`
@@ -40,6 +45,7 @@ export const StyledTimer = Styled.div`
 export const StyledSongsList = Styled.button`
   flex: 0 0 10%;
   margin-left: auto;
+  margin-right: 20px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;

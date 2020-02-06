@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ReactPlayer from 'react-player';
 import { Container } from '@snappmarket/ui';
+import DeleteIcon from 'resources/svg/Icons/DeleteIcon';
 
 import { persianNumber } from '@snappmarket/helpers';
 import { Next, SongsList, Pause, Play, Speaker } from 'resources/svg/Music';
 import SONGS from 'resources/data/songs';
-import { playerSelectors } from 'ducks';
+import { playerSelectors, playerActions } from 'ducks';
 import {
   StyledMusicPlayer,
   StyledTimer,
@@ -16,7 +17,7 @@ import {
   StyledSongsList,
 } from './styles';
 
-const MusicPlayer = ({ songType, playerVisibility }) => {
+const MusicPlayer = ({ songType, playerVisibility, hidePlayer }) => {
   let player = useRef(null);
   const [songsListVisibility, setSongsListVisibility] = useState(false);
   const [played, setPlayed] = useState(40);
@@ -66,6 +67,10 @@ const MusicPlayer = ({ songType, playerVisibility }) => {
 
   const handleToggleSongsList = () => {
     setSongsListVisibility(!songsListVisibility);
+  };
+
+  const handleCloseMusicBar = () => {
+    hidePlayer();
   };
 
   const setRef = e => {
@@ -135,6 +140,13 @@ const MusicPlayer = ({ songType, playerVisibility }) => {
         <div className="music-controls flex-row">
           <StyledButton
             type="button"
+            className="no-effect-button circle deletePlayer"
+            onClick={handleCloseMusicBar}
+          >
+            <DeleteIcon />
+          </StyledButton>
+          <StyledButton
+            type="button"
             className="no-effect-button circle"
             onClick={handleNext}
             disabled={!songs.length}
@@ -173,6 +185,7 @@ const MusicPlayer = ({ songType, playerVisibility }) => {
 MusicPlayer.propTypes = {
   songType: PropTypes.string,
   playerVisibility: PropTypes.bool,
+  hidePlayer: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -180,4 +193,6 @@ const mapStateToProps = state => ({
   songType: playerSelectors.getSongType(state),
 });
 
-export default connect(mapStateToProps)(MusicPlayer);
+export default connect(mapStateToProps, {
+  hidePlayer: playerActions.hidePlayer,
+})(MusicPlayer);

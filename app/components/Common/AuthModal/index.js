@@ -13,8 +13,7 @@ import userMessages from 'constants/Messages/user.messages';
 import { Modal } from '@snappmarket/ui';
 
 import { AuthProvider } from './context/authContext';
-import GetCellPhone from './partials/GetCellPhone';
-import GetVerificationCode from './partials/GetVerificationCode';
+import DoLogin from './partials/DoLogin';
 import SignUpForm from './partials/SignUpForm';
 import { StyledBackButton } from './styles';
 
@@ -26,7 +25,7 @@ const AuthModal = props => {
     hideAuthModal,
     clearLoadingStatus,
   } = props;
-  const [step, setStep] = useState('cellphone');
+  const [step, setStep] = useState('login');
   const [cellphone, setCellphone] = useState('');
   const [modalVisibility, setModalVisibility] = useState(
     !isUserLoggedIn && authModalVisibility,
@@ -65,17 +64,6 @@ const AuthModal = props => {
           }
           handleClose={!forceAuthModalVisibility && hideAuthModal}
         >
-          {step !== 'cellphone' && (
-            <StyledBackButton
-              icon="angle-right"
-              className="circle p-absolute"
-              color="gray"
-              shade="bright"
-              onClick={() => {
-                forceStepCellphone();
-              }}
-            />
-          )}
           {forceAuthModalVisibility && (
             <StyledBackButton
               icon="angle-right"
@@ -87,8 +75,7 @@ const AuthModal = props => {
               }}
             />
           )}
-          {step === 'cellphone' && <GetCellPhone />}
-          {step === 'verification' && <GetVerificationCode />}
+          {step === 'register' && <DoLogin />}
           {step === 'signUp' && <SignUpForm />}
         </Modal>
       )}
