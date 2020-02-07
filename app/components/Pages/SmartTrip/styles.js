@@ -141,10 +141,12 @@ export const StyledDestinationsList = Styled.div`
         border-radius: 5px;
         color: #948c8c;
         svg {
-          width: 20px;
-          height: 20px;
+          width: 14px;
+          height: 14px;
+          margin-left: 6px;
           * {
-            fill: #fff;
+            fill: #99ff9f;
+            stroke: #333;
           }
         }
       }

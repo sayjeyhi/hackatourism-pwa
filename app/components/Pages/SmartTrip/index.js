@@ -211,7 +211,7 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
               }`}
             >
               <div className="from-city">
-                <label htmlFor="choose-from-airport">از :</label>
+                <label htmlFor="choose-from-airport">از فرودگاه :</label>
                 <select
                   onChange={handleChangeFromAirport}
                   name="choose-from-airport"
@@ -232,7 +232,7 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
                 </select>
               </div>
               <div className="to-city">
-                <label htmlFor="choose-to-airport">به :</label>
+                <label htmlFor="choose-to-airport">به فرودگاه :</label>
                 <select
                   onChange={handleChangeToAirport}
                   name="choose-to-airport"
@@ -285,7 +285,8 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
                       قبلی
                     </button>
                     <h3 className="text-bold text-large text-center flex-column">
-                      از {fromAirport.title} به {fromAirport.title}
+                      <div className=""> از {fromAirport.title}</div>
+                      <div className=""> به {fromAirport.title}</div>
                       <div className="small-text">۱ از ۳</div>
                     </h3>
                     <button type="button" className="search-trips mr-auto">
@@ -300,53 +301,11 @@ const SmartTrip = ({ getCitiesPath, getAirlinesPath }) => {
                   getDestinations ? 'd-flex' : 'd-none'
                 }`}
               >
-                <div>
-                  <div className="city-name"> تهران</div>
-                  <div className="city-description">شهر مبدا</div>
-                </div>
-                <div>
-                  <div className="city-name">
-                    اصفهان
-                    <span>هوایی</span>
-                  </div>
-                  <div className="city-description">
-                    <NavLink to={`${routes.city.path}/2`}>
-                      جاهای دیدنیش کجاست؟
-                    </NavLink>
-                    <NavLink
-                      className="bg-green-light"
-                      to={`${routes.place.path}/2312`}
-                    >
-                      رستوران احمدیان
-                    </NavLink>
-                  </div>
-                </div>
-                <div>
-                  <div className="city-name">
-                    شیراز
-                    <span>هوایی</span>
-                  </div>
-                  <div className="city-description">
-                    <NavLink to={`${routes.city.path}/2`}>
-                      جاهای دیدنیش کجاست؟
-                    </NavLink>
-                    <NavLink
-                      className="bg-green-light"
-                      to={`${routes.place.path}/2312`}
-                    >
-                      رستوران احمدیان
-                    </NavLink>
-                  </div>
-                </div>
-                <div>
-                  <div className="city-name">
-                    بوشهر
-                    <span>
-                      <AirPlaneIcon /> هوایی
-                    </span>
-                  </div>
-                  <div className="city-description">شهر مبدا</div>
-                </div>
+                <CityGraph isStart cityName="تهران" transferType={3} />
+                <CityGraph cityName="کاشان" transferType={3} />
+                <CityGraph cityName="اصفهان" transferType={1} />
+                <CityGraph cityName="شیراز" transferType={2} />
+                <CityGraph isEnd cityName="بوشهر" transferType={3} />
               </StyledDestinationsList>
 
               <div className="justify-center align-center">

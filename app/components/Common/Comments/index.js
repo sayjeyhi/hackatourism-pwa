@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CommentsIcon from 'resources/svg/CommentsIcon';
+import avatarImage from 'resources/img/avatar03.jpg';
+
 import { StyledCommentsWrapper } from './styles';
 
 const Comments = ({ className }) => {
@@ -46,18 +48,18 @@ const Comments = ({ className }) => {
         <div className="comment-author">
           <div className="user-avatar">
             <img
-              src="https://www.gravatar.com/avatar/d08fcf59fd25c84ff92105e3d0747a7e?s=328&d=identicon&r=PG"
+              src={avatarImage}
               alt="user"
             />
           </div>
-          <div className="user-text">Jafar Rezaei</div>
+          <div className="user-text">علی احمدیان</div>
         </div>
         <div className="user-comment">
           <div className="arrow">
             <div className="inner" />
           </div>
           <div className="comment-body">
-            <p>نظر من در مورد این صفحه این است .</p>
+            <p>خیلی عالی بود، مرسی</p>
           </div>
         </div>
       </div>

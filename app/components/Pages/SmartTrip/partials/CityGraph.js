@@ -6,7 +6,6 @@ import Loading from 'components/Common/Loading';
 import TrainIcon from 'resources/svg/Icons/TrainIcon';
 import BusIcon from 'resources/svg/Icons/BusIcon';
 import AirPlaneIcon from 'resources/svg/Icons/AirPlaneIcon';
-import { useDebounce } from '@snappmarket/hooks';
 
 const CityGraph = ({ cityId, cityName, isStart, isEnd, transferType }) => {
   const howManyToShow = Math.floor(Math.random() * 3) + 1;
@@ -27,7 +26,7 @@ const CityGraph = ({ cityId, cityName, isStart, isEnd, transferType }) => {
       url: id => `${routes.city.path}/${id}`,
     },
     {
-      title: 'آب و هواش چظوریه؟',
+      title: 'آب و هواش چطوریه؟',
       color: 'rgb(250, 170, 181)',
       url: id => `${routes.city.path}/${id}`,
     },
@@ -77,7 +76,6 @@ const CityGraph = ({ cityId, cityName, isStart, isEnd, transferType }) => {
     }, 1600);
   }, []);
 
-  console.log({ showPredicts });
   return (
     <div>
       <div className="city-name">

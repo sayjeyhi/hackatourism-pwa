@@ -5,7 +5,7 @@ import { authActions } from 'ducks';
 
 import { useFocus } from '@snappmarket/hooks';
 import { Col, Row, Input, Button } from '@snappmarket/ui';
-import { englishNumber, persianNumber } from '@snappmarket/helpers';
+import { persianNumber } from '@snappmarket/helpers';
 
 import APP_INFO from 'constants/appInfo';
 import userMessages from 'constants/Messages/user.messages';
