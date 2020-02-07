@@ -125,14 +125,14 @@ export default () => {
             </StyledTeam>
           </div>
         ) : step === 'technical' ? (
-          <>
+          <div className="flex-column">
             <span className="text-green-normal">
               {' '}
               تکنولوژی‌های مورد استفاده‌مون
             </span>
             <br />
 
-            <div className="flex-column">
+            <div className="flex-column text-left text-gray-normal text-large">
               <div>
                 AI: [tensorFlow, pyTorch, scikit-learn, numPy, pandas, flask]
               </div>
@@ -147,7 +147,7 @@ export default () => {
               <div>APP: [ReactNative, AndroidStudio, xcode, gradle]</div>
               <div>Desgin: [Sketch, zeplin, nucleo]</div>
             </div>
-          </>
+          </div>
         ) : (
           '404'
         )}
