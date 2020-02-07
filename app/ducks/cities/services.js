@@ -13,7 +13,7 @@ export default {
     });
   },
   getProvices({ adviser_id, phone }) {
-    const url = endpoints.VOIP.CALL();
+    const url = endpoints.CITY.GET_TOP_CITIES()
     return universalCall({
       url,
       data: {
@@ -24,6 +24,16 @@ export default {
         'Content-Type': 'application/json',
       },
       method: 'POST',
+    });
+  },
+  getCityPage({ id }) {
+    const url = endpoints.CITY.GET_CITY_PAGE(id);
+    return universalCall({
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     });
   },
 };

@@ -26,9 +26,9 @@ import {
 const City = () => {
   const cityInfo = {
     id: 12,
-    title: 'همدان',
-    lat: 35.7231273,
-    lng: 51.3877295,
+    title: 'شیراز',
+    lat: 29.5926,
+    lng: 52.5836,
   };
 
   return (
