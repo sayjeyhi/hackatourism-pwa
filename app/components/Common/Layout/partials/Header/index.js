@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { CircleWaveAnimation, Icon } from '@snappmarket/ui';
 
-import { Icon } from '@snappmarket/ui';
 import routes from 'components/Common/Router/routes';
 
 import KoleposhtiLogo from 'resources/svg/KoleposhtiLogo';
@@ -80,6 +80,7 @@ const Header = props => {
             <StyledHeaderProfile className="align-center">
               {isLoggedIn ? (
                 <>
+                  <CircleWaveAnimation size={1} />
                   <StyledUserBtn
                     size="sm"
                     modifier="link"

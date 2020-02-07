@@ -4,7 +4,7 @@ const routes = {
   basket: '/basket',
   user: {
     profile: '/user/profile',
-    orders: '/user/orders',
+    schedules: '/user/schedules',
     credit: '/user/credit',
   },
   search: {

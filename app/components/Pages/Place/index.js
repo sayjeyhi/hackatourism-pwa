@@ -8,7 +8,7 @@ import FullWidthMap from 'components/Common/FullWidthMap';
 import Comments from 'components/Common/Comments';
 import Stars from 'components/Common/Stars';
 
-import bussinessImage from 'resources/img/bussiness.jpeg';
+import bizImage from 'resources/img/bizPage.jpg';
 
 import {
   StyledProfileWrapper,
@@ -47,7 +47,7 @@ const Place = () => {
                 </svg>
 
                 <div className="place-avatar">
-                  <img src={bussinessImage} alt="user" />
+                  <img src={bizImage} alt="user" />
                 </div>
 
                 <div className="sidebar-content align-center justify-center flex-column">

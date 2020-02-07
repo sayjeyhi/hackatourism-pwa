@@ -58,9 +58,9 @@ const UserPanel = ({ profile, logout, visible }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink onClick={handleMenuItemClick} to={routes.user.orders}>
+          <NavLink onClick={handleMenuItemClick} to={routes.user.schedules}>
             <ShoppingBasketIcon />
-            {generalMessages.header.userPanel.ordersList}
+            لیست سفرها
           </NavLink>
         </li>
         <li>

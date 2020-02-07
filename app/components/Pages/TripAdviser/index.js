@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Input } from '@snappmarket/ui';
 import { connect } from 'react-redux';
 
@@ -7,6 +8,7 @@ import Stars from 'components/Common/Stars';
 import Loading from 'components/Common/Loading';
 import VoipCallIcon from 'resources/svg/VoipCallIcon';
 import CommentsIcon from 'resources/svg/CommentsIcon';
+import { cityNames } from 'resources/data/distance_cities';
 import {
   StyledVoipSectionWrapper,
   StyledVoipBanner,
@@ -15,8 +17,9 @@ import {
   StyledChooseAdviser,
   StyledLoading,
 } from './styles';
+import { adviserActions } from 'ducks/index';
 
-const AroundHere = () => {
+const TripAdviser = () => {
   const [step, setNextStep] = useState('chooseCity');
   const [city, setCity] = useState({});
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -95,10 +98,16 @@ const AroundHere = () => {
         {/* eslint-disable-next-line no-nested-ternary */}
         {step === 'chooseCity' ? (
           <StyledChooseCity className="flex-column">
-            <h3>۱. انتخاب شهر <span className="text-small pull-left text-gray-normal">[انتخاب کنید]</span></h3>
+            <h3>
+              ۱. انتخاب شهر{' '}
+              <span className="text-small pull-left text-gray-normal">
+                [انتخاب کنید]
+              </span>
+            </h3>
             <select onChange={handleChooseCity}>
-              <option>انتخاب کنید</option>
-              <option value="2">تهران</option>
+              {Object.keys(cityNames).map(cityId => (
+                <option value={cityId}>{cityNames[cityId]}</option>
+              ))}
             </select>
           </StyledChooseCity>
         ) : step === 'chooseAdviser' ? (
@@ -106,7 +115,12 @@ const AroundHere = () => {
             className="flex-column"
             visible={Object.keys(city).length === 0}
           >
-            <h3>۲. انتخاب مشاور {city.name} <span className="text-small pull-left text-gray-normal">[انتخاب کنید]</span></h3>
+            <h3>
+              ۲. انتخاب مشاور {city.name}{' '}
+              <span className="text-small pull-left text-gray-normal">
+                [انتخاب کنید]
+              </span>
+            </h3>
             <div className="justify-around ">
               {advisers.map(adviser => (
                 <div className="adviser-holder">
@@ -177,10 +191,11 @@ const AroundHere = () => {
   );
 };
 
-const mapStateToProps = state => ({
+TripAdviser.propTypes = {
+  makeVoipCall: PropTypes.func,
+};
 
-});
 
-export default connect(mapStateToProps, {
-  ff
-})(AroundHere);
+export default connect(null, {
+  makeVoipCall: adviserActions.makeVoipCall,
+})(TripAdviser);
