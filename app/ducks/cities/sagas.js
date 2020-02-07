@@ -23,7 +23,7 @@ function* getCitiesRequest(action) {
   }
 }
 
-function* makeVoipCall(action) {
+function* getProvince(action) {
   try {
     const response = yield call(citiesServices.doVoipCall, action.payload);
 
@@ -41,6 +41,6 @@ function* makeVoipCall(action) {
 }
 
 export default [
-  takeLatest(citiesTypes.GET_CITIES_LIST_REQUEST, getAdvisersList),
-  takeLatest(citiesTypes.GET_PROVINCES_LIST_REQUEST, getAdvisersList),
+  takeLatest(citiesTypes.GET_CITIES_LIST_REQUEST, getCitiesRequest),
+  takeLatest(citiesTypes.GET_PROVINCES_LIST_REQUEST, getProvince),
 ];

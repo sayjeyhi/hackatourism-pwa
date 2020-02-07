@@ -25,7 +25,7 @@ const endpoints = {
     GET_MUSICS_TYPES: () => `${api.v1}/getMusicTypes`,
   },
   VOIP: {
-    CALL: () => `${api.v1}/viop/call`,
+    CALL: () => `${api.v1}/voip/call`,
     ADVISERS: id => `${api.v1}/advisers/${id}`,
   },
   PROFILE: {

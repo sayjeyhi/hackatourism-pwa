@@ -42,5 +42,5 @@ function* makeVoipCall(action) {
 
 export default [
   takeLatest(adviserTypes.GET_ADVISERS_LIST_REQUEST, getAdvisersList),
-  takeLatest(adviserTypes.MAKE_VOIP_CALL_REQUEST, getAdvisersList),
+  takeLatest(adviserTypes.MAKE_VOIP_CALL_REQUEST, makeVoipCall),
 ];

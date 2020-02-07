@@ -7,6 +7,8 @@ import mapSagas from 'ducks/map/sagas';
 import ticketSaga from 'ducks/ticket/sagas';
 import weatherSagas from 'ducks/weather/sagas';
 import aiSagas from 'ducks/ai/sagas';
+import adviserSagas from 'ducks/adviser/sagas';
+import citiesSagas from 'ducks/cities/sagas';
 
 export default function* configSagas() {
   yield all([...authSaga]);
@@ -16,4 +18,6 @@ export default function* configSagas() {
   yield all([...mapSagas]);
   yield all([...weatherSagas]);
   yield all([...aiSagas]);
+  yield all([...adviserSagas]);
+  yield all([...citiesSagas]);
 }

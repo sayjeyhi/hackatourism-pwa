@@ -19,16 +19,19 @@ import {
 } from './styles';
 import { adviserActions } from 'ducks/index';
 
-const TripAdviser = () => {
+const TripAdviser = ({ makeVoipCall }) => {
   const [step, setNextStep] = useState('chooseCity');
   const [city, setCity] = useState({});
   const [phoneNumber, setPhoneNumber] = useState('');
   const [adviser, setAdviser] = useState('');
 
-  const makeVoipCall = () => {
+  const makeVoipCallRequest = () => {
+    console.log("SDDDDD");
     setNextStep('callingVoip');
-    // todo: call alireza API here
-    console.log(adviser);
+    makeVoipCall({
+      adviser_id: 3,
+      phone: phoneNumber,
+    });
   };
 
   const handleChangePhoneNumber = e => {
@@ -160,7 +163,7 @@ const TripAdviser = () => {
               />
               <button
                 className="no-effect-button make-call"
-                onClick={makeVoipCall}
+                onClick={makeVoipCallRequest}
                 type="button"
               >
                 ایجاد تماس
@@ -194,7 +197,6 @@ const TripAdviser = () => {
 TripAdviser.propTypes = {
   makeVoipCall: PropTypes.func,
 };
-
 
 export default connect(null, {
   makeVoipCall: adviserActions.makeVoipCall,
