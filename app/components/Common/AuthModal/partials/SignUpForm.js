@@ -18,40 +18,27 @@ const SignUpForm = props => {
   const { register } = props;
 
   const [registerStatus] = useApiStatus(register);
-  const { cellphone, setLoggedIn } = useContext(authContext);
-  const [verification, setVerification] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  // const { time, start: startTimer, reset: resetTimer } = useTimer({
-  //   endTime: 0,
-  //   initialTime: 100,
-  //   timerType: 'DECREMENTAL',
-  // });
+  const { setLoggedIn, setStep } = useContext(authContext);
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [password, setPassword] = useState('');
+
   const focusRef = useFocus(null);
 
   const handleSignupForm = e => {
     e.preventDefault();
     register({
-      verification: verification.trim(),
-      firstname: firstName.trim(),
-      lastname: lastName.trim(),
-      email: false,
-      code: englishNumber(verification),
-      cellphone: englishNumber(cellphone),
-      client: APP_INFO.CLIENT,
-      deviceType: APP_INFO.DEVICE_TYPE,
-      appVersion: APP_INFO.APP_VERSION,
+      name: name.trim(),
+      email,
+      phone: mobile,
+      password,
     });
   };
 
   const handleResendVerification = e => {
     e.preventDefault();
-    // loginWithNoPass({
-    //   cellphone: englishNumber(cellphone),
-    //   resend: true,
-    // });
-    // resetTimer();
-    // startTimer();
+
   };
 
   /**
@@ -64,36 +51,20 @@ const SignUpForm = props => {
   return (
     <>
       <StyledLocationContainer className="justify-center">
-        <h2>{userMessages.codeSentToMobile(persianNumber(cellphone))}</h2>
+        <h2>از امروز هدفمندتر سفر کن</h2>
       </StyledLocationContainer>
       <form className="justify-center" onSubmit={handleSignupForm}>
         <StyledTabContainer>
           <Row>
             <Col xs={12}>
               <Input
-                autoComplete="off"
-                required="required"
                 type="text"
-                maxlength={5}
-                label={userMessages.verificationCode}
-                placeholder={userMessages.enterVerificationCode}
-                value={persianNumber(verification)}
+                label="نام و نام‌خانوادگی"
+                placeholder="نام و نام‌خانوادگی خود را وارد کنید"
+                value={name}
                 ref={focusRef}
                 onChange={e => {
-                  if (e.target.value.length <= 5)
-                    setVerification(e.target.value);
-                }}
-                id="verification"
-                autoFocus
-              />
-              <Input
-                type="text"
-                maxlength="5"
-                label={userMessages.name}
-                placeholder={userMessages.namePlaceholder}
-                value={firstName}
-                onChange={e => {
-                  setFirstName(e.target.value);
+                  setName(e.target.value);
                 }}
                 id="name"
                 required="required"
@@ -101,14 +72,35 @@ const SignUpForm = props => {
               <Input
                 required="required"
                 type="text"
-                maxlength="5"
-                label={userMessages.lastname}
-                placeholder={userMessages.lastnamePlaceholder}
-                value={lastName}
-                id="lastname"
+                label="ایمیل"
+                placeholder="آدرس ایمیل خود را وارد کنید"
+                value={email}
+                id="email"
                 onChange={e => {
-                  setLastName(e.target.value);
+                  setEmail(e.target.value);
                 }}
+              />
+              <Input
+                required="required"
+                type="text"
+                label="شماره همراه"
+                placeholder="شماره موبایل خود را وارد کنید"
+                value={persianNumber(mobile)}
+                onChange={e => {
+                  setMobile(e.target.value);
+                }}
+                id="mobile"
+              />
+              <Input
+                required="required"
+                type="password"
+                label="رمز عبور"
+                placeholder="رمز عبور خود را وارد کنید"
+                value={password}
+                onChange={e => {
+                  setPassword(e.target.value);
+                }}
+                id="password"
               />
             </Col>
           </Row>
@@ -129,9 +121,9 @@ const SignUpForm = props => {
                 color="gray"
                 shade="normal"
                 modifier="link"
-                onClick={handleResendVerification}
+                onClick={() => setStep('login')}
                 className="mt-1"
-                title={userMessages.resendVerificationCode}
+                title="ورود به کوله‌پشتی"
                 fullWidth
               />
             </Col>

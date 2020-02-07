@@ -58,9 +58,7 @@ const AuthModal = props => {
         <Modal
           width={50}
           visibility={modalVisibility}
-          header={
-            <h3 className="m-1 text-center">به کوله‌پشتی بپیوندید</h3>
-          }
+          header={<h3 className="m-1 text-center">به کوله‌پشتی بپیوندید</h3>}
           handleClose={!forceAuthModalVisibility && hideAuthModal}
         >
           {forceAuthModalVisibility && (
