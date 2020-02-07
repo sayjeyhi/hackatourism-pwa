@@ -104,6 +104,11 @@ const userReducer = (state = initialState, action) => {
         profile: userUtils.normalizeProfile(action.payload.user),
         isUserLoggedIn: true,
       };
+    case userTypes.SET_LOGGED_IN:
+      return {
+        ...state,
+        isUserLoggedIn: action.payload,
+      };
 
     case userTypes.SET_SELECTED_ADDRESS:
       return {

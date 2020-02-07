@@ -2,6 +2,7 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import {
   globalErrorCatcher,
   safeObjectPropertyRead,
+  setCookie,
 } from '@snappmarket/helpers';
 
 import APP_INFO from 'constants/appInfo';
@@ -18,10 +19,18 @@ import {
 function* loginRequest(action) {
   try {
     const response = yield call(authServices.login, action.payload);
+    yield put(authActions.loginSuccess(response));
 
-    yield put(authActions.logoutSuccess(response));
+    if (response.result === 'SUCCESS') {
+      const {
+        data: { user, token },
+      } = response;
 
-    console.log({ response });
+      setCookie('jwtToken', token);
+      // yield put(userActions.getProfileRequest());
+      yield put(userActions.setIsLoggedIn(true));
+      yield put(authActions.registerSuccess());
+    }
   } catch (e) {
     yield globalErrorCatcher(e);
     yield put(
@@ -56,12 +65,19 @@ function* loginMobileWithToken(action) {
 
 function* registerRequest(action) {
   try {
-    const response = yield call(
-      authServices.registerWithOptionalPass,
-      action.payload,
-    );
+    const response = yield call(authServices.register, action.payload);
 
-    yield put(authActions.registerSuccess(response));
+    if (response.result === 'SUCCESS') {
+      const {
+        data: { user, token },
+      } = response;
+
+      setCookie('jwtToken', token);
+      // yield put(userActions.getProfileRequest());
+      yield put(userActions.setIsLoggedIn(true));
+      yield put(authActions.registerSuccess());
+    }
+
     // const {
     //   data: { jwt_token: jwtToken, jwt_refresh_token: jwtRefreshToken },
     // } = response;
@@ -82,7 +98,6 @@ function* logoutRequest() {
     yield put(coreActions.purgeStorage());
     yield put(authActions.logoutSuccess());
     yield call(deleteCookie, 'jwtToken');
-    yield call(deleteCookie, 'jwtRefreshToken');
     APP_INFO.JWT_TOKEN = null;
     // window.location.reload();
   } catch (e) {

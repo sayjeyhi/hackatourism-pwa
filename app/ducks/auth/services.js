@@ -1,4 +1,4 @@
-import { universalCall } from '@snappmarket/helpers';
+import { getCookie, universalCall } from '@snappmarket/helpers';
 import endpoints from 'constants/endpoints';
 
 export default {
@@ -34,10 +34,12 @@ export default {
   },
   logout() {
     const url = endpoints.AUTH.LOGOUT();
+
     return universalCall({
       url,
       method: 'GET',
       allowedNoContent: true,
+      jwtToken: getCookie('jwtToken'),
     });
   },
 };

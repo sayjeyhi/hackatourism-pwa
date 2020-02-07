@@ -1,4 +1,4 @@
-import { universalCall } from '@snappmarket/helpers';
+import { getCookie, universalCall } from '@snappmarket/helpers';
 import endpoints from 'constants/endpoints';
 
 export default {
@@ -20,6 +20,7 @@ export default {
         adviser_id,
         phone,
       },
+      jwtToken: getCookie('jwtToken'),
       headers: {
         'Content-Type': 'application/json',
       },

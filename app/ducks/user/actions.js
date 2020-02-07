@@ -43,6 +43,7 @@ export default {
 
   setSelectedAddress: payload =>
     actionMaker(userTypes.SET_SELECTED_ADDRESS, payload),
+  setIsLoggedIn: payload => actionMaker(userTypes.SET_LOGGED_IN, payload),
 
   clearUserData: () => actionMaker(userTypes.CLEAR_USER_DATA),
 };

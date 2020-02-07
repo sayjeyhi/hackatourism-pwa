@@ -5,8 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 import { authActions, userSelectors } from 'ducks/index';
 
-import { Button } from '@snappmarket/ui';
-import { persianNumber } from '@snappmarket/helpers';
 import routes from 'components/Common/Router/routes';
 
 import UserIcon from 'resources/svg/Icons/UserIcon';
@@ -39,7 +37,7 @@ const UserPanel = ({ profile, logout, visible }) => {
       <StyledPanelTop>
         <div>{`${profile.firstname} ${profile.lastname}`}</div>
         <div className="align-center">
-          {generalMessages.header.userPanel.credit}:{persianNumber('22,900')}
+          {generalMessages.header.userPanel.credit}: ۰ تومان
           {generalMessages.header.pricingUnit}
         </div>
       </StyledPanelTop>
