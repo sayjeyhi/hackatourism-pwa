@@ -3,7 +3,11 @@ import { useParams, useHistory } from 'react-router-dom';
 import SeoHead from 'components/Common/Seo/SeoHead';
 import { getNextProp } from '@snappmarket/helpers';
 
-import { StyledPresentationHolder, StyledChooseStepButton, StyledTeam } from './styles';
+import {
+  StyledPresentationHolder,
+  StyledChooseStepButton,
+  StyledTeam,
+} from './styles';
 
 export default () => {
   const params = useParams();
@@ -31,12 +35,11 @@ export default () => {
       history.push(`/presentation/${newStep}`);
     };
 
-    const handlePrevStep = window.history.back;
     return (
       <StyledChooseStepButton>
         <button
           type="button"
-          onClick={handlePrevStep}
+          onClick={() => window.history.back()}
           className="next no-effect-name"
         >
           قبلی
@@ -58,34 +61,28 @@ export default () => {
       <StyledPresentationHolder className="text-huge text-bold text-gray-normal align-center justify-center">
         {step === 'hi' ? (
           <>
-            سلام!
-            <br />
-            من جعفررضايي هستم
-            <MovementsButtons />
+            <div className="text-extra-huge">سلام!</div>
           </>
         ) : step === 'what-is-koleposhti' ? (
-          <>
+          <div className="flex-column">
             <span className="text-green-normal">کوله‌پشتی چیه؟</span>
             <br />
             از اول تا آخر سفر باهاتونیم!
-            <MovementsButtons />
-          </>
+          </div>
         ) : step === 'why-koleposhti' ? (
-          <>
+          <div className="flex-column">
             <span className="text-green-normal">چرا کوله‌پشتی؟</span>
             <br />
-            دوران سنتی فکر کردن تموم شده... دانرو . نزدیکا ، ...
-            <MovementsButtons />
-          </>
+            سنتی فکر کردن تمومه. دانرو . نزدیکا ، ...
+          </div>
         ) : step === 'is-this-a-joke' ? (
-          <>
+          <div className="flex-column">
             <span className="text-green-normal">واقعا ممکنه؟</span>
             <br />
             بله، الان خدمتتون دمو می‌کنیم :)
-            <MovementsButtons />
-          </>
+          </div>
         ) : step === 'feature' ? (
-          <>
+          <div className="flex-column">
             <span className="text-green-normal">
               {' '}
               آینده کوله‌پشتی کجاست؟ و قراره به کجا برسه؟
@@ -95,10 +92,9 @@ export default () => {
             <br />
             کوله‌پشتی ما تازه اول راهه، طبق متریک‌هامون کلی جای خالی توی حوزه
             گردشگری هست
-            <MovementsButtons />
-          </>
+          </div>
         ) : step === 'team' ? (
-          <>
+          <div className="flex-column">
             <span className="text-green-normal">
               دوزندگان کوله‌پشتی‌ کیا هستن؟
             </span>
@@ -106,10 +102,28 @@ export default () => {
             ما ۵ نفر، تو این سه روز یه کوله‌پشتی کوچیک دوختیم !
             <br />
             <StyledTeam>
-              <div className=""></div>
+              <div className="align-center">
+                جعفر رضایی
+                <span>Front-end and Team lead</span>
+              </div>
+              <div className="align-center">
+                مهدی ابراهیمی
+                <span>DataScientist </span>
+              </div>
+              <div className="align-center">
+                علیرضا جنگی
+                <span>Back-end and DevOps </span>
+              </div>
+              <div className="align-center">
+                آرمان رکنی
+                <span>UI design </span>
+              </div>
+              <div className="align-center">
+                سعید تاج‌فرد
+                <span>App developer </span>
+              </div>
             </StyledTeam>
-            <MovementsButtons />
-          </>
+          </div>
         ) : step === 'technical' ? (
           <>
             <span className="text-green-normal">
@@ -118,13 +132,27 @@ export default () => {
             </span>
             <br />
 
-            <div>Frontend: [ReactJs, redux, saga]</div>
-            <div>Backend: [docker, ha-proxy, laravel]</div>
-            <MovementsButtons />
+            <div className="flex-column">
+              <div>
+                AI: [tensorFlow, pyTorch, scikit-learn, numPy, pandas, flask]
+              </div>
+              <div>
+                Backend: [Ubuntu, HAProxy, Docker, CI/CD, GitllabCI, PHP,
+                Laravel, MySql, NGINX]
+              </div>
+              <div>
+                Frontend: [CI/CD, SSR, ReactJs, redux, saga, styledComponents,
+                PixelPerfect]
+              </div>
+              <div>APP: [ReactNative, AndroidStudio, xcode, gradle]</div>
+              <div>Desgin: [Sketch, zeplin, nucleo]</div>
+            </div>
           </>
         ) : (
           '404'
         )}
+
+        <MovementsButtons />
       </StyledPresentationHolder>
     </>
   );

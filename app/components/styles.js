@@ -220,24 +220,19 @@ const additional = css`
   .text-bold * {
     font-weight: bold !important;
   }
-  .text-extra-huge,
-  .text-extra-huge * {
+  .text-extra-huge {
     font-size: calc(${props => props.theme.defaultRem} * 2.8) !important;
   }
-  .text-huge,
-  .text-huge * {
+  .text-huge {
     font-size: calc(${props => props.theme.defaultRem} * 2.4) !important;
   }
-  .text-large,
-  .text-large * {
+  .text-large {
     font-size: calc(${props => props.theme.defaultRem} * 1.8) !important;
   }
-  .text-medium,
-  .text-medium * {
+  .text-medium {
     font-size: calc(${props => props.theme.defaultRem} * 1.4) !important;
   }
-  .text-small,
-  .text-small * {
+  .text-small {
     font-size: calc(${props => props.theme.defaultRem} * 1.2) !important;
   }
   .nice-hr {

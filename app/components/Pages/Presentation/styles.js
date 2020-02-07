@@ -5,6 +5,7 @@ export const StyledChooseStepButton = Styled.div`
   left: 50%;
   bottom: 20px;
   font-size: 18px;
+  transform: translate(-50%, 0);
   .next,
   .prev {
     background: transparent;
@@ -26,11 +27,18 @@ export const StyledPresentationHolder = Styled.div`
   height: calc(100vh - 30px);
 `;
 
-
 export const StyledTeam = Styled.div`
+  margin-top: 10px;
   > div {
+    margin: 8px 0;
     background: #fff;
     border-radius: 10px;
     padding: 4px;
+    color: #83b13b;
+    span {
+      margin-right: auto;
+      font-size: 13px;
+      color: #999;
+    } 
   }
 `;
