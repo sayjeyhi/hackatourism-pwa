@@ -25,7 +25,8 @@ import IntelligentAnalysis from 'components/Pages/IntelligentAnalysis/loadable';
 
 import Place from 'components/Pages/Place/loadable';
 import Profile from 'components/Pages/Profile/loadable';
-import City from 'components/Pages/City/index';
+import City from 'components/Pages/City/loadable';
+import Presentation from 'components/Pages/Presentation/loadable';
 import routes from './routes';
 
 const routers = [
@@ -154,6 +155,12 @@ const routers = [
         layout: 'fullWidth',
         exact: true,
         Component: <Contact />,
+      },
+      {
+        path: routes.presentation.path,
+        layout: 'fullWidth',
+        exact: true,
+        Component: <Presentation />,
       },
     ],
   },

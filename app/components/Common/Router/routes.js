@@ -20,6 +20,9 @@ const routes = {
     whyUs: '/whyUs',
     pricing: '/pricing',
   },
+  presentation: {
+    path: '/presentation/:step',
+  },
   aroundHere: '/around-here',
   smartTip: '/smart-tip',
   smartTicket: '/smart-ticket',
