@@ -131,7 +131,6 @@ export default () => {
               تکنولوژی‌های مورد استفاده‌مون
             </span>
             <br />
-
             <div className="flex-column text-left text-gray-normal text-large">
               <div>
                 AI: [tensorFlow, pyTorch, scikit-learn, numPy, pandas, flask]

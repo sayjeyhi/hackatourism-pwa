@@ -81,7 +81,7 @@ const Home = () => (
         </a>
         <a
           className="align-center justify-center"
-          href="https://blog.koleposhti.app"
+          href="https://blog.koleposhti.app/fa"
           target="_blank"
         >
           <span>بلاگ</span>
