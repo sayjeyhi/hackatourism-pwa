@@ -26,6 +26,7 @@ const endpoints = {
   },
   VOIP: {
     CALL: () => `${api.v1}/viop/call`,
+    ADVISERS: id => `${api.v1}/advisers/${id}`,
   },
   PROFILE: {
     GET: uid => `${api.v1}/profile/${uid}`,

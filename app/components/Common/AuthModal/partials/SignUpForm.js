@@ -36,11 +36,6 @@ const SignUpForm = props => {
     });
   };
 
-  const handleResendVerification = e => {
-    e.preventDefault();
-
-  };
-
   /**
    * User logged in so close modal
    */

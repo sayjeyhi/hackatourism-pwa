@@ -140,6 +140,13 @@ export const StyledDestinationsList = Styled.div`
         padding: 4px;
         border-radius: 5px;
         color: #948c8c;
+        svg {
+          width: 20px;
+          height: 20px;
+          * {
+            fill: #fff;
+          }
+        }
       }
     }
  

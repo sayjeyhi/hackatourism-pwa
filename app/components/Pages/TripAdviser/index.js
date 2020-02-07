@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Input } from '@snappmarket/ui';
+import { connect } from 'react-redux';
 
 import SeoHead from 'components/Common/Seo/SeoHead';
 import Stars from 'components/Common/Stars';
@@ -24,7 +25,7 @@ const AroundHere = () => {
   const makeVoipCall = () => {
     setNextStep('callingVoip');
     // todo: call alireza API here
-    // use adviser
+    console.log(adviser);
   };
 
   const handleChangePhoneNumber = e => {
@@ -176,4 +177,10 @@ const AroundHere = () => {
   );
 };
 
-export default AroundHere;
+const mapStateToProps = state => ({
+
+});
+
+export default connect(mapStateToProps, {
+  ff
+})(AroundHere);
