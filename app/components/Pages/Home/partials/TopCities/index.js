@@ -13,6 +13,7 @@ import { StyledCitiesHolder } from './styles';
 const TopCities = () => (
   <StyledCitiesHolder className="flex-row">
     <TopCity
+      className="topCityWrapper_home"
       id={185}
       name="شیراز"
       description="مرکز شهر فارس و از مهمترین شهرهای توریستی ایران است"
@@ -20,6 +21,7 @@ const TopCities = () => (
       weather_id={115019}
     />
     <TopCity
+      className="topCityWrapper_home"
       id={312}
       name="قشم"
       description=" بزرگ‌ترین جزیره ایران و معروف به جزیره عجایب هفت‌گانه است "
@@ -27,6 +29,7 @@ const TopCities = () => (
       weather_id={119374}
     />
     <TopCity
+      className="topCityWrapper_home"
       id={264}
       name="رشت"
       description=" انتهای غربی رشته کوه البرز و بخش غربی جلگه‌های حاشیه دریای خزر ایران است"
@@ -34,6 +37,7 @@ const TopCities = () => (
       weather_id={133349}
     />
     <TopCity
+      className="topCityWrapper_home"
       id={1}
       name="تبریز"
       description="بزرگ‌ترین شهر منطقهٔ شمال غرب کشور و قطب اداری، ارتباطی، بازرگانی است"
@@ -41,6 +45,7 @@ const TopCities = () => (
       weather_id={113646}
     />
     <TopCity
+      className="topCityWrapper_home"
       id={119}
       name="مشهد"
       description=" شهری زیارتی و سیاحتی در شمال شرق کشور و مهم ترین قطب گردشگری مذهبی کشور است"
@@ -48,6 +53,7 @@ const TopCities = () => (
       weather_id={124665}
     />
     <TopCity
+      className="topCityWrapper_home"
       id={322}
       name="همدان"
       description="یکی از کلان شهرهای ایران در منطقه غربی و کوهستانی ایران در دامنهٔ کوه الوند است"

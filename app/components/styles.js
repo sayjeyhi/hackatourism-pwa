@@ -537,6 +537,43 @@ const toasts = css`
       background-color: ${props => props.theme.colors.green.normal} !important;
     }
   }
+  
+  
+  @media only screen and (max-width: 600px) {
+    .searchBox_header {
+      display: none;
+    }
+    .fixed,
+    .fixed > div,
+    .fixed * {
+      max-width: 100% !important;
+    }
+    body * {
+      flex-wrap: wrap !important;
+    }
+    .homeInlineServices a {
+      min-width: 90px !important;
+    }
+    .topCityWrapper_home {
+      min-width: 200px !important;
+    }
+    .music_group_circle {
+      width: 50px !important;
+      height: 50px !important;
+    }
+    .song_rangeSlide{
+      display: none !important;
+    }
+    
+    .stars-holder {
+      font-size: 16px !important;
+    }
+    .app-download,
+    .adsSideBar_banners,
+    .blog-post-sidebar .author {
+      display: none;
+    }
+  }
 `;
 /* eslint-enable indent */
 

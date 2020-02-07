@@ -9,7 +9,7 @@ const BlogPostCard = () => (
   //   setPercent(percent + 10);
   // }, 1000);
 
-  <StyledCreativeSideBarCard className="flex-column">
+  <StyledCreativeSideBarCard className="flex-column blog-post-sidebar">
     <h3>خانه فروغ فرخزاد، خانه شاعری تنها و نامی</h3>
     <p className="description">
       عالمی از دلتنگی ها، دنیای غریبانه یک شاعر، خستگی و رنج سال ها. این کلمات و

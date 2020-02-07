@@ -67,7 +67,7 @@ const Home = () => (
       </Row>
     </Container>
 
-    <StyledInlineServices>
+    <StyledInlineServices className="homeInlineServices">
       <div>
         <a
           className="align-center justify-center"

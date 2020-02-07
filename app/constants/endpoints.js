@@ -4,7 +4,7 @@ const api = {
 };
 
 const ai_api = {
-  v1: `https://ai.koleposhti.app/v1`,
+  v1: `http://37.152.182.199:8040/v1`,
 };
 
 const endpoints = {

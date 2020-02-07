@@ -46,7 +46,7 @@ const Musics = ({ showPlayer, setSongType }) => {
         <StyledMusicWrapper
           onClick={() => handleChangeSongTypeAndPlay(group.slug)}
           key={group.image}
-          className="no-effect-button"
+          className="no-effect-button music_group_circle"
         >
           <div className="type-image">
             <img src={group.image} alt={group.title} />

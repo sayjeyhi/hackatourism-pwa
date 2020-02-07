@@ -119,7 +119,7 @@ const MusicPlayer = ({ songType, playerVisibility, hidePlayer }) => {
             </ul>
           </div>
         </StyledSongsList>
-        <StyledRange>
+        <StyledRange className="song_rangeSlide">
           <input
             type="range"
             className="slider"

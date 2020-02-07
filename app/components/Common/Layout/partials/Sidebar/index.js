@@ -14,12 +14,12 @@ import {
 const Sidebar = () => (
   <StyledSidebar>
     <BlogPostCard />
-    <StyledAppDownloadWrapper className="justify-between">
+    <StyledAppDownloadWrapper className="app-download justify-between">
       <GooglePlayButton />
       <PlayStoreButton />
     </StyledAppDownloadWrapper>
 
-    <StyledAdsBannerWrapper>
+    <StyledAdsBannerWrapper className="adsSideBar_banners">
       <StyledAdsBanner />
       <StyledAdsBanner />
     </StyledAdsBannerWrapper>

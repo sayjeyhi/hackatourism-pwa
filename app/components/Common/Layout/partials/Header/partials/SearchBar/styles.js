@@ -13,6 +13,8 @@ export const StyledSearchBox = Styled.div`
     font-size: calc(1rem * 1.3);
     background: #efefef;
     padding: 10px;
+    padding-left: 31px;
+    text-overflow: ellipsis;
   }
   & > label svg {
     position: absolute;
@@ -31,6 +33,7 @@ export const StyledSearchBox = Styled.div`
       top: calc(${props => props.theme.defaultRem} );
     }
   }
+  
 `;
 
 export const StyledSearchBoxHolder = Styled.div`

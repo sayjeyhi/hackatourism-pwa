@@ -129,7 +129,7 @@ const TripAdviser = ({ makeVoipCall }) => {
                 <div className="adviser-holder">
                   <div className="adviser-name">{adviser.name}</div>
 
-                  <div className="justify-center">
+                  <div className="justify-center stars-holder">
                     <Stars chose={adviser.rate} />
                   </div>
 

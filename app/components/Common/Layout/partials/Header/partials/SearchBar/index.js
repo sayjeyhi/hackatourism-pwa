@@ -61,7 +61,7 @@ const SearchBar = () => {
   }, [debouncedSearchTerm]);
 
   return (
-    <StyledSearchBox opened={false}>
+    <StyledSearchBox className="searchBox_header" opened={false}>
       <label suppressHydrationWarning>
         <input
           type="text"

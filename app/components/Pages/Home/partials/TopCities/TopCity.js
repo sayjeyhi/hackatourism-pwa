@@ -6,8 +6,19 @@ import routes from 'components/Common/Router/routes';
 import WeatherWidget from 'components/Common/WeatherWidget';
 import { StyledTopCity } from './styles';
 
-const TopCity = ({ id, name, description, image, weather_id: weatherId }) => (
-  <StyledTopCity as={NavLink} to={`${routes.city.path}/${id}`}>
+const TopCity = ({
+  id,
+  name,
+  className,
+  description,
+  image,
+  weather_id: weatherId,
+}) => (
+  <StyledTopCity
+    className={className}
+    as={NavLink}
+    to={`${routes.city.path}/${id}`}
+  >
     <img alt={name} src={image} />
     <div className="city-name">{name}</div>
     <div className="city-description">{description}</div>
@@ -18,6 +29,7 @@ const TopCity = ({ id, name, description, image, weather_id: weatherId }) => (
 TopCity.propTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
+  className: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   weather_id: PropTypes.number,
