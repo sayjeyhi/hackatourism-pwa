@@ -194,7 +194,7 @@
     "react-loadable-ssr-addon": "^0.2.0",
     "redux-saga-test-plan": "^4.0.0-rc.3",
     "shelljs": "^0.8.3",
-    "stylelint": "^11.1.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.8.0",
